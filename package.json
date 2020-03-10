@@ -1,0 +1,27 @@
+{
+  "name": "bercy",
+  "version": "1.0.0",
+  "description": "Dojo TDD&BDD proposé par Christophe MERLEN",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/barry-thierno/bercy.git"
+  },
+  "keywords": [
+    "jest",
+    "cumcuber",
+    "typescript",
+    "javascript",
+    "BDD",
+    "TDD"
+  ],
+  "author": "Thierno BARRY",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/barry-thierno/bercy/issues"
+  },
+  "homepage": "https://github.com/barry-thierno/bercy#readme"
+}
