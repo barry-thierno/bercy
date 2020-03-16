@@ -1,3 +1,3 @@
-import { great } from "./bercy";
+import { calculImpot } from "./bercy";
 
-console.log(great("titi"));
+console.log(calculImpot(61000, 2));
