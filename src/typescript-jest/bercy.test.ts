@@ -1,4 +1,4 @@
-import { calculImpot } from "./bercy";
+import { calculImpot } from "../typescript-cucumber/bercy";
 
 describe("Bercy", () => {
   it("Pour Juliette Celibataire delcarant un salire inferieure ou egal à 10064€, elle doit payer un impot brut de  0€", () => {

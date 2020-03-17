@@ -1,7 +1,7 @@
 import { defineFeature, loadFeature } from "jest-cucumber";
 import { calculImpot } from "./bercy";
 
-const feature = loadFeature("src/bercy.feature");
+const feature = loadFeature("bercy.feature");
 
 defineFeature(feature, test => {
   let salaire: number,
