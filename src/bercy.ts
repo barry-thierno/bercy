@@ -40,23 +40,27 @@ export const calculImpot = (salaireBrut: number, nbPart: number) => {
   const impotBrute =
     tranches.reduce((prev: number, curr) => {
       if (salaireImposableParPart >= curr.limiteSup) {
+        // on paye plein impôt par rapport à la tranche
         return prev + (curr.limiteSup - curr.limiteInf) * curr.tauxImposition;
       } else if (salaireImposableParPart >= curr.limiteInf) {
-        return round(
+        // on paye un impo à la marge
+        return Math.trunc(
           prev +
             (salaireImposableParPart - curr.limiteInf) * curr.tauxImposition
         );
       } else {
+        // On ne paye pas d'impôt pour cette tranche
         return prev;
       }
     }, 0) * nbPart;
   return {
-    impotBrute,
-    tauxImposition: round((impotBrute / salaireBrut) * 100)
+    impotBrute: `${impotBrute}`,
+    tauxImposition: `${toPercent(impotBrute / salaireBrut)}`
   };
 };
+
 /**
- * Permet d'arrondir un nombre flottant, avec deux chiffres après la virgule
+ *  Permet de convertir en pourcentage un float
  * @param n
  */
-const round = (n: number) => +n.toFixed(2);
+const toPercent = (n: number) => Math.trunc(n * 10000) / 100;
