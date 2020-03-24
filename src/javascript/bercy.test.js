@@ -1,4 +1,4 @@
-import { great } from './bercy';
+const { great } = require('./bercy');
 
 describe('Bercy', () => {
   it('should return hello word', () => {
