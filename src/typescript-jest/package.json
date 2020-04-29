@@ -4,7 +4,7 @@
   "description": "Dojo TDD&BDD proposé par Christophe MERLEN",
   "main": "main.js",
   "scripts": {
-    "start": "tsnd --respawn --transpileOnly src/main.ts",
+    "start": "tsnd --respawn --transpileOnly main.ts",
     "test": "jest --watchAll"
   },
   "repository": {
