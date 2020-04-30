@@ -6,8 +6,8 @@ async function bootstrap() {
   const app = await NestFactory.create(AppModule);
 
   const options = new DocumentBuilder()
-    .setTitle('Impot example')
-    .setDescription('The Impot API description')
+    .setTitle('Bercy(Impot)')
+    .setDescription("DOJO Bercy: Calculer l'impot sur le revenu")
     .setVersion('1.0')
     .addTag('Impots')
     .build();
