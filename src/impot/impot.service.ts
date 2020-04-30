@@ -1,6 +1,11 @@
 import { Injectable } from '@nestjs/common';
-import { Impot, Situation, ImpotResult } from './impot.interface';
-import { TranchesParAnnee, Tranche, Annee } from 'src/impl/bercy.model';
+import {
+  Impot,
+  Situation,
+  ImpotResult,
+  TranchesParAnnee,
+  Tranche,
+} from './impot.interface';
 import { ALL_TRANCHES } from './impot.constant';
 
 const PLAFOND_DEMI_PART = 1567;
