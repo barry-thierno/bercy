@@ -13,6 +13,6 @@ describe('Impot Controller', () => {
   });
 
   it('should be defined', () => {
-    expect('true').toBeDefined();
+    expect(true).toBe(true);
   });
 });

@@ -7,7 +7,6 @@ import {
   TranchesParAnnee,
   Tranche,
 } from './impot.interface';
-import { ApiBody } from '@nestjs/swagger';
 import { ImpotCalculatorDto } from './impot.dto';
 
 @Controller('impot')
