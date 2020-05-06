@@ -56,3 +56,5 @@ export const ALL_TRANCHES = {
   [Annee.ANNEE_2019]: tranche2019,
   [Annee.ANNEE_2020]: tranche2020,
 };
+
+export const PLAFOND_DEMI_PART = 1567;

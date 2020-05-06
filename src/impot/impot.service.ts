@@ -6,9 +6,8 @@ import {
   TranchesParAnnee,
   Tranche,
 } from './impot.interface';
-import { ALL_TRANCHES } from './impot.constant';
+import { ALL_TRANCHES, PLAFOND_DEMI_PART } from './impot.constant';
 
-const PLAFOND_DEMI_PART = 1567;
 /**
  *  Permet de convertir en pourcentage un float
  * @param n
