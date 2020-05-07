@@ -1,79 +1,55 @@
 ﻿namespace Bercy
 {
-    using System;
     using System.Collections.Generic;
-    using System.Linq;
-    using Shares;
-    using Slices;
+    using FamilyQuotient;
+    using TaxComputer;
 
     public class IRCalculator
     {
-        private readonly ISliceByYearProvider sliceByYearProvider;
-        private readonly IShareComputer shareComputer;
+        private readonly ITaxComputer familyQuotientTaxComputer;
+        private readonly ITaxComputer classicTaxComputer;
+        private readonly IFamilyQuotientTaxChooser familyQuotientTaxChooser;
 
-        private const double DeductionRate = 10;
-
-        public IRCalculator(ISliceByYearProvider sliceByYearProvider, IShareComputer shareComputer)
+        public IRCalculator(
+            ITaxComputer familyQuotientTaxComputer,
+            ITaxComputer classicTaxComputer,
+            IFamilyQuotientTaxChooser familyQuotientTaxChooser)
         {
-            this.sliceByYearProvider = sliceByYearProvider;
-            this.shareComputer = shareComputer;
+            this.familyQuotientTaxComputer = familyQuotientTaxComputer;
+            this.classicTaxComputer = classicTaxComputer;
+            this.familyQuotientTaxChooser = familyQuotientTaxChooser;
         }
 
         public Tax Compute(TaxComputationRequest taxComputationRequest)
         {
-            Tax tax = new Tax();
+            var taxWithNoFamilyQuotient = this.ComputeTaxWithoutFamilyQuotient(taxComputationRequest);
 
-            var share = this.shareComputer.Compute(taxComputationRequest.TaxHouseholdComposition);
+            var taxWithFamilyQuotient = this.ComputeTaxWithFamilyQuotient(taxComputationRequest);
 
-            var taxableWage = taxComputationRequest.Wage - (taxComputationRequest.Wage* DeductionRate/100);
+            var mostAppropriateTax = this.ChooseMostAppropriate(taxWithNoFamilyQuotient, taxWithFamilyQuotient);
 
-            var uniqueTaxableWage = taxableWage / share;
-
-            var taxAmount = ComputeTax(uniqueTaxableWage, taxComputationRequest.Year);
-
-            taxAmount = taxAmount * share;
-
-            tax.Amount = Math.Round(taxAmount, 0, MidpointRounding.ToZero);
-            tax.MarginalTaxRate = ComputeMarginalTaxRate(tax.Amount, taxComputationRequest.Wage);
-
-            return tax;
+            return mostAppropriateTax;
         }
 
-        private double ComputeMarginalTaxRate(double tax, double wage)
+        private Tax ChooseMostAppropriate(Tax taxWithNoFamilyQuotient, Tax taxWithFamilyQuotient)
         {
-            var marginalTaxRate = tax / wage * 100;
-            return Math.Round(marginalTaxRate, 2, MidpointRounding.ToZero);
-        }
-
-        private double ComputeTax(double wage, int year)
-        {
-            var slicesRepartition = GetSlicesRepartition(wage, year);
-
-            return slicesRepartition.Sum(s => s.Amount);
-        }
-
-        private IEnumerable<SliceRepartition> GetSlicesRepartition(in double wage, int year)
-        {
-            var slices = this.sliceByYearProvider.GetSlicesForYear(year);
-
-            var remaining = wage;
-
-            var sliceRepartition = new List<SliceRepartition>();
-
-            foreach (var slice in slices)
+            var taxes = new List<Tax>
             {
-                var amountForSlice = remaining > (slice.High - slice.Low) ? (slice.High - slice.Low) : remaining;
+                taxWithNoFamilyQuotient,
+                taxWithFamilyQuotient
+            };
 
-                sliceRepartition.Add(
-                    new SliceRepartition
-                    {
-                        Amount = amountForSlice * slice.Rate / 100,
-                        Slice = slice
-                    });
-                remaining = remaining - amountForSlice;
-            }
+            return this.familyQuotientTaxChooser.Choose(taxes);
+        }
 
-            return sliceRepartition;
+        private Tax ComputeTaxWithFamilyQuotient(TaxComputationRequest taxComputationRequest)
+        {
+            return familyQuotientTaxComputer.Compute(taxComputationRequest);
+        }
+
+        private Tax ComputeTaxWithoutFamilyQuotient(TaxComputationRequest taxComputationRequest)
+        {
+            return this.classicTaxComputer.Compute(taxComputationRequest);
         }
     }
 }
