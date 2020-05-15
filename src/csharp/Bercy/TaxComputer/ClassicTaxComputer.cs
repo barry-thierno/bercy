@@ -3,7 +3,7 @@
     using Shares;
     using Slices;
 
-    public class ClassicTaxComputer : TaxComputerBase
+    public class ClassicTaxComputer : TaxComputerBase, IClassicTaxComputer
     {
         private readonly IShareComputer shareComputer;
 

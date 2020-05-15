@@ -6,5 +6,6 @@
     {
         void AddSlice(int year, Slice slice);
         IEnumerable<Slice> GetSlicesForYear(int year);
+        bool Contains(int year);
     }
 }

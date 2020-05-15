@@ -4,7 +4,7 @@
     using Shares;
     using Slices;
 
-    public class FamilyQuotientTaxComputer : TaxComputerBase
+    public class FamilyQuotientTaxComputer : TaxComputerBase, IFamilyQuotientTaxComputer
     {
         private readonly IFamilyQuotientByYearProvider familyQuotientByYearProvider;
 

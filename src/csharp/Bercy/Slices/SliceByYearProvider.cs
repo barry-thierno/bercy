@@ -34,5 +34,10 @@
         {
             return slicesByYear[year];
         }
+
+        public bool Contains(int year)
+        {
+            return slicesByYear.ContainsKey(year);
+        }
     }
 }

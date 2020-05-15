@@ -4,15 +4,15 @@
     using FamilyQuotient;
     using TaxComputer;
 
-    public class IRCalculator
+    public class IRCalculator : IIRCalculator
     {
         private readonly ITaxComputer familyQuotientTaxComputer;
         private readonly ITaxComputer classicTaxComputer;
         private readonly IFamilyQuotientTaxChooser familyQuotientTaxChooser;
 
         public IRCalculator(
-            ITaxComputer familyQuotientTaxComputer,
-            ITaxComputer classicTaxComputer,
+            IFamilyQuotientTaxComputer familyQuotientTaxComputer,
+            IClassicTaxComputer classicTaxComputer,
             IFamilyQuotientTaxChooser familyQuotientTaxChooser)
         {
             this.familyQuotientTaxComputer = familyQuotientTaxComputer;
