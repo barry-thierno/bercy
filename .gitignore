@@ -19,3 +19,13 @@
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
+/src/csharp/.vs/Bercy/v16
+/src/csharp/Bercy.RestApi/obj
+/src/csharp/Bercy.Test/bin/Debug/netcoreapp3.1
+/src/csharp/Bercy.Test/obj
+/src/csharp/Bercy/bin/Debug/netcoreapp3.1
+/src/csharp/Bercy/obj
+/src/csharp/.vs/Bercy
+/src/csharp/Bercy.RestApi/bin/Debug/netcoreapp3.1
+/src/csharp/Bercy.RestApi.Tests/bin/Debug/netcoreapp3.1
+/src/csharp/Bercy.RestApi.Tests/obj

@@ -16,8 +16,8 @@
         private readonly IFamilyQuotientTaxChooser familyQuotientTaxChooser = new FamilyQuotientTaxChooser();
         private readonly IFamilyQuotientByYearProvider familyQuotientByYearProvider = new FamilyQuotientByYearProvider();
 
-        private readonly ITaxComputer familyQuotienTaxComputer;
-        private readonly ITaxComputer classicTaxComputer;
+        private readonly IFamilyQuotientTaxComputer familyQuotienTaxComputer;
+        private readonly IClassicTaxComputer classicTaxComputer;
 
         private Tax computedTax;
         private double wage;

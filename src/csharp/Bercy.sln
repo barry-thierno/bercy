@@ -7,6 +7,10 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Bercy", "Bercy\Bercy.csproj
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Bercy.Test", "Bercy.Test\Bercy.Test.csproj", "{223A27DC-E1B9-41CE-99AF-B79D51A432FA}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Bercy.RestApi", "Bercy.RestApi\Bercy.RestApi.csproj", "{9256F01A-A0B3-45A8-BF92-667BC1B65366}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Bercy.RestApi.Tests", "Bercy.RestApi.Tests\Bercy.RestApi.Tests.csproj", "{BB078093-AB6A-47BD-863B-AE620D51BE75}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +25,14 @@ Global
 		{223A27DC-E1B9-41CE-99AF-B79D51A432FA}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{223A27DC-E1B9-41CE-99AF-B79D51A432FA}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{223A27DC-E1B9-41CE-99AF-B79D51A432FA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9256F01A-A0B3-45A8-BF92-667BC1B65366}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9256F01A-A0B3-45A8-BF92-667BC1B65366}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9256F01A-A0B3-45A8-BF92-667BC1B65366}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9256F01A-A0B3-45A8-BF92-667BC1B65366}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BB078093-AB6A-47BD-863B-AE620D51BE75}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BB078093-AB6A-47BD-863B-AE620D51BE75}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BB078093-AB6A-47BD-863B-AE620D51BE75}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BB078093-AB6A-47BD-863B-AE620D51BE75}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
