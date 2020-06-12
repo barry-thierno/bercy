@@ -1,0 +1,106 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`TaxCalculationFormForm Renders TaxCalculationForm component without crashing 1`] = `
+<DocumentFragment>
+  <h1
+    class="af-title--content"
+  >
+    Formulaire
+  </h1>
+  <div
+    class="flex-container"
+  >
+    <dl>
+      <dt>
+        Nombre adulte :
+      </dt>
+      <dd>
+        <input
+          class="af-form__input-text"
+          id="adultnumber"
+          label="test"
+          name="adultnumber"
+          type="text"
+          value=""
+        />
+      </dd>
+    </dl>
+    <dl>
+      <dt>
+        Montant salaire :
+      </dt>
+      <dd>
+        <input
+          class="af-form__input-text"
+          id="salaryamount"
+          label="test"
+          name="salaryamount"
+          type="text"
+          value=""
+        />
+      </dd>
+    </dl>
+    <dl>
+      <dt>
+        Nombre enfant :
+      </dt>
+      <dd>
+        <input
+          class="af-form__input-text"
+          id="numberofchildren"
+          label="test"
+          name="numberofchildren"
+          type="text"
+          value=""
+        />
+      </dd>
+    </dl>
+    <dl>
+      <dt>
+        Année :
+      </dt>
+      <dd>
+        <div
+          class="af-form__select-container"
+        >
+          <select
+            class="af-form__input-select"
+            name="year"
+          >
+            <option
+              value="choice1"
+            >
+              2019
+            </option>
+            <option
+              value="choice2"
+            >
+              2020
+            </option>
+          </select>
+          <span
+            class="glyphicon glyphicon-menu-down"
+          />
+        </div>
+      </dd>
+    </dl>
+  </div>
+  <div
+    class="af-form__group af-form__btn"
+  >
+    <button
+      class="btn af-btn af-btn--hasiconLeft"
+      id="validation-button"
+    >
+      <span
+        class="af-btn__text"
+      >
+        Calculer
+      </span>
+      <i
+        class="glyphicon glyphicon-stats"
+      />
+    </button>
+  </div>
+</DocumentFragment>
+`;
