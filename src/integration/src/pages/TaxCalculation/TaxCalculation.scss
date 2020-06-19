@@ -1,0 +1,68 @@
+@import '@axa-fr/react-toolkit-core/dist/assets/scss/core.scss';
+
+.tax-calculation {
+  display: flex;
+  flex-flow: row;
+  .tax-form {
+    flex: 2;
+    padding: 15px;
+    .flex-container {
+      display: flex;
+      dl {
+        flex-basis: 25%;
+        dt {
+          width: 100%;
+          line-height: 29px;
+        }
+        dd {
+          height: 40px;
+          width: 61%;
+          .af-form__input-select {
+            height: 40px;
+          }
+        }
+      }
+    }
+    .af-form__btn {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 15px 0 0 0;
+    }
+
+    .af-form__input-select {
+      padding: 5px 30px 5px 10px;
+    }
+    .af-form__select-container .glyphicon {
+      right: 0;
+      color: black;
+      position: absolute;
+      top: 50%;
+      transform: translate(0, -50%);
+      fill: #fff;
+      width: 20px;
+    }
+    .tax-result {
+      display: flex;
+      flex-flow: row;
+      width: 930px;
+      margin-top: 50px;
+    }
+  }
+  .maximum-ceiling {
+    flex: 1;
+    padding: 0 15px;
+    .af-panel__header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 8px 16px;
+    }
+    .af-panel__content {
+      padding: 10px;
+      table {
+        margin: 0;
+      }
+    }
+  }
+}
