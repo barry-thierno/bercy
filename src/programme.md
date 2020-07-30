@@ -1,40 +1,45 @@
 # Les bases
 
-## 1. JSX
+## 1. Introduction
 
-    1.1 CreateElement API
-    1.2 Interpolation
-    1.3 React fragment
-    1.4 Conditions
-    1.5 Boucles
+    1.1 Qu'est ce que react
 
-## 2. Composants
+## 2. JSX
 
-    2.1 Créer un composant réutilisable
-    2.2 Composant à état (Stateful) (Classe)
-    2.3 Composant Fonctionnel
+    2.1 CreateElement API
+    2.2 CreateElement API
+    2.3 Interpolation
+    2.4 React fragment
+    2.5 Conditions
+    2.6 Boucles
+
+## 3. Composants
+
+    3.1 Créer un composant réutilisable
+    3.2 Composant à état (Stateful) (Classe)
+    3.3 Composant Fonctionnel
         2.3.1 Composant sans état Stateless
         2.3.2 Composant avec état
             2.3.2.1 Intro: comment gérer l’état dans un composant stateless (local state)
             2.3.2.1 application: useState hooks
-    2.4 Validation de props
+    3.4 Validation de props
         2.4.1 PropType
         2.4.2 Introduction à Typescript
-    2.5 Faire communiquer des composants
+    3.5 Faire communiquer des composants
         2.5.1 Flow descendant (props)
         2.5.2 une petite into des Events
         2.5.3 Flow ascendant (callback)
-    2.6 Ajouter du style à un composant
+    3.6 Ajouter du style à un composant
         2.6.1 Inline css
         2.6.2 classname
-    2.7 Tests unitaire
+    3.7 Tests unitaire
         2.7.1 Jest
         2.7.2 Enzyme
 
-## 3. React starter
+## 4. React starter
 
-    3.1 Create react app
-    3.2 Axa react starter
+    4.1 Create react app
+    4.2 Axa react starter
 
 # Approfondissement
 
