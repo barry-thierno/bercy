@@ -211,6 +211,8 @@ const tranches = [
 ```
 
 Afficher les tranches d'imposition avec les details comme suit:
+
 ![Tranches impot](./images/tranches.jpg)
+
 Pensez à eviter ce message: **Warning: Each child in a list should have a unique "key"**
 [Pour aller plus loin](https://fr.reactjs.org/docs/introducing-jsx.html)
