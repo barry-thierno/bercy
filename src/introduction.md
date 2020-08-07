@@ -2,9 +2,11 @@
 
 > _**React** est une bibliothèque JavaScript pour la construction d’interfaces utilisateur (UI)_ de reactjs.org
 
-## 1.1 Pourquoi React?
+## 1.2 Pourquoi React?
 
 Creation d'un système qui permet d'afficher les tranches d'imposition
+
+####<span style="color:#FFA000">En natif </span>
 
 ```javascript
 class TrancheList {
@@ -24,17 +26,56 @@ class TrancheList {
     a.addEventListener("click", () => this.remove(name));
     this.element.appendChild(li);
   }
+}
+```
 
-  removeTranche(name) {
-    this.tranches = this.tranches.filter((t) => t !== name);
-    // Il faut supprimer l'élément dans le dom
+####:warning: Ce qui ne va pas:
+
+- _Il est difficile de synchroniser notre état et notre vue._
+- _La manipulation du DOM et peu performante._
+- _Code Spaghetti_
+
+####<span style="color:#009688">Avec React </span>
+
+```javascript
+class TodoList extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = { todos: [] };
   }
 
-  editTranche(index, name) {
-    this.tranches[index] = name;
-    // Il faut changer le texte dans le DOM
+  addItem(name) {
+    const todos = [...this.state.todos, name];
+    this.setState({ todos: todos });
+  }
+
+  render() {
+    return (
+      <ul>
+        {this.states.todos.map((name) => {
+          return (
+            <li>
+              {name}{" "}
+              <button onClick={this.removeItem.bind(this, name)}>
+                Supprimer
+              </button>
+            </li>
+          );
+        })}
+      </ul>
+    );
   }
 }
 ```
 
-:warning: <span style="color:#FFA000">**Il est difficile de synchroniser notre état et notre vue, en plus la manipulation du DOM et peu performante**</span>
+####:ok_hand: Qu'est ce qui change:
+
+- _Pas de manupulation directe du DOM._
+- _Sépration entre etat et vue (Séparation of concern)._
+- _Notre vue est une fonction de l'etat._
+
+## 1.3 Difference avec les frameworks du marché
+
+- Une API simple (peu de fonctions)
+- Excellent ecosystème
+- JSX (système de template facile à apprendre)
