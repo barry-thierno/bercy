@@ -66,7 +66,7 @@ const title = <h1>Bienvenue sur le site Bercy</h1>;
 
 Pour utiliser JSX nous avons besoin de Babel. Babel permet de convertir du code moderne vers du code un peu plus ancien supporté par les vieux navigateur. Il supporte le JSX.
 
-####:weight_lifting_man: Testons ce que fait Babel:
+:mechanic: **Testons ce que fait Babel**
 
 Copier le code jsx ci-dessus et le coller dans le traducteur babel pour observer la traduction en javascript [Traducteur Babel](https://babeljs.io/repl#?browsers=defaults%2C%20not%20ie%2011%2C%20not%20ie_mob%2011&build=&builtIns=false&spec=false&loose=false&code_lz=Q&debug=false&forceAllTransforms=false&shippedProposals=false&circleciRepo=&evaluate=false&fileSize=false&timeTravel=false&sourceType=module&lineWrap=true&presets=env%2Creact%2Cstage-2%2Cenv&prettier=false&targets=&version=7.11.1&externalPlugins=)
 
@@ -79,7 +79,7 @@ Modifier le fichier index.html pour ajouter la dependance Babel
 ! <script src="app.js" type="text/babel" defer></script>
 ```
 
-####:weight_lifting_man: Passons en JSX notre code:
+:mechanic: **Passons en JSX notre code**
 
 ```jsx
 let compteur = 0;
@@ -107,7 +107,7 @@ window.setInterval(() => {
 Pour dynamiser le contenu de notre jsx, nous avons besoin d'injecter des variable dans le code. Le JSX nous permet d'injecter du code javascript à travers les "moustaches"
 _**{mon expression javascript}**_
 
-####:weight_lifting_man: Ajoutons le compteur à notre message de bienvenue:
+:mechanic: **Ajoutons le compteur à notre message de bienvenue**
 
 ```jsx
 let compteur = 0;
@@ -130,7 +130,8 @@ function renduAvecReact() {
 - **className**: Il permet d'appliquer du style à notre element. Il correspond à l'attribut class du DOM
 - **children**: Il correspond à l'element fils d'un element jsx. Il peut être de type jsx, primitif ou une expression javascript
 
-> Il existe d'autres attribut: checked, value, tabindex .... La valeur des attributs passés au elements JSX sont appellés des Props.
+> - Il existe d'autres attribut: checked, value, tabindex ....
+> - La valeur des attributs passés au elements JSX sont appellés des Props.
 
 Example
 
