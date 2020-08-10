@@ -108,6 +108,7 @@ Pour dynamiser le contenu de notre jsx, nous avons besoin d'injecter des variabl
 _**{mon expression javascript}**_
 
 :mechanic: **Ajoutons le compteur à notre message de bienvenue**
+&
 
 ```jsx
 let compteur = 0;
@@ -164,9 +165,11 @@ Quand l'element jsx n'a pas de children, la balise peut être auto-fermante
 + const title = <h1 id={uuid()} className={className} children={message} />;
 ```
 
-## 1.4 Conditions
+## 1.3.3 Conditions
 
-## 1.5 Boucles
+> En Jsx, _false_, _null_, _undefined_, et _true_ sont des enfants valides. Ils ne sont simplement pas exploités. Ces expressions JSX produiront toutes la même chose. Ça peut être utile pour afficher des éléments React de façon conditionnelle
+
+## 1.3.4 Boucles
 
 ```jsx
 const tauxInpositions = tauxInposition.map((taux) => (
