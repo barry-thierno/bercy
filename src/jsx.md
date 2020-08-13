@@ -1,12 +1,7 @@
-# Introduction au JSX
-
-Pour utiliser React sur une page nous avons besoin de le récupérer sur NPM mais il existe un service qui s'appelle unpkg qui nous permet d'ajouter React à nos pages web.
-Dans ce chapitre, pour des raisons de simplicité nous allons utilisé unpkg pour ajouter React à notre projet. Cela nous permettra de nous abstraire des outils satellite.
-
 ## 1.1 CreateElement API
 
 ```javascript
-const title = React.createElement("h1", {}, "Bienvenu sur le site Bercy");
+const title = React.createElement("h1", {}, "Bienvenue sur le site Bercy");
 ReactDOM.render(title, document.querySelector("#app"));
 console.log(title);
 ```
@@ -18,8 +13,9 @@ document.querySelector("#app").innerHTML =
   "<h1>Bienvenue sur le site Bercy</h1>";
 ```
 
-Pour conniatre la difference, comparons les deux blocs de code suivant:
-###Rendu avec React
+Pour connaitre la difference, comparons les deux blocs de code suivant:
+
+**Rendu avec React**
 
 ```javascript
 let compteur = 0;
@@ -40,7 +36,7 @@ window.setInterval(() => {
 }, 1000);
 ```
 
-###Rendu sans React
+**Rendu sans React**
 
 ```javascript
 let compteur = 0;
@@ -134,8 +130,6 @@ function renduAvecReact() {
 > - Il existe d'autres attribut: checked, value, tabindex ....
 > - La valeur des attributs passés au elements JSX sont appellés des Props.
 
-Example
-
 ```jsx
 // cette permet de generer un GUID
 function uuid() {
@@ -169,54 +163,134 @@ Quand l'element jsx n'a pas de children, la balise peut être auto-fermante
 
 > En Jsx, _false_, _null_, _undefined_, et _true_ sont des enfants valides. Ils ne sont simplement pas exploités. Ces expressions JSX produiront toutes la même chose. Ça peut être utile pour afficher des éléments React de façon conditionnelle
 
+```jsx
+function DisplayWelcomeMessage({ userName }) {
+  const isUserConnected = userName !== "";
+  return (
+    <div>
+      {isUserConnected && (
+        <header>Bienvenue sur le simulateur de {userName}</header>
+      )}
+      <div>Bercy est projet proposé par C.Merlen</div>
+    </div>
+  );
+}
+
+ReactDOM.render(
+  DisplayWelcomeMessage({ userName: "titi" }),
+  document.querySelector("#app")
+);
+```
+
+[jsfiddle](https://jsfiddle.net/thies05/069qLfxr/22/)
+
+On peut aussi utiliser les condtions ternaires
+
+```jsx
+function DisplayImpot(montantImpot) {
+  return (
+    <div>
+      <b>
+        {montantImpot > 0
+          ? `Le montant de vos impots est ${montantImpot}`
+          : "vous n’est pas imposable"}
+      </b>
+    </div>
+  );
+}
+
+ReactDOM.render(DisplayImpot(150), document.querySelector("#app"));
+```
+
+[jsfiddle](https://jsfiddle.net/thies05/cx93rhLg/15/)
+
 ## 1.3.4 Boucles
 
 ```jsx
-const tauxInpositions = tauxInposition.map((taux) => (
-  <li key={taux.id}>{taux.value}</li>
-));
+function DisplayTranchesImpot({ tranches }) {
+  const tauxInpositions = tranches.map((tranche) => (
+    <div key={tranche.id}>{tranche.tauxImposition}</div>
+  ));
+  return tauxInpositions;
+}
 ```
 
-####:weight_lifting_man: Exercice: Afficher les tranches d'imposition avec leur details
-Etant données les informations ci-dessous sur les tranches d'imposition
+[jsfiddle](https://jsfiddle.net/thies05/9nkvzase/6/)
 
-```javascript
-const tranches = [
-  {
-    id: 1,
-    tauxImposition: 0.0,
-    limiteInf: 0,
-    limiteSup: 10064,
-  },
-  {
-    id: 2,
-    tauxImposition: 0.11,
-    limiteInf: 10064,
-    limiteSup: 25659,
-  },
-  {
-    id: 3,
-    tauxImposition: 0.3,
-    limiteInf: 25659,
-    limiteSup: 73369,
-  },
-  {
-    id: 4,
-    tauxImposition: 0.41,
-    limiteInf: 73369,
-    limiteSup: 157806,
-  },
-  {
-    id: 5,
-    tauxImposition: 0.45,
-    limiteInf: 157806,
-  },
-];
-```
+####:weight_lifting_man: Exercice 1
+**Afficher les tranches d'imposition avec leur details**
 
-Afficher les tranches d'imposition avec les details comme suit:
+- Nous possédons une methode qui permet de retourner les tranches d'imposition _**getAllTranches()**_
+- Cette methode mets du temps à s'executer (2.5s)
+- **Travail à Faire**
 
-![Tranches impot](./images/tranches.jpg)
+  - Recuper la liste des tranches d'imposition
+  - Pendant que l'on recupère les tranches d'imposition, afficher le message suivant: _"Récuperation des tranches d'imposition en cours ..."_
+  - Une fois les tranches disponibles, afficher les tranches d'imposition avec les details comme ci-dessous:
+  - Pensez à eviter ce message: **Warning: Each child in a list should have a unique "key"**
 
-Pensez à eviter ce message: **Warning: Each child in a list should have a unique "key"**
+    ![Tranches impot](./images/tranches.jpg)
+
+    **Code de base**
+
+    ```javascript
+    var isRendering = true;
+
+    function getAllTranchesAsync() {
+      const tranches = [
+        {
+          id: 1,
+          tauxImposition: 0.0,
+          limiteInf: 0,
+          limiteSup: 10064,
+        },
+        {
+          id: 2,
+          tauxImposition: 0.11,
+          limiteInf: 10064,
+          limiteSup: 25659,
+        },
+        {
+          id: 3,
+          tauxImposition: 0.3,
+          limiteInf: 25659,
+          limiteSup: 73369,
+        },
+        {
+          id: 4,
+          tauxImposition: 0.41,
+          limiteInf: 73369,
+          limiteSup: 157806,
+        },
+        {
+          id: 5,
+          tauxImposition: 0.45,
+          limiteInf: 157806,
+        },
+      ];
+      return isRendering ? undefined : tranches;
+    }
+
+    function AffichertranchesImposition() {
+      // Votre code ICI
+    }
+
+    function render() {
+      setTimeout(() => {
+        isRendering = false;
+      }, 5000);
+      var interval = setInterval(function() {
+        ReactDOM.render(
+          AffichertranchesImposition(),
+          document.querySelector("#app")
+        );
+        if (!isRendering) {
+          clearInterval(interval);
+        }
+      }, 1000);
+    }
+    ```
+
+    [Solution boucle](https://jsfiddle.net/thies05/1zgj6s9n/34/)
+
 [Pour aller plus loin](https://fr.reactjs.org/docs/introducing-jsx.html)

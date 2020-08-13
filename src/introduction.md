@@ -6,7 +6,7 @@
 
 Creation d'un système qui permet d'afficher les tranches d'imposition
 
-####<span style="color:#FFA000">En natif </span>
+**En natif**
 
 ```javascript
 class TrancheList {
@@ -31,11 +31,11 @@ class TrancheList {
 
 ####:warning: Ce qui ne va pas:
 
-- _Il est difficile de synchroniser notre état et notre vue._
-- _La manipulation du DOM et peu performante._
-- _Code Spaghetti_
+- Il est difficile de synchroniser notre état et notre vue.
+- La manipulation du DOM et peu performante.
+- Code Spaghetti
 
-####<span style="color:#009688">Avec React </span>
+**Avec React**
 
 ```javascript
 class TodoList extends React.Component {
@@ -70,12 +70,17 @@ class TodoList extends React.Component {
 
 ####:ok_hand: Qu'est ce qui change:
 
-- _Pas de manupulation directe du DOM._
-- _Sépration entre etat et vue (Séparation of concern)._
-- _Notre vue est une fonction de l'etat._
+- Pas de manupulation directe du DOM.
+- Sépration entre etat et vue (Séparation of concern).
+- Notre vue est une fonction de l'etat.
 
 ## 1.3 Difference avec les frameworks du marché
 
 - Une API simple (peu de fonctions)
 - Excellent ecosystème
 - JSX (système de template facile à apprendre)
+
+## 1.4 Configuration du projet
+
+Pour utiliser React sur une page nous avons besoin de récupérer les paquets sur NPM mais il existe un service qui s'appelle unpkg qui nous permet d'ajouter React à nos pages web.
+Dans ce chapitre, pour des raisons de simplicité nous allons utilisé unpkg pour ajouter React à notre projet. Cela nous permettra de nous abstraire des outils satellites (CRA, WEBPACK, NPM,...).
