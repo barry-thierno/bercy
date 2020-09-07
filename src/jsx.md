@@ -198,7 +198,9 @@ ReactDOM.render(DisplayImpot(150), document.querySelector("#app"));
 
 [Jsfiddle](https://jsfiddle.net/thies05/cx93rhLg/15/)
 
-## 1.3.4 Boucles
+## 1.3.4 React fragment
+
+## 1.3.5 Boucles
 
 ```jsx
 function DisplayTranchesImpot({ tranches }) {

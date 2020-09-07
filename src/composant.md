@@ -1,10 +1,10 @@
-# Les bases
+# 2. Les Composants
 
-## 1. Notion de composant
+## 2.1. Notion de composant
 
 Les composants vous permettent de diviser l'interface utilisateur en éléments indépendants et réutilisables . l'idée est de séparer une page en plusieurs petits composants réutilisables.
 
-> Nous pouvons définir technique la notion de composant de deux manières différentes.
+> Nous pouvons définir techniquement la notion de composant de deux manières différentes.
 
 - **Le composant comme une fonction:** Un composant peut être une fonction qui reçoit en entrée des paramètres (Props) et converti ces paramètres en éléments UI (JSX)
 
@@ -42,7 +42,14 @@ Les composants vous permettent de diviser l'interface utilisateur en éléments 
 
 > _React considère les composants commençant par des lettres minuscules comme des balises DOM. Par exemple, **\<div />** représente une balise HTML div, mais **\<WelcomeMessage />** représente un composant, et exige que l’identifiant WelcomeMessage existe dans la portée courante._
 
-### 2.1 Composant avec état
+### 2.2 Composant avec état
+
+### 2.3 Cycle de vie d'un composant
+
+React met à disposition une API qui permet de gérer le cycle de vie des composants. Cette API est notamment utile quand il faut libérer les ressources utilisées par les composants quand ils sont détruits.
+
+- **Quand le composant est monté :** la méthode **componentDidMount()** permet d’exécuter du code quand le composant est monté _i.e quand le composant apparait dans l’arbre DOM_.
+- **Quand le composant est démonté :** la méthode **componentWillUnmount()** permet d’exécuter du code quand le composant est démonté _i.e quand le composant est supprimé dans l’arbre DOM._
 
 ```jsx
 class Timer extends React.Component {
@@ -92,28 +99,31 @@ const computeDurationFrom = (deadline) =>
 
 [JsFiddle](https://jsfiddle.net/thies05/9nkvzase/163/)
 
-#### 2.1.1 intoduction des Hooks
+#### 2.3 Intoduction aux Hooks
 
-Depuis la version **_16.8_**, on a la possibilité de créer des composants fonctionnels statefull qui peuvent gérer leurs propres états avec l'arrivé de la nouvelle feature qui renverse toutes nos connaissance sur ce qu'on a acquis avant la version **_16.8_**
-Avant la version **_16.8_** nous utilisant les calsses pour gerer l'état du composant car l'avantage des **_classes_** est la possibilité d'utiliser les fonctionnalités de React comme par exemple le **lifecycle** ou encore le **state**.
+Avant la version **_16.8_** on utilisait les classes ou **recompose** pour gerer l'état du composant. Les classes offrent la possibilité d'utiliser les fonctionnalités de React comme par exemple le **lifecycle** ou encore le **state**.
 
-C'est très précisement à ce niveau qu'interviennent les hooks. Il est dorénavant possible d'avoir accès à ces deux concepts en utilisant que des fonctions simples.
+Depuis la version **16.8**, on a la possibilité de créer des composants fonctionnels à etat de manière native.
 
-### 2.2 comment gérer l’état d'un composant fonctionel (statefull)
+### 2.2 Comment gérer l’état d'un composant fonctionel
 
 pour comprendre le concept d'un état de composant
 
 prenons l'exemple suivant
 
-```javascript
-function Example() {
+```jsx
+function ChildrenCounter() {
   // Déclare une nouvelle variable d'état, que l'on va appeler « count »
-  const [count, setCount] = useState(0);
+  const [childrenCount, setChildrenCount] = React.useState(0);
   return (
     <div>
-      <p>Vous avez cliqué {count} fois</p>
-      <button onClick={() => setCount(count + 1)}>Cliquez ici</button>
+      <p>Vous avez {childrenCount} enfant(s)</p>
+      <button onClick={() => setChildrenCount(childrenCount + 1)}>
+        Ajouter un enfant
+      </button>
     </div>
   );
 }
 ```
+
+[JsFiddle](https://jsfiddle.net/thies05/9nkvzase/186/)

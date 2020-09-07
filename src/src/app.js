@@ -1,42 +1,19 @@
-// cette permet de generer un GUID
-const tranches = [
-  {
-    id: 1,
-    tauxImposition: 0.0,
-    limiteInf: 0,
-    limiteSup: 10064,
-  },
-  {
-    id: 2,
-    tauxImposition: 0.11,
-    limiteInf: 10064,
-    limiteSup: 25659,
-  },
-  {
-    id: 3,
-    tauxImposition: 0.3,
-    limiteInf: 25659,
-    limiteSup: 73369,
-  },
-  {
-    id: 4,
-    tauxImposition: 0.41,
-    limiteInf: 73369,
-    limiteSup: 157806,
-  },
-  {
-    id: 5,
-    tauxImposition: 0.45,
-    limiteInf: 157806,
-  },
-];
-
-function affichertranchesImposition() {
-  const affichageTrange = ({ id, limiteInf, limiteSup, tauxImposition }) => (
-    <li key={id}>
-      {limiteInf} - {limiteSup ? limiteSup : "à plus"}: {tauxImposition}%
-    </li>
+function Compteur() {
+  // Déclare une nouvelle variable d'état, que l'on va appeler « count »
+  const [count, setCount] = React.useState(0);
+  return (
+    <div>
+      <p>Vous avez cliqué {count} fois</p>
+      <button onClick={() => setCount(count + 1)}>Cliquez ici</button>
+    </div>
   );
-  return <ul>{tranches.map((tranche) => affichageTrange(tranche))}</ul>;
 }
-ReactDOM.render(affichertranchesImposition(), document.querySelector("#app"));
+
+function App() {
+  return (
+    //Appel du composant
+    <Compteur />
+  );
+}
+
+ReactDOM.render(<App />, document.querySelector("#app"));
