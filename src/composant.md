@@ -40,16 +40,58 @@ Les composants vous permettent de diviser l'interface utilisateur en éléments 
 
   [JsFiddle](https://jsfiddle.net/thies05/9nkvzase/45/)
 
-> _React considère les composants commençant par des lettres minuscules comme des balises DOM. Par exemple, **\<div />** représente une balise HTML div, mais **\<WelcomeMessage />** représente un composant, et exige que l’identifiant WelcomeMessage existe dans la portée courante._
+> - React considère les composants commençant par des lettres minuscules comme des balises DOM. Par exemple, **\<div />** représente une balise HTML div, mais **\<WelcomeMessage />** représente un composant, et exige que l’identifiant WelcomeMessage existe dans la portée courante.
+> - Les Props d'un composant sont immutables
+>
+>   ```javascript
+>   // Ce code plante
+>   this.props.userName = "Titi";
+>   ```
 
 ### 2.2 Composant avec état
 
-La notion d'état en React Repond à deux besoins qui sont:
+La notion d'état en React Répond à deux besoins qui sont :
 
-- Repondre au changement: React vous permet de découper votre interface en des composants independants et réutilisables ce qui vous permet de concevoir chaque composant de manière isolée.
-- Isolé du comportement: Les applications sont dynamiques, elles changent en fonction des actions utilisateur. Pour mettre en place ces changements, React mets à disposition la notion d'etat.
+- **Isolé du comportement**: L'idée est de vous permet de découper votre interface en des composants independants et réutilisables ce qui vous permet de concevoir chaque composant de manière isolée.
+- **Répondre au changement**: Les applications sont dynamiques, elles changent en fonction des actions utilisateur. Pour mettre en place ces changements, React mets à disposition la notion d'etat.
 
-> **setState()** planifie la mise à jour de l’objet state du composant. Quand l’état local change, le composant répond en se rafraîchissant.
+> _**setState()** est une methode de l'API React qui permet de definir et manipuler l'etat d'un composant_.
+
+```jsx
+class ChildrenCounter extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = { childrenCount: 0 };
+  }
+
+  addChildren() {
+    this.setState({
+      childrenCount: this.state.childrenCount + 1,
+    });
+  }
+
+  render() {
+    return (
+      <div>
+        <p>Vous avez {this.state.childrenCount} enfant(s)</p>
+        <button onClick={() => this.addChildren()}>Ajouter un enfant</button>
+      </div>
+    );
+  }
+}
+```
+
+[JsFiddle](https://jsfiddle.net/thies05/9nkvzase/212/)
+
+#### Les 3 règles du state
+
+Le state doit obeir aux trois règles suivantes:
+
+> - On ne peut pas modifier l’état directement
+> - Les mises à jour de l’état peuvent être asynchrones
+> - Les mises à jour de l’état sont fusionnées
+
+[JsFiddle](https://jsfiddle.net/thies05/9nkvzase/249/)
 
 ### 2.3 Cycle de vie d'un composant
 
