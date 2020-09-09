@@ -2,7 +2,7 @@
 
 ## 2.1. Notion de composant
 
-Les composants vous permettent de diviser l'interface utilisateur en éléments indépendants et réutilisables . l'idée est de séparer une page en plusieurs petits composants réutilisables.
+Les composants vous permettent de diviser l'interface utilisateur en éléments indépendants et réutilisables . L'idée est de séparer une page en plusieurs petits composants réutilisables.
 
 > Nous pouvons définir techniquement la notion de composant de deux manières différentes.
 
@@ -95,7 +95,7 @@ Le state doit obeir aux trois règles suivantes:
 
 ### 2.3 Cycle de vie d'un composant
 
-React met à disposition une API qui permet de gérer le cycle de vie des composants. Cette API est notamment utile quand il faut libérer les ressources utilisées par les composants quand ils sont détruits.
+React met à disposition une API qui permet de gérer le cycle de vie des composants. Cette API est notamment utile quand il faut allouer ou libérer les ressources utilisées par les composants quand ils sont détruits.
 
 - **Quand le composant est monté :** la méthode **componentDidMount()** permet d’exécuter du code quand le composant est monté _i.e quand le composant apparait dans l’arbre DOM_.
 - **Quand le composant est démonté :** la méthode **componentWillUnmount()** permet d’exécuter du code quand le composant est démonté _i.e quand le composant est supprimé dans l’arbre DOM._
