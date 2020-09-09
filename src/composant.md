@@ -44,6 +44,13 @@ Les composants vous permettent de diviser l'interface utilisateur en éléments 
 
 ### 2.2 Composant avec état
 
+La notion d'état en React Repond à deux besoins qui sont:
+
+- Repondre au changement: React vous permet de découper votre interface en des composants independants et réutilisables ce qui vous permet de concevoir chaque composant de manière isolée.
+- Isolé du comportement: Les applications sont dynamiques, elles changent en fonction des actions utilisateur. Pour mettre en place ces changements, React mets à disposition la notion d'etat.
+
+> **setState()** planifie la mise à jour de l’objet state du composant. Quand l’état local change, le composant répond en se rafraîchissant.
+
 ### 2.3 Cycle de vie d'un composant
 
 React met à disposition une API qui permet de gérer le cycle de vie des composants. Cette API est notamment utile quand il faut libérer les ressources utilisées par les composants quand ils sont détruits.
