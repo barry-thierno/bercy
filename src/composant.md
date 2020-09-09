@@ -134,6 +134,13 @@ class Clock extends React.Component {
   }
 }
 ```
+####:weight_lifting_man: Exercice 2
+**Creation d'un composant Timer pour Bercy**
+- Ce composant devrait afficher le nombre de jours, heure, minute et seconde restant avant clôture de la déclaration des impôts (voir image ci-dessous)
+- Ce reçoit en paramètre la date de fin en props (dealine)
+  ```jsx
+    <Timer deadline='2020-12-31'/>
+  ```
 
 [JsFiddle](https://jsfiddle.net/thies05/9nkvzase/163/)
 
