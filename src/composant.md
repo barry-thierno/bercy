@@ -2,7 +2,7 @@
 
 ## 2.1. Notion de composant
 
-Les composants vous permettent de diviser l'interface utilisateur en éléments indépendants et réutilisables . L'idée est de séparer une page en plusieurs petits composants réutilisables.
+Les composants vous permettent de diviser l'interface utilisateur en éléments indépendants et réutilisables . L'idée est de séparer une page en plusieurs petits composants réutilisables (Atomic desgin).
 
 > Nous pouvons définir techniquement la notion de composant de deux manières différentes.
 
@@ -104,14 +104,11 @@ React met à disposition une API qui permet de gérer le cycle de vie des compos
 class Clock extends React.Component {
   constructor(props) {
     super(props);
-    this.state = {date: new Date()};
+    this.state = { date: new Date() };
   }
 
   componentDidMount() {
-    this.timerID = setInterval(
-      () => this.tick(),
-      1000
-    );
+    this.timerID = setInterval(() => this.tick(), 1000);
   }
 
   componentWillUnmount() {
@@ -120,7 +117,7 @@ class Clock extends React.Component {
 
   tick() {
     this.setState({
-      date: new Date()
+      date: new Date(),
     });
   }
 
@@ -134,15 +131,39 @@ class Clock extends React.Component {
   }
 }
 ```
+
 ####:weight_lifting_man: Exercice 2
 **Creation d'un composant Timer pour Bercy**
+
 - Ce composant devrait afficher le nombre de jours, heure, minute et seconde restant avant clôture de la déclaration des impôts (voir image ci-dessous)
+
+  ![Tranches impot](./images/timer.jpg)
+
 - Ce reçoit en paramètre la date de fin en props (dealine)
+
   ```jsx
-    <Timer deadline='2020-12-31'/>
+  <Timer deadline="2020-12-31" />
   ```
 
-[JsFiddle](https://jsfiddle.net/thies05/9nkvzase/163/)
+- Quelques fonctions utilitaires
+
+  ```javascript
+  /**
+   * Permet de formater une durée en string
+   */
+  const format = (duration) =>
+    `${duration.months()} mois ${duration.days()} jours ${duration.hours()}h:${duration.minutes()}mn:${duration.seconds()}`;
+
+  /**
+   * Permet de calculer temps restant à partir d'une dealine
+   */
+  const computeDurationFrom = (deadline) =>
+    moment.duration(moment(deadline).diff(moment()));
+  ```
+
+- Pensez à liberer les ressources quand le composant est supprimé du DOM
+
+  [JsFiddle: Solution](https://jsfiddle.net/thies05/9nkvzase/163/)
 
 #### 2.3 Intoduction aux Hooks
 
@@ -150,11 +171,27 @@ Avant la version **_16.8_** on utilisait les classes ou **recompose** pour gerer
 
 Depuis la version **16.8**, on a la possibilité de créer des composants fonctionnels à etat de manière native.
 
-### 2.2 Comment gérer l’état d'un composant fonctionel
+### 2.3.1 Comment gérer l’état d'un composant fonctionel
 
-pour comprendre le concept d'un état de composant
+> **Qu’est-ce qu’un Hook ?** Un Hook est une fonction qui permet de « se brancher » sur des fonctionnalités React. (source reactjs.org)
 
-prenons l'exemple suivant
+### Le hooks useState
+
+Dans une classe, on initialise l’état local childrenCount à 0 en définissant this.state à { childrenCount: 0 } dans le constructeur. Dans une fonction composant, nous ne pouvons pas écrire ou lire **this.state** puisqu’il n’y a pas de **this**. Le Hook **useState** nous permet d'ajouter un etat local à notre composant fonctionnel.
+
+```jsx
+const [childrenCount, setChildrenCount] = React.useState(0);
+```
+
+- **Que fait le code ci-dessus ?**
+  Ça déclare une « variable d’état ». Notre variable est appelée childrenCount mais nous aurions pu l’appeler n’importe comment, par exemple banane. C’est un moyen de « préserver » des valeurs entre différents appels de fonctions.
+
+- **A quoi correspond l'argument ?**
+  Le seul argument à passer au Hook useState() est l’état initial. Contrairement à ce qui se passe dans les classes, l’état local n’est pas obligatoirement un objet. Il peut s’agir d’un nombre ou d’une chaîne de caractères si ça nous suffit.
+- **Que renvoie useState ?**
+  Elle renvoie une paire de valeurs : l’état actuel et une fonction pour le modifier. C’est pourquoi nous écrivons const [count, setCount] = useState(). C’est semblable à this.state.count et this.setState dans une classe, mais ici nous les récupérons en même temps.
+
+Transformons notre composant ChildrenCounter en composant fonctionnel
 
 ```jsx
 function ChildrenCounter() {
@@ -172,3 +209,5 @@ function ChildrenCounter() {
 ```
 
 [JsFiddle](https://jsfiddle.net/thies05/9nkvzase/186/)
+
+### 2.3.2 Comment gérer le cycle de vie d'un composant fonctionnel
