@@ -101,14 +101,17 @@ React met à disposition une API qui permet de gérer le cycle de vie des compos
 - **Quand le composant est démonté :** la méthode **componentWillUnmount()** permet d’exécuter du code quand le composant est démonté _i.e quand le composant est supprimé dans l’arbre DOM._
 
 ```jsx
-class Timer extends React.Component {
+class Clock extends React.Component {
   constructor(props) {
     super(props);
-    this.state = { date: computeDurationFrom(this.props.deadline) };
+    this.state = {date: new Date()};
   }
 
   componentDidMount() {
-    this.timerID = setInterval(() => this.tick(), 1000);
+    this.timerID = setInterval(
+      () => this.tick(),
+      1000
+    );
   }
 
   componentWillUnmount() {
@@ -117,33 +120,19 @@ class Timer extends React.Component {
 
   tick() {
     this.setState({
-      date: computeDurationFrom(this.props.deadline),
+      date: new Date()
     });
   }
 
   render() {
     return (
       <div>
-        <h1>Bienvenue sur le simulateur Bercy</h1>
-        <h2>
-          Il vous reste {format(this.state.date)} pour declarer vos impots 2020
-        </h2>
+        <h1>Bonjour, monde !</h1>
+        <h2>Il est {this.state.date.toLocaleTimeString()}.</h2>
       </div>
     );
   }
 }
-
-/**
- * Permet de formater une durée en string
- */
-const format = (duration) =>
-  `${duration.months()} mois ${duration.days()} jours ${duration.hours()}h:${duration.minutes()}mn:${duration.seconds()}`;
-
-/**
- * Permet de calculer temps restant à partir d'une dealine
- */
-const computeDurationFrom = (deadline) =>
-  moment.duration(moment(deadline).diff(moment()));
 ```
 
 [JsFiddle](https://jsfiddle.net/thies05/9nkvzase/163/)
