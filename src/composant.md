@@ -134,8 +134,7 @@ class Clock extends React.Component {
 
 [JsFiddle](https://jsfiddle.net/thies05/9nkvzase/262/)
 
-####:weight_lifting_man: Exercice 2
-**Creation d'un composant Timer pour Bercy**
+**:weight_lifting_man: Exercice 2: Creation d'un composant Timer pour Bercy**
 
 - Ce composant devrait afficher le nombre de jours, heure, minute et seconde restant avant clôture de la déclaration des impôts (voir image ci-dessous)
 
@@ -242,3 +241,5 @@ useEffect(() => {
     };
   });
   ```
+
+  **:weight_lifting_man: Exercice 3: Refactorer le composant Timer pour le transformer en functionnal component**
