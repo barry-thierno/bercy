@@ -138,7 +138,7 @@ class Clock extends React.Component {
 
 - Ce composant devrait afficher le nombre de jours, heure, minute et seconde restant avant clôture de la déclaration des impôts (voir image ci-dessous)
 
-  ![Tranches impot](./images/timer.jpg)
+  ![Timer](./images/timer.JPG)
 
 - Ce composant reçoit en paramètre la date de fin en props (dealine)
 
