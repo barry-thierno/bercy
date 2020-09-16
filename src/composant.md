@@ -6,7 +6,7 @@ Les composants vous permettent de diviser l'interface utilisateur en éléments 
 
 > Nous pouvons définir techniquement la notion de composant de deux manières différentes.
 
-- **Le composant comme une fonction:** Un composant peut être une fonction qui reçoit en entrée des paramètres (Props) et converti ces paramètres en éléments UI (JSX)
+- **Le composant comme une fonction:** Un composant peut être une fonction qui reçoit en entrée des paramètres (props) et converti ces paramètres en éléments UI (JSX)
 
   ```jsx
       function WelcomeMessage(props) {
@@ -88,7 +88,6 @@ class ChildrenCounter extends React.Component {
 Le state doit obeir aux trois règles suivantes:
 
 > - On ne peut pas modifier l’état directement
-> - Les mises à jour de l’état peuvent être asynchrones
 > - Les mises à jour de l’état sont fusionnées
 
 [JsFiddle](https://jsfiddle.net/thies05/9nkvzase/249/)
