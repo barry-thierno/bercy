@@ -9,13 +9,13 @@ Les composants vous permettent de diviser l'interface utilisateur en éléments 
 - **Le composant comme une fonction:** Un composant peut être une fonction qui reçoit en entrée des paramètres (Props) et converti ces paramètres en éléments UI (JSX)
 
   ```jsx
-  function WelcomeMessage({ userName }) {
-    return (
-      <h1>
-        Bienvenu sur le site de Bercy <em>{userName}</em>
-      </h1>
-    );
-  }
+      function WelcomeMessage(props) {
+        return (
+          <h1>
+            Bienvenu sur le site de Bercy <em>{props.userName}</em>
+          </h1>
+        );
+      }
   // Appel du composant
   <WelcomeMessage userName="Christophe" />;
   ```
