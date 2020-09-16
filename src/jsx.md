@@ -111,9 +111,10 @@ function renduAvecReact() {
       Bienvenu sur le site de Bercy <span>{userName}</span>
     </h1>
   );
-
+ return title;
 }
 ReactDOM.render(renduAvecReact(), document.querySelector("#app"));
+
 ```
 
 [Jsfiddle](https://jsfiddle.net/thies05/9nkvzase/18/)
