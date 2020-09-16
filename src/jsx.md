@@ -104,7 +104,7 @@ _**{mon expression javascript}**_
 &
 
 ```jsx
-const userName = "Christophe";
+const userName = "Yannick";
 function renduAvecReact() {
   const title = (
     <h1>
@@ -112,8 +112,8 @@ function renduAvecReact() {
     </h1>
   );
 
-  ReactDOM.render(title, document.querySelector("#app"));
 }
+ReactDOM.render(renduAvecReact(), document.querySelector("#app"));
 ```
 
 [Jsfiddle](https://jsfiddle.net/thies05/9nkvzase/18/)
