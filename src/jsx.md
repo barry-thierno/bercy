@@ -187,7 +187,7 @@ ReactDOM.render(WelcomeMessage(""), document.querySelector("#app"));
 
 On peut aussi utiliser les condtions ternaires.
 
-####:weight_lifting_man: Exercice 1
+**:weight_lifting_man: Exercice 1**
 **Afficher le montant d'imposition**
 Ecrire une fonction **DisplayImpot** qui reçoit en paramètre le montant de vos impôts et affiche les messages suivants.
 
@@ -238,8 +238,7 @@ function RenderFragment() {
   );
 }
 ```
-
-####:weight_lifting_man: Exercice 2
+**:weight_lifting_man: Exercice 2**
 **Afficher les tranches d'imposition avec leur details**
 
 - Nous possédons une methode qui permet de retourner les tranches d'imposition _**getAllTranches()**_
