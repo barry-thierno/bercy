@@ -20,7 +20,7 @@ Les composants vous permettent de diviser l'interface utilisateur en éléments 
   <WelcomeMessage userName="Christophe" />;
   ```
 
-  [JsFiddle](https://jsfiddle.net/thies05/9nkvzase/43/)
+  [JsFiddle](https://jsfiddle.net/thies05/9nkvzase/318/)
 
 - **Le composant comme une classe:** Un composant peut être une class qui étends **React.Component** et qui définit la methode **render()**. Cette methode retourne du JSX et peut acceder au paramètre (props) du composant via **this.props**.
 
@@ -100,70 +100,66 @@ React met à disposition une API qui permet de gérer le cycle de vie des compos
 - **Quand le composant est démonté :** la méthode **componentWillUnmount()** permet d’exécuter du code quand le composant est démonté _i.e quand le composant est supprimé dans l’arbre DOM._
 
 ```jsx
-class Clock extends React.Component {
+class ChildrenCounter extends React.Component {
   constructor(props) {
     super(props);
-    this.state = { date: new Date() };
+    this.state = { childrenCount: 0 };
+  }
+
+  componentWillMount() {
+    console.info("component will mount");
   }
 
   componentDidMount() {
-    this.timerID = setInterval(() => this.tick(), 1000);
+    console.info("component did mount");
   }
 
   componentWillUnmount() {
-    clearInterval(this.timerID);
+    console.info("component will unmount");
   }
 
-  tick() {
+  addChildren() {
     this.setState({
-      date: new Date(),
+      childrenCount: this.state.childrenCount + 1,
     });
   }
 
   render() {
     return (
       <div>
-        <h1>Bienvenue sur Bercy!</h1>
-        <h2>Il est {this.state.date.toLocaleTimeString()}.</h2>
+        <p>Vous avez {this.state.childrenCount} enfant(s)</p>
+        <button onClick={() => this.addChildren()}>Ajouter un enfant</button>
       </div>
     );
   }
 }
+
+function App() {
+  return (
+    //Appel du composant
+    <ChildrenCounter />
+  );
+}
+
+ReactDOM.render(<App />, document.querySelector("#app"));
+setTimeout(() => {
+  ReactDOM.unmountComponentAtNode(document.querySelector("#app"));
+}, 5000);
 ```
 
-[JsFiddle](https://jsfiddle.net/thies05/9nkvzase/262/)
+[JsFiddle](https://jsfiddle.net/thies05/9nkvzase/320/)
 
 **:weight_lifting_man: Exercice 2: Creation d'un composant Timer pour Bercy**
 
-- Ce composant devrait afficher le nombre de jours, heure, minute et seconde restant avant clôture de la déclaration des impôts (voir image ci-dessous)
+Créer un composant **FamilyCounter**, qui permet :
 
-  ![Timer](./images/timer.JPG)
+- D’ajouter d’ajouter le nombre d’adulte et diminuer le nombre d’enfants
+- D’ajouter d’ajouter le nombre d’adulte et diminuer le nombre d’adultes
+- Le nombre d'enfants et d'adultes ne doit pas être inferieur à 0
 
-- Ce composant reçoit en paramètre la date de fin en props (dealine)
+![Tranches impot](./images/family-counter.png)
 
-  ```jsx
-  <Timer deadline="2020-12-31" />
-  ```
-
-- Quelques fonctions utilitaires
-
-  ```javascript
-  /**
-   * Permet de formater une durée en string
-   */
-  const format = (duration) =>
-    `${duration.months()} mois ${duration.days()} jours ${duration.hours()}h:${duration.minutes()}mn:${duration.seconds()}`;
-
-  /**
-   * Permet de calculer temps restant à partir d'une dealine
-   */
-  const computeDurationFrom = (deadline) =>
-    moment.duration(moment(deadline).diff(moment()));
-  ```
-
-- Pensez à liberer les ressources quand le composant est supprimé du DOM
-
-  [JsFiddle: Solution](https://jsfiddle.net/thies05/9nkvzase/163/)
+[JsFiddle: Solution](https://jsfiddle.net/thies05/9nkvzase/325/)
 
 #### 2.3 Intoduction aux Hooks
 
