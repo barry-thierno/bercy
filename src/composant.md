@@ -6,16 +6,16 @@ Les composants vous permettent de diviser l'interface utilisateur en éléments 
 
 > Nous pouvons définir techniquement la notion de composant de deux manières différentes.
 
-- **Le composant comme une fonction:** Un composant peut être une fonction qui reçoit en entrée des paramètres (Props) et converti ces paramètres en éléments UI (JSX)
+- **Le composant comme une fonction:** Un composant peut être une fonction qui reçoit en entrée des paramètres (props) et converti ces paramètres en éléments UI (JSX)
 
   ```jsx
-  function WelcomeMessage({ userName }) {
-    return (
-      <h1>
-        Bienvenu sur le site de Bercy <em>{userName}</em>
-      </h1>
-    );
-  }
+      function WelcomeMessage(props) {
+        return (
+          <h1>
+            Bienvenu sur le site de Bercy <em>{props.userName}</em>
+          </h1>
+        );
+      }
   // Appel du composant
   <WelcomeMessage userName="Christophe" />;
   ```
@@ -88,7 +88,6 @@ class ChildrenCounter extends React.Component {
 Le state doit obeir aux trois règles suivantes:
 
 > - On ne peut pas modifier l’état directement
-> - Les mises à jour de l’état peuvent être asynchrones
 > - Les mises à jour de l’état sont fusionnées
 
 [JsFiddle](https://jsfiddle.net/thies05/9nkvzase/249/)
@@ -138,7 +137,7 @@ class Clock extends React.Component {
 
 - Ce composant devrait afficher le nombre de jours, heure, minute et seconde restant avant clôture de la déclaration des impôts (voir image ci-dessous)
 
-  ![Tranches impot](./images/timer.jpg)
+  ![Timer](./images/timer.JPG)
 
 - Ce composant reçoit en paramètre la date de fin en props (dealine)
 
@@ -210,36 +209,3 @@ function ChildrenCounter() {
 ```
 
 [JsFiddle](https://jsfiddle.net/thies05/9nkvzase/186/)
-
-### 2.3.2 Comment gérer le cycle de vie d'un composant fonctionnel
-
-Nous avons vu dans les précédentes parties que les composants React ont un cycle de vie. Nous nous sommes intéressés à la fonction qui est exécutée quand le composant est monté et celle exécutée quand le composant est démonté. Ces fonctions ne sont valables que dans les **Class component**.
-Pour gérer le cycle de vie dans un **Functionnal component**, React expose un Hook qui s’appelle **useEffect** qui permet de faire les effets de bord.
-
-```javascript
-useEffect(() => {
-  document.title = `${date}`;
-});
-```
-
-- **Que fait useEffect ?** On utilise ce Hook pour indiquer à React que notre composant doit exécuter quelque chose _après chaque affichage_. React enregistre la fonction passée en argument (que nous appellerons **« effect »**), et l’appellera plus tard, après avoir mis à jour le DOM. L’effet ci-dessus met à jour le titre du document.
-
-- **Pourquoi useEffect est-elle invoquée à l’intérieur d’un composant ?** Le fait d’appeler useEffect à l’intérieur de notre composant nous permet d’accéder à la variable d’état **date** (ou à n’importe quelle prop) directement depuis l’effet.
-
-- **Quand est-ce que useEffect est appelée ?** Elle est exécutée par défaut après le premier affichage et après chaque mise à jour. (Nous verrons comment personnaliser et optimiser ça ultérieurement.) Au lieu de penser en termes de _montage_ et de _démontage_, pensez plutôt que les effets arrivent tout simplement « après l’affichage ». React garantit que le DOM a été mis à jour avant chaque exécution des effets.
-
-> [JsFiddle: Exemples](https://jsfiddle.net/thies05/9nkvzase/289/)
-
-- **Comment libérer les ressources quand le composant est démonté ?** L’API met à disposition un mécanisme optionnel qui permet de libérer les ressources. La fonction **useEffecct** peut retourner une fonction. Le code de cette fonction est exécuté quand le composant est démonté du DOM.
-
-  ```javascript
-  useEffect(() => {
-    // code executé pour le useEffect
-    // Indique comment nettoyer l'effet :
-    return function cleanup() {
-      // Liberez les ressources
-    };
-  });
-  ```
-
-  **:weight_lifting_man: Exercice 3: Refactorer le composant Timer pour le transformer en functionnal component**
