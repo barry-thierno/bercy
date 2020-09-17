@@ -149,7 +149,7 @@ setTimeout(() => {
 
 [JsFiddle](https://jsfiddle.net/thies05/9nkvzase/320/)
 
-**:weight_lifting_man: Exercice 3: Creation d'un composant Timer pour Bercy**
+**:weight_lifting_man: Exercice 3: Creation d'un composant FamilyCounter pour Bercy**
 
 Créer un composant **FamilyCounter**, qui permet :
 
