@@ -162,50 +162,39 @@ Quand l'element jsx n'a pas de children, la balise peut être auto-fermante
 
 ## 1.3.3 Conditions
 
-> En Jsx, _false_, _null_, _undefined_, et _true_ sont des enfants valides. Ils ne sont simplement pas exploités. Ces expressions JSX produiront toutes la même chose. Ça peut être utile pour afficher des éléments React de façon conditionnelle
+> En Jsx, _false_, _null_, _undefined_, et _true_ sont des elements valides. Ils ne sont simplement pas exploités. Ces expressions JSX produiront toutes la même chose. Ça peut être utile pour afficher des éléments React de façon conditionnelle
 
 ```jsx
-function DisplayWelcomeMessage({ userName }) {
+function WelcomeMessage(userName) {
   const isUserConnected = userName !== "";
   return (
     <div>
       {isUserConnected && (
-        <header>Bienvenue sur le simulateur de {userName}</header>
+        <header>Bienvenue sur le simulateur Bercy {userName}</header>
       )}
-      <div>Bercy est projet proposé par C.Merlen</div>
+      <em>
+        Bercy est projet proposé par C.Merlen qui permet de faire une estimation
+        de vos impots
+      </em>
     </div>
   );
 }
-
-ReactDOM.render(
-  DisplayWelcomeMessage({ userName: "titi" }),
-  document.querySelector("#app")
-);
+// rendu dans le DOM
+ReactDOM.render(WelcomeMessage(""), document.querySelector("#app"));
 ```
 
-[Jsfiddle](https://jsfiddle.net/thies05/069qLfxr/22/)
+[Jsfiddle](https://jsfiddle.net/thies05/9nkvzase/336/)
 
-On peut aussi utiliser les condtions ternaires
+On peut aussi utiliser les condtions ternaires.
 
-```jsx
-function DisplayImpot(montantImpot) {
-  return (
-    <div>
-      <b>
-        {montantImpot > 0
-          ? `Le montant de vos impots est ${montantImpot}`
-          : "vous n’est pas imposable"}
-      </b>
-    </div>
-  );
-}
+####:weight_lifting_man: Exercice 1
+**Afficher le montant d'imposition**
+Ecrire une fonction **DisplayImpot** qui reçoit en paramètre le montant de vos impôts et affiche les messages suivants.
 
-ReactDOM.render(DisplayImpot(150), document.querySelector("#app"));
-```
+- Si le montant des impôts est supérieur à 0 : _« Le montant de vos impôts est :xxxxx »_
+- Sinon on affiche vous n’êtes pas imposables.
 
 [Jsfiddle](https://jsfiddle.net/thies05/cx93rhLg/15/)
-
-## 1.3.4 React fragment
 
 ## 1.3.5 Boucles
 
@@ -220,16 +209,43 @@ function DisplayTranchesImpot({ tranches }) {
 
 [Jsfiddle](https://jsfiddle.net/thies05/9nkvzase/6/)
 
-####:weight_lifting_man: Exercice 1
+## 1.3.4 React fragment
+
+En React, il est courant pour un composant de renvoyer plusieurs éléments. Les fragments nous permettent de grouper une liste d’enfants sans ajouter de nœud supplémentaire au DOM.
+
+```jsx
+function RenderFragment() {
+  return (
+    <React.Fragment>
+      <ElementA />
+      <ElementB />
+      <ElementC />
+    </React.Fragment>
+  );
+}
+```
+
+**où bien**
+
+```jsx
+function RenderFragment() {
+  return (
+    <>
+      <ElementA />
+      <ElementB />
+      <ElementC />
+    </>
+  );
+}
+```
+
+####:weight_lifting_man: Exercice 2
 **Afficher les tranches d'imposition avec leur details**
 
 - Nous possédons une methode qui permet de retourner les tranches d'imposition _**getAllTranches()**_
-- Cette methode mets du temps à s'executer (2.5s)
 - **Travail à Faire**
 
-  - Recuper la liste des tranches d'imposition
-  - Pendant que l'on recupère les tranches d'imposition, afficher le message suivant: _"Récuperation des tranches d'imposition en cours ..."_
-  - Une fois les tranches disponibles, afficher les tranches d'imposition avec les details comme ci-dessous:
+  - Afficher les tranches d'imposition avec les details comme ci-dessous:
   - Pensez à eviter ce message: **Warning: Each child in a list should have a unique "key"**
 
     ![Tranches impot](./images/tranches.jpg)
@@ -237,10 +253,8 @@ function DisplayTranchesImpot({ tranches }) {
     **Code de base**
 
     ```javascript
-    var isRendering = true;
-
     function getAllTranchesAsync() {
-      const tranches = [
+      return [
         {
           id: 1,
           tauxImposition: 0.0,
@@ -271,29 +285,19 @@ function DisplayTranchesImpot({ tranches }) {
           limiteInf: 157806,
         },
       ];
-      return isRendering ? undefined : tranches;
     }
 
     function AffichertranchesImposition() {
       // Votre code ICI
     }
 
-    function render() {
-      setTimeout(() => {
-        isRendering = false;
-      }, 5000);
-      var interval = setInterval(function() {
-        ReactDOM.render(
-          AffichertranchesImposition(),
-          document.querySelector("#app")
-        );
-        if (!isRendering) {
-          clearInterval(interval);
-        }
-      }, 1000);
-    }
+    // rendu dans le DOM
+    ReactDOM.render(
+      AffichertranchesImposition(),
+      document.querySelector("#app")
+    );
     ```
 
-    [Solution boucle](https://jsfiddle.net/thies05/1zgj6s9n/34/)
+    <!-- [Solution boucle](https://jsfiddle.net/thies05/9nkvzase/341/) -->
 
 [Pour aller plus loin](https://fr.reactjs.org/docs/introducing-jsx.html)

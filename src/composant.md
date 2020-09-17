@@ -149,7 +149,7 @@ setTimeout(() => {
 
 [JsFiddle](https://jsfiddle.net/thies05/9nkvzase/320/)
 
-**:weight_lifting_man: Exercice 2: Creation d'un composant Timer pour Bercy**
+**:weight_lifting_man: Exercice 3: Creation d'un composant Timer pour Bercy**
 
 Créer un composant **FamilyCounter**, qui permet :
 
@@ -209,5 +209,5 @@ function ChildrenCounter() {
 > - _Apporte de la simplicité_
 > - _La communauté React privilégie dans son ensemble l’utilisation des Functionnals components avec les Hooks à la place des classes. Chez **AXA** on s’est inscrit dans cette dynamique._
 
-**:weight_lifting_man: Exercice E: Transformer le composant FamilyCounter en Functionnal component**
+**:weight_lifting_man: Exercice 4: Transformer le composant FamilyCounter en Functionnal component**
 Amusez-vous :) !
