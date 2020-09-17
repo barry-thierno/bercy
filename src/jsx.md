@@ -1,5 +1,7 @@
 ## 1.1 CreateElement API
 
+React.createElement est l’api de base de React. Il nous permet de créer des éléments que l’on peut accrocher à notre document (DOM)
+
 ```javascript
 const title = React.createElement("h1", {}, "Bienvenue sur le site Bercy");
 ReactDOM.render(title, document.querySelector("#app"));
@@ -14,6 +16,22 @@ document.querySelector("#app").innerHTML =
 ```
 
 Pour connaitre la difference, comparons les deux blocs de code ci-dessous:
+
+**Rendu sans React**
+
+```javascript
+let compteur = 0;
+
+function renduSansReact() {
+  document.querySelector("#app").innerHTML =
+    "<h1>Bienvenue sur le site Bercy <span> " + compteur + "</h1>";
+}
+renduSansReact();
+window.setInterval(() => {
+  compteur++;
+  renduSansReact();
+}, 1000);
+```
 
 **Rendu avec React**
 
@@ -36,32 +54,16 @@ window.setInterval(() => {
 }, 1000);
 ```
 
-**Rendu sans React**
-
-```javascript
-let compteur = 0;
-
-function renduSansReact() {
-  document.querySelector("#app").innerHTML =
-    "<h1>Bienvenue sur le site Bercy <span> " + compteur + "</h1>";
-}
-renduSansReact();
-window.setInterval(() => {
-  compteur++;
-  renduSansReact();
-}, 1000);
-```
-
 ## 1.2 Qu'est ce que le jsx
 
-C'est une syntaxe qui nous permet de decrire du React un peu plus simplement sans utiliser React.createElement. Elle n'est pas comprise par le navigateur.
-_Le code ci-dessus deviendrait:_
+C'est une syntaxe qui nous permet de décrire du React un peu plus simplement sans utiliser React.createElement. Elle n'est pas comprise par le navigateur.
+_Le code ci-dessus deviendrait :_
 
 ```jsx
 const title = <h1>Bienvenue sur le site Bercy</h1>;
 ```
 
-Pour utiliser JSX nous avons besoin de **Babel**. **Babel** permet de convertir du code moderne vers du code un peu plus ancien supporté par les vieux navigateur. Il supporte le JSX.
+Pour utiliser JSX nous avons besoin de **Babel**. **Babel** permet de convertir du code moderne vers du code un peu plus ancien supporté par les vieux navigateurs. Il supporte le JSX.
 
 :mechanic: **Testons ce que fait Babel**
 
@@ -82,16 +84,16 @@ Modifier le fichier _index.html_ pour ajouter la dependance Babel
 function WelcomeMessage() {
   const title = (
     <h1>
-      Bienvenu sur le site de Bercy <span>0</span>
+      Bienvenu sur le site de Bercy <span> Yannick</span>
     </h1>
   );
-
-  ReactDOM.render(title, document.querySelector("#app"));
+  return title;
 }
-WelcomeMessage();
+// rendu dans le DOM
+ReactDOM.render(WelcomeMessage(), document.querySelector("#app"));
 ```
 
-[JsFiddle](https://jsfiddle.net/thies05/9nkvzase/24/)
+[JsFiddle](https://jsfiddle.net/thies05/9nkvzase/302/)
 
 ## 1.3 La syntaxe JSX
 
@@ -105,45 +107,49 @@ _**{mon expression javascript}**_
 
 ```jsx
 const userName = "Yannick";
-function renduAvecReact() {
+
+function WelcomeMessage() {
   const title = (
     <h1>
-      Bienvenu sur le site de Bercy <span>{userName}</span>
+      Bienvenu sur le site de Bercy <span> {userName}</span>
     </h1>
   );
- return title;
+  return title;
 }
-ReactDOM.render(renduAvecReact(), document.querySelector("#app"));
-
+// rendu dans le DOM
+ReactDOM.render(WelcomeMessage(), document.querySelector("#app"));
 ```
 
-[Jsfiddle](https://jsfiddle.net/thies05/9nkvzase/18/)
+[Jsfiddle](https://jsfiddle.net/thies05/9nkvzase/305/)
 
 > Tous les elements HTML5 sont utilisables de manière equivalente dans la syntaxe JSX.
 
 ### 1.3.2 Les attributs: _id_, _classeName_, _children_
 
-- **id**: permet d'identifier de manière unique un element JSX. Il est l'equivalent de l'attribut id des elements du DOM
-- **className**: Il permet d'appliquer du style à notre element. Il correspond à l'attribut class du DOM
-- **children**: Il correspond à l'element fils d'un element jsx. Il peut être de type jsx, primitif ou une expression javascript
+- **id**: Permet d'identifier de manière unique un element JSX. Il est l'equivalent de l'attribut id des elements du DOM.
+- **className**: Il permet d'appliquer du style à notre element. Il correspond à l'attribut class du DOM.
+- **children**: Il correspond à l'element fils d'un element jsx. Il peut être de type jsx, primitif ou une expression javascript.
 
 > - Il existe d'autres attribut: checked, value, tabindex ....
 > - La valeur des attributs passés au elements JSX sont appellés des Props.
 
 ```jsx
-function RenduAvecReact() {
-  const message = <span>Bienvenu sur le site de Bercy</span>;
+const userName = "Yannick";
+
+function WelcomeMessage() {
   const className = "bercy-bienvenue-msg";
   const title = (
-    <h1 id="unique-id" className={className} children={message}></h1>
+    <h1 id="unique-id" className={className}>
+      Bienvenu sur le site de Bercy <span> {userName}</span>
+    </h1>
   );
-
-  ReactDOM.render(title, document.querySelector("#app"));
+  return title;
 }
-RenduAvecReact();
+// rendu dans le DOM
+ReactDOM.render(WelcomeMessage(), document.querySelector("#app"));
 ```
 
-[Jsfiddle](https://jsfiddle.net/thies05/9nkvzase/25/)
+[Jsfiddle](https://jsfiddle.net/thies05/9nkvzase/311/)
 
 ### 1.3.2 Les basiles auto fermentes
 
