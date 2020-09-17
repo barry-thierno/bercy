@@ -204,7 +204,10 @@ function ChildrenCounter() {
 }
 ```
 
-> - _Apporte de la simplicité_
-> - _La communauté React privilégie dans son ensemble l’utilisation des Functionnal component avec les Hooks à la place des classes. Chez **AXA** on s’est inscrit dans cette dynamique._
-
 [JsFiddle](https://jsfiddle.net/thies05/9nkvzase/186/)
+
+> - _Apporte de la simplicité_
+> - _La communauté React privilégie dans son ensemble l’utilisation des Functionnals components avec les Hooks à la place des classes. Chez **AXA** on s’est inscrit dans cette dynamique._
+
+**:weight_lifting_man: Exercice E: Transformer le composant FamilyCounter en Functionnal component**
+Amusez-vous :) !
