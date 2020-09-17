@@ -159,7 +159,7 @@ Créer un composant **FamilyCounter**, qui permet :
 
 ![Tranches impot](./images/family-counter.png)
 
-[JsFiddle: Solution](https://jsfiddle.net/thies05/9nkvzase/325/)
+<!-- [JsFiddle: Solution](https://jsfiddle.net/thies05/9nkvzase/325/) -->
 
 #### 2.3 Intoduction aux Hooks
 
@@ -203,5 +203,8 @@ function ChildrenCounter() {
   );
 }
 ```
+
+> - _Apporte de la simplicité_
+> - _La communauté React privilégie dans son ensemble l’utilisation des Functionnal component avec les Hooks à la place des classes. Chez **AXA** on s’est inscrit dans cette dynamique._
 
 [JsFiddle](https://jsfiddle.net/thies05/9nkvzase/186/)
