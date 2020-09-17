@@ -189,6 +189,8 @@ On peut aussi utiliser les condtions ternaires.
 
 **:weight_lifting_man: Exercice 1**
 **Afficher le montant d'imposition**
+
+
 Ecrire une fonction **DisplayImpot** qui reçoit en paramètre le montant de vos impôts et affiche les messages suivants.
 
 - Si le montant des impôts est supérieur à 0 : _« Le montant de vos impôts est :xxxxx »_
