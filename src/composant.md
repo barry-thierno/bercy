@@ -9,13 +9,13 @@ Les composants vous permettent de diviser l'interface utilisateur en éléments 
 - **Le composant comme une fonction:** Un composant peut être une fonction qui reçoit en entrée des paramètres (props) et converti ces paramètres en éléments UI (JSX)
 
   ```jsx
-      function WelcomeMessage(props) {
-        return (
-          <h1>
-            Bienvenu sur le site de Bercy <em>{props.userName}</em>
-          </h1>
-        );
-      }
+  function WelcomeMessage(props) {
+    return (
+      <h1>
+        Bienvenu sur le site de Bercy <em>{props.userName}</em>
+      </h1>
+    );
+  }
   // Appel du composant
   <WelcomeMessage userName="Christophe" />;
   ```
@@ -83,9 +83,9 @@ class ChildrenCounter extends React.Component {
 
 [JsFiddle](https://jsfiddle.net/thies05/9nkvzase/212/)
 
-#### Les 3 règles du state
+#### Quelque règles du state
 
-Le state doit obeir aux trois règles suivantes:
+Le state doit obeir à ces règles suivantes:
 
 > - On ne peut pas modifier l’état directement
 > - Les mises à jour de l’état sont fusionnées
