@@ -22,9 +22,6 @@
         2.3.2 Composant avec état
             2.3.2.1 Intro: comment gérer l’état dans un composant stateless (local state)
             2.3.2.1 application: useState hooks
-    3.4 Validation de props
-        2.4.1 PropType
-        2.4.2 Introduction à Typescript
     3.5 Faire communiquer des composants
         2.5.1 Flow descendant (props)
         2.5.2 une petite into des Events
@@ -72,3 +69,7 @@
     8.2 Redux
 
 ## 9. Tests unitaire des hooks et context API
+
+    3.4 Validation de props
+        2.4.1 PropType
+        2.4.2 Introduction à Typescript
