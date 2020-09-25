@@ -1,3 +1,5 @@
+# 4 Industrialisation
+
 ## 4.1 Initialisation d'un projet React
 
 Nous avons vu dans le chapitre précèdent qu’il y a plusieurs manières de faire du React. Une des manières que nous avons jusqu’ici consiste à ajouter les dépendances de **React**, **React Dom** et **Babel** via le service **unpkg**. Cette méthode est très peu performante et même déconseillé quand il s’agira de réaliser un projet de grande envergure qui implique un travail en équipe et des mécaniques d’industrialisation (intégration continue, …).
