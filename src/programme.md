@@ -15,40 +15,29 @@
 
 ## 3. Composants
 
-    3.1 Créer un composant réutilisable
-    3.2 Composant à état (Stateful) (Classe)
-    3.3 Composant Fonctionnel
-        2.3.1 Composant sans état Stateless
-        2.3.2 Composant avec état
-            2.3.2.1 Intro: comment gérer l’état dans un composant stateless (local state)
-            2.3.2.1 application: useState hooks
-    3.5 Faire communiquer des composants
-        2.5.1 Flow descendant (props)
-        2.5.2 une petite into des Events
-        2.5.3 Flow ascendant (callback)
-    3.6 Ajouter du style à un composant
-        2.6.1 Inline css
-        2.6.2 classname
-    3.7 Tests unitaire
-        2.7.1 Jest
-        2.7.2 Enzyme
+    3.1 Notion de composant
+    3.2 Composant avec état
+    3.3 Cycle de vie d'un composant
+    3.4 Intoduction aux Hooks useState
+    3.5 Ajouter du style à un composant
+        2.5.1 Inline css
+        2.5.2 classname
 
-## 4. React starter
+## 4. Industrialisation
 
-    4.1 Create react app
-    4.2 Axa react starter
-
-# Approfondissement
-
-## 4. Routing
-
-    4.1 Introduire le fonctionnement de Routing
-    4.2 Application: Routes, Route
+    4.1 Initialisation d'un projet React
+    4.2 Initialisé un projet AXA
+    4.3 Le Toolkit AXA
 
 ## 5. Formulaires
 
     5.1 Events
     5.2 Validation de saisies
+
+# 5. Faire communiquer des composants
+
+    5.1 Flow descendant (props)
+    5.3 Flow ascendant (callback)
 
 ## 6. Les effets de bord
 
@@ -61,15 +50,22 @@
     7.1 Introduction
     7.2 Quelques Hooks de base: useHistory, useReducer, useSelector, useMemo
     7.3 Custom hooks
-    7.4 Testing library
 
-## 8. Global state Management
+<!-- ## 4. Routing
+
+    4.1 Introduire le fonctionnement de Routing
+    4.2 Application: Routes, Route -->
+
+<!-- ## 8. Global state Management
 
     8.1 Context API
-    8.2 Redux
+    8.2 Redux -->
 
 ## 9. Tests unitaire des hooks et context API
 
-    3.4 Validation de props
-        2.4.1 PropType
-        2.4.2 Introduction à Typescript
+    9.1 Introduction
+    9.2 Testing library
+    9.3 Jest
+    9.4 Enzyme
+
+## 10. Introduction à Typescript
