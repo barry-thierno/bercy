@@ -2,11 +2,11 @@ import React from 'react';
 import { Header, Name, Footer } from '@axa-fr/react-toolkit-all';
 import { Title } from '@axa-fr/react-toolkit-layout-header';
 import logo from '@axa-fr/react-toolkit-core/dist/assets/logo-axa.svg';
-import './Home.css';
+import './Home.scss';
 
 const Home = () => (
   <>
-    <div class="app">
+    <div className="app">
       <Header>
         <Name
           title="AXA"
