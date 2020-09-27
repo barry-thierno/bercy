@@ -1,6 +1,5 @@
 import React from 'react';
-import { Header, Name, Footer } from '@axa-fr/react-toolkit-all';
-import { Title } from '@axa-fr/react-toolkit-layout-header';
+import { Header, Name, Footer, Title } from '@axa-fr/react-toolkit-all';
 import logo from '@axa-fr/react-toolkit-core/dist/assets/logo-axa.svg';
 import './App.scss';
 import Home from 'pages/Home/Home';
