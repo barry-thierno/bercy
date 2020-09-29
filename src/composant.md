@@ -211,3 +211,8 @@ function ChildrenCounter() {
 
 **:weight_lifting_man: Exercice 4: Transformer le composant FamilyCounter en Functionnal component**
 Amusez-vous :) !
+
+#### 2.4 Styliser vos Composants ReactJs
+### 2.4.1 Inline css
+### 2.4.2 Css/Sass
+### 2.4.3 className
