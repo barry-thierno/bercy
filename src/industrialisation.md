@@ -20,8 +20,7 @@ Pour plus de lisibilité, nous avons volontairement allégé ce starter.
 
 Ouvrir votre visual « Studio Code » sur le projet cloné, c’est-à-dire le dossier « react-starter ». Dans la barre latérale, trouver dans le bloc extension « npm Script » la commande npm run start. Cliquer dessus, une console devrait s’ouvrir directement sur votre Visual Studio Code. Il est possible aussi de lancer la commande « npm run start » directement depuis votre console « Git ».
 
-Une fois lancé, le navigateur va s’ouvrir sur cette page :
-![exo 4](./images/exo4.png)
+Une fois lancé, le navigateur va s’ouvrir sur une page avec Hello World.
 
 Dans les sources téléchargées, les deux fichiers essentiels sont :
 
@@ -38,7 +37,7 @@ Un Design System est un outil développé pour des besoins internes sur l’homo
 
 Pour en savoir plus :
 [Design System AXA](https://axaguildev.github.io/fr/react-toolkit)
-[Design System AXA](https://axaguildev.github.io/fr/react-toolkit)
+[Storybook AXA](https://axaguildev.github.io/react-toolkit/latest/storybook/index.html?path=/story/get-started--introduction)
 
 **:weight_lifting_man: Exercice 4: Header et Footer de Bercy**
 En vous basant sur le code préalablement téléchargé (voir partie 4.2), vous allez mettre en place ce Design pour votre application
@@ -93,7 +92,7 @@ Dans ce but, nous allons mettre en place cette archi :
   -- images : l’ensemble des images
   -- styles : l’’ensemble des feuilles de style
 
-\*\*:weight_lifting_man: Exercice 5 : En vous basant sur le code de App.js, définissez cette nouvelle architecture avec :
+**:weight_lifting_man: Exercice 5 : En vous basant sur le code de App.js, définissez cette nouvelle architecture avec :**
 
-- un composant App qui contiendra les composants qui forment votre page (header, title, footer)
-- un composant nommé « Home » qui contiendra le contenu de votre page\*\*
+**- un composant App qui contiendra les composants qui forment votre page (header, title, footer)**
+**- un composant nommé « Home » qui contiendra le contenu de votre page**
