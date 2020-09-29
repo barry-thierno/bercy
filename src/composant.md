@@ -206,11 +206,13 @@ function ChildrenCounter() {
 
 [JsFiddle](https://jsfiddle.net/thies05/9nkvzase/186/)
 
-> - _Apporte de la simplicité_
-> - _La communauté React privilégie dans son ensemble l’utilisation des Functionnals components avec les Hooks à la place des classes. Chez **AXA** on s’est inscrit dans cette dynamique._
-
 **:weight_lifting_man: Exercice 4: Transformer le composant FamilyCounter en Functionnal component**
 Amusez-vous :) !
+
+### Remarque
+> - _Apporte de la simplicité_
+> - _La Core team React pousse dans son ensemble l’utilisation des Functionnals components avec les Hooks à la place des classes.
+Chez **AXA** on s’est inscrit dans cette dynamique._
 
 #### 2.4 Styliser vos Composants ReactJs
 ### 2.4.1 Inline styles
@@ -228,6 +230,7 @@ Les styles en ligne(Inline Styles) ressemblent et fonctionnent un peu comme CSS,
   </body>
 </html>
 ```
-La meme approche a été retenu par la team React de garder
-### 2.4.2 Css/Sass
-### 2.4.3 className
+Il est toujours possible avec ReactJs de styliser vos élements via l'attribut style 
+[jsFiddle](https://jsfiddle.net/thies05/9nkvzase/364/)
+
+### 2.4.2 Css file/className
