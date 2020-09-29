@@ -2,7 +2,7 @@ import React from 'react';
 import { Header, Name, Footer } from '@axa-fr/react-toolkit-all';
 import { Title } from '@axa-fr/react-toolkit-layout-header';
 import logo from '@axa-fr/react-toolkit-core/dist/assets/logo-axa.svg';
-import './App.scss';
+import './App.css';
 import Home from 'pages/Home/Home';
 
 const App = () => (
