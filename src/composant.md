@@ -213,6 +213,21 @@ function ChildrenCounter() {
 Amusez-vous :) !
 
 #### 2.4 Styliser vos Composants ReactJs
-### 2.4.1 Inline css
+### 2.4.1 Inline styles
+Les styles en ligne(Inline Styles) ressemblent et fonctionnent un peu comme CSS, avec quelques différences. Les styles en ligne affectent directement la balise dans laquelle ils sont écrits, sans l'utilisation de sélecteurs. Voici une page HTML de base utilisant des styles en ligne:
+```html
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Playing with Inline Styles</title>
+  </head>
+  <body>
+    <p style="color:blue;font-size:46px;">
+      I'm a big, blue, <strong>strong</strong> paragraph
+    </p>
+  </body>
+</html>
+```
+La meme approche a été retenu par la team React de garder
 ### 2.4.2 Css/Sass
 ### 2.4.3 className
