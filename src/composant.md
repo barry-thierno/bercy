@@ -212,7 +212,7 @@ Amusez-vous :) !
 ### Remarque
 > - _Apporte de la simplicité_
 > - _La Core team React pousse dans son ensemble l’utilisation des Functionnals components avec les Hooks à la place des classes.
-Chez **AXA** on s’est inscrit dans cette dynamique._
+> - _Chez **AXA** on s’est inscrit dans cette dynamique._
 
 #### 2.4 Styliser vos Composants ReactJs
 ### 2.4.1 Inline styles
