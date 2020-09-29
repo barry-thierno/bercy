@@ -224,7 +224,7 @@ Les styles en ligne(Inline Styles) ressemblent et fonctionnent un peu comme CSS,
     <title>Playing with Inline Styles</title>
   </head>
   <body>
-    <p style="color:blue;font-size:46px;">
+    <p style="font-family: sans-serif;text-align: center;color: "red";background-color: "yellow";}">
       I'm a big, blue, <strong>strong</strong> paragraph
     </p>
   </body>
@@ -234,3 +234,46 @@ Il est toujours possible avec ReactJs de styliser vos élements via l'attribut s
 [jsFiddle](https://jsfiddle.net/thies05/9nkvzase/364/)
 
 ### 2.4.2 Css file/className
+
+Il est possible de sortir le style dans des fichiers CSS et de les importer dans nos composants.
+C’est la bonne pratique préconisée par la team React, pour plus d’information ([La doc ReactJs](https://fr.reactjs.org/docs/dom-elements.html#style)
+
+```css
+.monStyle {
+  font-family: sans-serif;
+  text-align: center;
+  color: "red"; 
+  background-color: "yellow";
+}
+```
+
+Pour appliquer le CSS sur nos éléments nous devons utiliser la propriété **className** comme suit :
+
+```jsx
+import React from "react";
+import "./styles.css";
+
+class ChildrenCounter extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = { childrenCount: 0 };
+  }
+  
+  addChildren() {
+    this.setState({
+     childrenCount: this.state.childrenCount + 1
+    });
+  }
+  
+  render() {
+    return (
+        <div>
+          <p className=”monStyle”>Vous avez {this.state.childrenCount} enfant(s)</p>
+          <button onClick={() => this.addChildren()}>
+            Ajouter un enfant
+          </button>
+        </div>
+      );
+  };
+}
+```
