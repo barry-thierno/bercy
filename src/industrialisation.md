@@ -55,7 +55,40 @@ Avant tout, vous devez intégrer cette feuille de style dans le composant Home. 
 Le code Css :
 
 ```
-s
+/***************************************************
+************CSS pour l'application
+***************************************************/
+.app {
+  width: 100%;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+.app-content {
+  flex-grow: 1;
+}
+
+@media (min-width: 1200px) {
+  .container,
+  .container-lg,
+  .container-md,
+  .container-sm,
+  .container-xl {
+    max-width: 1440px;
+  }
+}
+/***************************************************
+************FOOTER
+***************************************************/
+.af-footer {
+  background-color: #3032c1;
+  padding: 5px 0;
+  min-height: 45px;
+}
+.af-footer-content {
+  color: #fff;
+  font-weight: 600;
+}
 ```
 
 Le code importé, vous allez mettre en place un composant du toolkit. Allez directement sur le storybook, et tapez le nom du composant dans la colonne de gauche pour le rechercher. Une fois affiché, cliquez dessus directement. La page principale va se rafraichir et affichr le composant. Vous retrouverez en bas de page les colonnes suivantes : Actions, Knobs, Story, Accessibility et Readme. Cliquez sur Readme pour trouver un exemple d’utilisation de votre composant.
