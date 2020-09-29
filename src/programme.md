@@ -1,33 +1,37 @@
 # Les bases
 
-## 1. Introduction
+## 0. Introduction
 
-    1.1 Qu'est ce que react
+    0.1 Qu'est ce que react
+    0.2 Pourquoi React?
+    0.3 Difference avec les frameworks du marché
+    0.4 Configuration du projet
 
-## 2. JSX
+## 1. JSX
 
-    2.1 CreateElement API
-    2.2 CreateElement API
-    2.3 Interpolation
-    2.4 React fragment
-    2.5 Conditions
-    2.6 Boucles
+    1.1 CreateElement API
+    1.2 CreateElement API
+    1.3 Interpolation
+    1.4 React fragment
+    1.5 Conditions
+    1.6 Boucles
 
-## 3. Composants
+## 2. Composants
 
-    3.1 Notion de composant
-    3.2 Composant avec état
-    3.3 Cycle de vie d'un composant
-    3.4 Intoduction aux Hooks useState
-    3.5 Ajouter du style à un composant
+    2.1 Notion de composant
+    2.2 Composant avec état
+    2.3 Cycle de vie d'un composant
+    2.4 Intoduction aux Hooks useState
+    2.5 Ajouter du style à un composant
         2.5.1 Inline css
         2.5.2 classname
 
-## 4. Industrialisation
+## 3. Industrialisation
 
-    4.1 Initialisation d'un projet React
-    4.2 Initialisé un projet AXA
-    4.3 Le Toolkit AXA
+    3.1 Initialisation d'un projet React
+    3.2 Initialiser un projet AXA
+    3.3 Le Toolkit AXA
+    3.4 Architecture de votre projet
 
 ## 5. Formulaires
 
