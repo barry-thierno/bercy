@@ -40,6 +40,12 @@ Le téléchargement étant effectué, vous allez changer de dossier
 cd bercy
 ```
 
+Et maintenant de branche :
+
+```
+git checkout react_dojo_starter_axa
+```
+
 Vous allez installer dès à présent les dépendances avec npm. 
 Saisir dans la console :
 
