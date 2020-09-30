@@ -192,7 +192,7 @@ Dans ce but, nous allons mettre en place cette archi :
   
   -- images : l’ensemble des images
   
-  -- styles : l’’ensemble des feuilles de style
+  -- styles : l’ensemble des feuilles de style
   
 
 **:weight_lifting_man: Exercice 5 : En vous basant sur le code de App.js, définissez cette nouvelle architecture avec :**
