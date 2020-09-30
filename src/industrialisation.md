@@ -114,6 +114,7 @@ Retrouvez ici, l'esemble des composants à utiliser :
 ```javascript
 import React from 'react';
 import { Header, Name } from '@axa-fr/react-toolkit-all';
+import logo from '@axa-fr/react-toolkit-core/dist/assets/logo-axa.svg';
 
 const MyHeader => (
   <Header>
@@ -135,7 +136,7 @@ import React from 'react';
 import { Footer } from '@axa-fr/react-toolkit-all';
 
 const MyFooter => (
-  <Footer copyright="© 2017-2018 AXA Webcenter" />
+  <Footer icon={logo} copyright="© 2017-2018 AXA Webcenter" />
 );
 ```
 
