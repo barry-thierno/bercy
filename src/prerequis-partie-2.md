@@ -6,6 +6,7 @@
 
 Afin de télécharger les sources pour ce dojo, vous devez préalablement télécharger et installer git sur votre poste si cela n’a pas déjà été réalisé.
 Lien : https://git-scm.com/
+
 Une fois installé, vous avez le choix entre lancer des commandes via Visual Studio Code ou la console de git.
 
 #### Configuration Visual Studio Code (non obligatoire)
