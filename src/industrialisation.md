@@ -180,11 +180,11 @@ Dans ce but, nous allons mettre en place cette archi :
         images
         styles
         
-- Dossier Layout : Il contient les composants généraux de l'application comme l'en-tête, le pied de page, le menu, etc.
+- Dossier layout : Il contient les composants généraux de l'application comme l'en-tête, le pied de page, le menu, etc.
 
-- Dossier Pages : Il contient le contenu des pages.
+- Dossier pages : Il contient le contenu des pages.
 
-- Dossier Shared :
+- Dossier shared :
 
   -- components : c’est l’ensemble des composants réutilisables
   
