@@ -106,7 +106,7 @@ Pour des questions de facilité, nous avons préféré importer l’ensemble du 
 import { Header, Name, Footer } from '@axa-fr/react-toolkit-all';
 ```
 
-Retrouvez ici, l'esemble des composants à utiliser :
+Retrouvez ici, l'ensemble des composants à utiliser :
 
 ### Composants header et Name
 ####  Exemple :
