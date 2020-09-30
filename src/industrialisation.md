@@ -49,7 +49,7 @@ Le storybook recense l’ensemble des composants du toolkit que vous utiliserez.
 - Footer
 - Title
 
-Avant tout, vous devez intégrer cette feuille de style dans le composant Home. Référez-vous au chapitre 2.5 Ajoutez du style à un composant pour plus de facilité.
+Avant tout, vous devez intégrer cette feuille de style dans le composant App. Référez-vous au chapitre 2.5 Ajoutez du style à un composant pour plus de facilité.
 Le code Css :
 
 ```
