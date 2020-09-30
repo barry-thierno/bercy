@@ -51,8 +51,8 @@ Le storybook recense l’ensemble des composants du toolkit que vous utiliserez.
 - Footer
 - Title
 
-Avant tout, vous devez intégrer cette feuille de style dans le composant App. Référez-vous au chapitre 2.5 Ajoutez du style à un composant pour plus de facilité.
-Le code Css :
+Avant tout, vous devez intégrer cette feuille de style dans le composant App. Référez-vous au chapitre 2.5
+Le code :
 
 ```
 /***************************************************
@@ -91,8 +91,9 @@ Le code Css :
 }
 ```
 
-Le code importé, vous allez mettre en place un composant du toolkit. Allez directement sur le storybook, et tapez le nom du composant dans la colonne de gauche pour le rechercher. Une fois affiché, cliquez dessus directement. La page principale va se rafraichir et affichr le composant. Vous retrouverez en bas de page les colonnes suivantes : Actions, Knobs, Story, Accessibility et Readme. Cliquez sur Readme pour trouver un exemple d’utilisation de votre composant.
-Attention, dans chaque exemple, vous trouverez le code pour importer un ou plusieurs composants du toolkit.
+Le code importé, vous allez mettre en place un composant du toolkit. Allez directement sur le storybook, et tapez le nom du composant dans la colonne de gauche pour le rechercher. Une fois affiché, cliquez dessus directement. La page principale va se rafraichir et affichr le composant.
+
+Vous retrouverez en bas de page les colonnes suivantes : Actions, Knobs, Story, Accessibility et Readme. Cliquez sur Readme pour trouver un exemple d’utilisation de votre composant. Attention, dans chaque exemple, vous trouverez le code pour importer un ou plusieurs composants du toolkit.
 Exemple :
 
 ```
@@ -103,6 +104,52 @@ Pour des questions de facilité, nous avons préféré importer l’ensemble du 
 
 ```
 import { Header, Name, Footer } from '@axa-fr/react-toolkit-all';
+```
+
+Retrouvez ici, l'esemble des composants à utiliser :
+
+### Composants header et Name
+####  Exemple :
+
+```javascript
+import React from 'react';
+import { Header, Name } from '@axa-fr/react-toolkit-all';
+
+const MyHeader => (
+  <Header>
+    <Name
+      title="Ma nouvelle application"
+      img={logo}
+      alt="Logo React"
+      onClick={() => {}}
+    />
+  </Header>
+);
+```
+
+### Composant Footer
+#### Exemple :
+
+```javascript
+import React from 'react';
+import { Footer } from '@axa-fr/react-toolkit-all';
+
+const MyFooter => (
+  <Footer copyright="© 2017-2018 AXA Webcenter" />
+);
+```
+
+### Composant Title
+
+#### Exemple
+
+```javascript
+import React from 'react';
+import Title from '@axa-fr/react-toolkit-all';
+
+const MyTitle => (
+  <Title title="Toolkit Axa" subtitle="Info complémentaire" />
+);
 ```
 
 ## 3.4 Architecture de votre projet.
