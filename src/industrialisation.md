@@ -185,10 +185,15 @@ Dans ce but, nous allons mettre en place cette archi :
 - Dossier Pages : Il contient le contenu des pages.
 
 - Dossier Shared :
+
   -- components : c’est l’ensemble des composants réutilisables
+  
   -- helpers : l’ensemble des classes ou outils qui contiennent du code susceptible d'être utilisable partout dans une application.
+  
   -- images : l’ensemble des images
+  
   -- styles : l’’ensemble des feuilles de style
+  
 
 **:weight_lifting_man: Exercice 5 : En vous basant sur le code de App.js, définissez cette nouvelle architecture avec :**
 
