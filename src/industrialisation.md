@@ -91,7 +91,7 @@ Le code :
 }
 ```
 
-Le code importé, vous allez mettre en place un composant du toolkit. Allez directement sur le storybook, et tapez le nom du composant dans la colonne de gauche pour le rechercher. Une fois affiché, cliquez dessus directement. La page principale va se rafraichir et affichr le composant.
+Le code importé, vous allez mettre en place un composant du toolkit. Allez directement sur le storybook, et tapez le nom du composant dans la colonne de gauche pour le rechercher. Une fois affiché, cliquez dessus directement. La page principale va se rafraichir et afficher le composant.
 
 Vous retrouverez en bas de page les colonnes suivantes : Actions, Knobs, Story, Accessibility et Readme. Cliquez sur Readme pour trouver un exemple d’utilisation de votre composant. Attention, dans chaque exemple, vous trouverez le code pour importer un ou plusieurs composants du toolkit.
 Exemple :
