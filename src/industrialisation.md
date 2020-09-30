@@ -10,17 +10,18 @@ React mets à disposition un environnement qui permet de démarrer confortableme
 
 ## 3.2 Initialiser un projet AXA
 
-Avant de commencer, il faut avoir fait les prérequis partie 2, si non suivre ce lien.
+Avant de commencer, il faut avoir fait les prérequis partie 2.
 
 La Cop Frontend met à disposition un starter. C’est un projet basé sur le CRA et qui met à disposition les librairies de base qu’elle recommande. De plus, le starter intègre une architecture de projet préconisée par la COP et aussi par le toolkit Axa.
 
 Pour plus de lisibilité, nous avons volontairement allégé ce starter.
 
-Ouvrir votre visual « Studio Code » sur le projet cloné, c’est-à-dire le dossier « react-starter ». Dans la barre latérale, trouver dans le bloc extension « npm Script » la commande npm run start. Cliquer dessus, une console devrait s’ouvrir directement sur votre Visual Studio Code. Il est possible aussi de lancer la commande « npm run start » directement depuis votre console « Git ».
+Ouvrir votre visual « Studio Code » sur le projet cloné, c’est-à-dire le dossier « dossierdudojo/bercy ». Dans la barre latérale, trouver dans le bloc extension « npm Script » la commande npm run start. Cliquer dessus, une console devrait s’ouvrir directement sur votre Visual Studio Code. 
+Il est possible aussi de lancer la commande « npm run start » directement depuis votre console « Git » ou même depuis le fichier package.json avec un clic droit sur le commande « npm start ».
 
 Une fois lancé, le navigateur va s’ouvrir sur une page avec Hello World.
 
-Dans les sources téléchargées, les deux fichiers essentiels sont :
+Dans le dossier de bercy, les deux fichiers essentiels sont :
 
 - Index.js -> Fichier qui sert à initialiser l’application React.
 - App.js -> le composant App qui affiche le message « Hello Wolrd ». C’est dans ce composant que nous ferons nos exercices. Mais tout d’abord une présentation « toolkit Axa » s’impose.
@@ -29,18 +30,19 @@ Dans les sources téléchargées, les deux fichiers essentiels sont :
 
 Le toolkit est un design système c’est-à-dire un ensemble de composants web qui respecte la charte graphique AXA. C’est un projet Open source. Les principaux contributeurs viennent de la Coop frontend. Les composants sont exposés via un Storybook.
 
-Un Storybook est un outil open source qui permet de développer des composants UI de manière isolée pour React, Vue, Angular…
+- Un Storybook est un outil open source qui permet de développer des composants UI de manière isolée pour React, Vue, Angular…
 
-Un Design System est un outil développé pour des besoins internes sur l’homogénéisation des développements front-end des applications métiers. Il permet de définir les guidelines UX et les règles de parcours utilisateurs.
+- Un Design System est un outil développé pour des besoins internes sur l’homogénéisation des développements front-end des applications métiers. Il permet de définir les guidelines UX et les règles de parcours utilisateurs.
 
 Pour en savoir plus :
-[Design System AXA](https://axaguildev.github.io/fr/react-toolkit)
-[Storybook AXA](https://axaguildev.github.io/react-toolkit/latest/storybook/index.html?path=/story/get-started--introduction)
+- [Design System AXA](https://axaguildev.github.io/fr/react-toolkit)
+
+- [Storybook AXA](https://axaguildev.github.io/react-toolkit/latest/storybook/index.html?path=/story/get-started--introduction)
 
 **:weight_lifting_man: Exercice 4: Header et Footer de Bercy**
 En vous basant sur le code préalablement téléchargé (voir partie 4.2), vous allez mettre en place ce Design pour votre application
 
-![exo 4](./images/exo4-template.png)
+![exo 4](./images/exo4-template.jpg)
 
 Le storybook recense l’ensemble des composants du toolkit que vous utiliserez. Dans cet exercice, vous utiliserez les composants suivants :
 
