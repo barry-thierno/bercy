@@ -121,6 +121,7 @@ const MyHeader => (
     <Name
       title="Ma nouvelle application"
       img={logo}
+      subtitle="subtitle"
       alt="Logo React"
       onClick={() => {}}
     />
