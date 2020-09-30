@@ -163,6 +163,23 @@ Dans ce but, nous allons mettre en place cette archi :
 
 > (Attention, l’utilisation de majuscules n’est autorisée que pour les composants)
 
+### Structure
+
+    layout
+        App
+        Header
+        Footer
+        Routes
+    pages
+        MyComponent1
+        MyComponent2
+    shared
+        components
+            SharedComponent
+        helpers
+        images
+        styles
+        
 - Dossier Layout : Il contient les composants généraux de l'application comme l'en-tête, le pied de page, le menu, etc.
 
 - Dossier Pages : Il contient le contenu des pages.
@@ -175,5 +192,6 @@ Dans ce but, nous allons mettre en place cette archi :
 
 **:weight_lifting_man: Exercice 5 : En vous basant sur le code de App.js, définissez cette nouvelle architecture avec :**
 
-**- un composant App qui contiendra les composants qui forment votre page (header, title, footer)**
-**- un composant nommé « Home » qui contiendra le contenu de votre page**
+**- un composant « App » qui contiendra les composants qui forment votre page (header, title, footer)**
+
+**- un composant « Home » qui contiendra le contenu de votre page**
