@@ -211,12 +211,12 @@ Amusez-vous :) !
 
 ### Remarque
 > - _Apporte de la simplicité_
-> - _La Core team React pousse dans son ensemble l’utilisation des Functionnals components avec les Hooks à la place des classes.
+> - _La Core team React pousse dans son ensemble l’utilisation des Functionnals components avec les Hooks à la place des classes._
 > - _Chez **AXA** on s’est inscrit dans cette dynamique._
 
 #### 2.4 Styliser vos Composants ReactJs
 ### 2.4.1 Inline styles
-Les styles en ligne(Inline Styles) ressemblent et fonctionnent un peu comme CSS, avec quelques différences. Les styles en ligne affectent directement la balise dans laquelle ils sont écrits, sans l'utilisation de sélecteurs. Voici une page HTML de base utilisant des styles en ligne:
+Les styles en ligne(Inline Styles) ressemblent et fonctionnent un peu comme CSS, avec quelques différences. Les styles en ligne affectent directement la balise dans laquelle ils sont écrits, sans l'utilisation de sélecteurs. Voici une page HTML de base utilisant inline styles:
 ```html
 <!DOCTYPE html>
 <html>
@@ -224,13 +224,14 @@ Les styles en ligne(Inline Styles) ressemblent et fonctionnent un peu comme CSS,
     <title>Playing with Inline Styles</title>
   </head>
   <body>
-    <p style="font-family: sans-serif;text-align: center;color: "red";background-color: "yellow";}">
+    <p style="font-family: sans-serif; text-align: center; color: red; background-color: yellow;}">
       I'm a big, blue, <strong>strong</strong> paragraph
     </p>
   </body>
 </html>
 ```
-Il est toujours possible avec ReactJs de styliser vos élements via l'attribut style 
+Il est toujours possible avec ReactJs de styliser vos élements via l'attribut style
+
 [jsFiddle](https://jsfiddle.net/thies05/9nkvzase/364/)
 
 ### 2.4.2 Css file/className
@@ -277,3 +278,4 @@ class ChildrenCounter extends React.Component {
   };
 }
 ```
+
