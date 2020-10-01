@@ -7,8 +7,9 @@
 Afin de télécharger les sources pour ce dojo, vous devez préalablement télécharger et installer git sur votre poste si cela n’a pas déjà été réalisé.
 Lien : https://git-scm.com/
 
-#### Configuration Visual Studio Code
+Une fois installé, vous avez le choix entre lancer des commandes via Visual Studio Code ou la console de git.
 
+#### Configuration Visual Studio Code (non obligatoire)
 Nous allons ajouter une nouvelle extension. Lancer l'éditeur, une fois l’écran affiché, cliquer sur l’icône « Extensions », elle se situe sur la barre latérale de gauche.
 Installer cette extension « Npm-Scripts »
 
@@ -20,20 +21,33 @@ Dès l’installation, un nouveau menu s’affichera dans la barre latérale.
 
 #### Télécharger le dépôt « Git »
 
-Dans le dossier que vous avez créé pour le dojo, installer un nouveau dossier nommé « react-starter »
-Ouvrir une console (« Git » par exemple), naviguer directement vers le dossier du dojo « react » :
+Ouvrir une console (« Git » par exemple) et aller directement sur le dossier du dojo.
 
+Exemple :
 ```
-cd c:/dev/dojo/dojo-react/react-starter
-```
-
-Une fois dans le dossier « react-starter », saisir cette nouvelle ligne de code :
-
-```
-Git clone http://xxxxxxxxxxxxx
+cd c:/dev/dojo/dojo-react/
 ```
 
-Le téléchargement étant effectué, installer les dépendances avec npm. Saisir dans la console :
+Une fois dans le dossier, saisir cette nouvelle ligne de code depuis la console :
+
+```
+git clone https://github.com/barry-thierno/bercy.git
+```
+
+Le téléchargement étant effectué, vous allez changer de dossier
+
+```
+cd bercy
+```
+
+Et maintenant de branche :
+
+```
+git checkout react_dojo_starter_axa
+```
+
+Vous allez installer dès à présent les dépendances avec npm. 
+Saisir dans la console :
 
 ```
 npm install
