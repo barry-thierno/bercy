@@ -243,8 +243,9 @@ C’est la bonne pratique préconisée par la team React, pour plus d’informat
 .monStyle {
   font-family: sans-serif;
   text-align: center;
-  color: "red"; 
-  background-color: "yellow";
+  color: red;
+  background-color: yellow;
+  font-size: 40px;
 }
 ```
 
@@ -269,7 +270,7 @@ class ChildrenCounter extends React.Component {
   render() {
     return (
         <div>
-          <p className=”monStyle”>Vous avez {this.state.childrenCount} enfant(s)</p>
+          <p className="monStyle">Vous avez {this.state.childrenCount} enfant(s)</p>
           <button onClick={() => this.addChildren()}>
             Ajouter un enfant
           </button>
