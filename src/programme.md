@@ -38,18 +38,18 @@
     5.1 Events
     5.2 Validation de saisies
 
-# 5. Faire communiquer des composants
+## 6. Faire communiquer des composants
 
     5.1 Flow descendant (props)
     5.3 Flow ascendant (callback)
 
-## 6. Les effets de bord
+## 7. Les effets de bord
 
     6.1 into : cycle de vie + Schema du workflow
     6.2 useEffect
     6.3 Appels asynchrones
 
-## 7. Les Hooks
+## 8. Les Hooks
 
     7.1 Introduction
     7.2 Quelques Hooks de base: useHistory, useReducer, useSelector, useMemo
