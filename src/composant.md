@@ -237,10 +237,10 @@ Il est toujours possible avec ReactJs de styliser vos élements via l'attribut s
 ### 2.4.2 Css file/className
 
 Il est possible de sortir le style dans des fichiers CSS et de les importer dans nos composants.
-C’est la bonne pratique préconisée par la team React, pour plus d’information ([La doc ReactJs](https://fr.reactjs.org/docs/dom-elements.html#style)
+C’est la bonne pratique préconisée par la team React, pour plus d’information ([La doc ReactJs](https://fr.reactjs.org/docs/dom-elements.html#style))
 
 ```css
-.monStyle {
+.my_style {
   font-family: sans-serif;
   text-align: center;
   color: red;
@@ -255,28 +255,21 @@ Pour appliquer le CSS sur nos éléments nous devons utiliser la propriété **c
 import React from "react";
 import "./styles.css";
 
-class ChildrenCounter extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = { childrenCount: 0 };
-  }
+function ChildrenCounter() {
+  // Déclare une nouvelle variable d'état, que l'on va appeler « count »
+  const [childrenCount, setChildrenCount] = React.useState(0);
   
-  addChildren() {
-    this.setState({
-     childrenCount: this.state.childrenCount + 1
-    });
+  const addChildren = () => {
+    setChildrenCount(childrenCount + 1);
   }
-  
-  render() {
-    return (
-        <div>
-          <p className="monStyle">Vous avez {this.state.childrenCount} enfant(s)</p>
-          <button onClick={() => this.addChildren()}>
-            Ajouter un enfant
-          </button>
-        </div>
-      );
-  };
+  return (
+    <div>
+    <p className="my_style">
+      Vous avez {childrenCount} enfant(s)
+       </p>
+      <button onClick={() => addChildren()}>Ajouter un enfant</button>
+    </div>
+  );
 }
 ```
 
