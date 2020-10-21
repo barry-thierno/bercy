@@ -68,7 +68,7 @@ class TodoList extends React.Component {
 }
 ```
 
-####:ok_hand: Qu'est ce qui change:
+##:ok_hand: Qu'est ce qui change:
 
 - Pas de manipulation directe du DOM.
 - Séparation entre état et vue (Séparation of concern).
