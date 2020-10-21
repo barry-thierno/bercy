@@ -153,8 +153,8 @@ setTimeout(() => {
 
 Créer un composant **FamilyCounter**, qui permet :
 
-- D’ajouter d’ajouter le nombre d’adulte et diminuer le nombre d’enfants
-- D’ajouter d’ajouter le nombre d’adulte et diminuer le nombre d’adultes
+- D’ajouter et diminuer le nombre d’enfants
+- D’ajouter et diminuer le nombre d’adultes
 - Le nombre d'enfants et d'adultes ne doit pas être inferieur à 0
 
 ![Tranches impot](./images/family-counter.png)
