@@ -93,7 +93,7 @@ function WelcomeMessage() {
 ReactDOM.render(WelcomeMessage(), document.querySelector("#app"));
 ```
 
-[JsFiddle](https://jsfiddle.net/thies05/9nkvzase/302/)
+[JsFiddle](https://jsfiddle.net/thies05/9nkvzase/367/)
 
 ## 1.3 La syntaxe JSX
 
