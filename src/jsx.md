@@ -24,7 +24,7 @@ let compteur = 0;
 
 function renduSansReact() {
   document.querySelector("#app").innerHTML =
-    "<h1>Bienvenue sur le site Bercy <span> " + compteur + "</h1>";
+    "<h1>Bienvenue sur le site Bercy <span> " + compteur + " </span></h1>";
 }
 renduSansReact();
 window.setInterval(() => {
