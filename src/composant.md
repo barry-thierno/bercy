@@ -204,7 +204,7 @@ function ChildrenCounter() {
 }
 ```
 
-[JsFiddle](https://jsfiddle.net/thies05/9nkvzase/186/)
+[JsFiddle](https://jsfiddle.net/thies05/9nkvzase/386/)
 
 **:weight_lifting_man: Exercice 4: Transformer le composant FamilyCounter en Functionnal component**
 Amusez-vous :) !
