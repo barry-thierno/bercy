@@ -232,7 +232,7 @@ Les styles en ligne(Inline Styles) ressemblent et fonctionnent un peu comme CSS,
 ```
 Il est toujours possible avec ReactJs de styliser vos élements via l'attribut style
 
-[jsFiddle](https://jsfiddle.net/thies05/9nkvzase/364/)
+[jsFiddle](https://jsfiddle.net/thies05/9nkvzase/388/)
 
 ### 2.4.2 Css file/className
 
