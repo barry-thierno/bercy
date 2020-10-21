@@ -41,23 +41,23 @@ class TrancheList {
 class TodoList extends React.Component {
   constructor(props) {
     super(props);
-    this.state = { todos: [] };
+    this.state = { tranches: [] };
   }
 
-  addItem(name) {
-    const todos = [...this.state.todos, name];
-    this.setState({ todos: todos });
+  addTranches(tranche) {
+    const tranches = [...this.state.tranches, tranche];
+    this.setState({ tranches: tranches });
   }
 
   render() {
     return (
       <ul>
-        {this.states.todos.map((name) => {
+        {this.states.tranches.map((tranche) => {
           return (
             <li>
-              {name}{" "}
-              <button onClick={this.removeItem.bind(this, name)}>
-                Supprimer
+              {tranche}{" "}
+              <button onClick={this.addTranches.bind(this, tranche)}>
+                Ajouter
               </button>
             </li>
           );
