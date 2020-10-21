@@ -224,7 +224,7 @@ Les styles en ligne(Inline Styles) ressemblent et fonctionnent un peu comme CSS,
     <title>Playing with Inline Styles</title>
   </head>
   <body>
-    <p style="font-family: sans-serif; text-align: center; color: red; background-color: yellow;}">
+    <p style="font-family: sans-serif; text-align: center; color: red; background-color: yellow;">
       I'm a big, blue, <strong>strong</strong> paragraph
     </p>
   </body>
