@@ -151,7 +151,7 @@ ReactDOM.render(WelcomeMessage(), document.querySelector("#app"));
 
 [Jsfiddle](https://jsfiddle.net/thies05/9nkvzase/395/)
 
-### 1.3.2 Les basiles auto fermentes
+### 1.3.3 Les basiles auto fermentes
 
 Quand l'element jsx n'a pas de children, la balise peut être auto-fermante
 
@@ -160,7 +160,7 @@ Quand l'element jsx n'a pas de children, la balise peut être auto-fermante
 + const title = <h1 id={uuid()} className={className} children={message} />;
 ```
 
-## 1.3.3 Conditions
+## 1.3.4 Conditions
 
 > En Jsx, _false_, _null_, _undefined_, sont des elements valides. Ils ne sont simplement pas exploités. Ces expressions JSX produiront toutes la même chose. Ça peut être utile pour afficher des éléments React de façon conditionnelle
 
@@ -210,7 +210,7 @@ function DisplayTranchesImpot({ tranches }) {
 
 [Jsfiddle](https://jsfiddle.net/thies05/9nkvzase/402/)
 
-## 1.3.4 React fragment
+## 1.3.6 React fragment
 
 En React, il est courant pour un composant de renvoyer plusieurs éléments. Les fragments nous permettent de grouper une liste d’enfants sans ajouter de nœud supplémentaire au DOM.
 
