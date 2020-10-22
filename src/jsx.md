@@ -160,7 +160,7 @@ Quand l'element jsx n'a pas de children, la balise peut être auto-fermante
 + const title = <h1 id={uuid()} className={className} children={message} />;
 ```
 
-## 1.3.4 Conditions
+### 1.3.4 Conditions
 
 > En Jsx, _false_, _null_, _undefined_, sont des elements valides. Ils ne sont simplement pas exploités. Ces expressions JSX produiront toutes la même chose. Ça peut être utile pour afficher des éléments React de façon conditionnelle
 
@@ -197,7 +197,7 @@ Ecrire une fonction **DisplayImpot** qui reçoit en paramètre le montant de vos
 
 [Jsfiddle](https://jsfiddle.net/thies05/cx93rhLg/15/)
 
-## 1.3.5 Boucles
+### 1.3.5 Boucles
 
 ```jsx
 function DisplayTranchesImpot({ tranches }) {
@@ -210,7 +210,7 @@ function DisplayTranchesImpot({ tranches }) {
 
 [Jsfiddle](https://jsfiddle.net/thies05/9nkvzase/402/)
 
-## 1.3.6 React fragment
+### 1.3.6 React fragment
 
 En React, il est courant pour un composant de renvoyer plusieurs éléments. Les fragments nous permettent de grouper une liste d’enfants sans ajouter de nœud supplémentaire au DOM.
 
