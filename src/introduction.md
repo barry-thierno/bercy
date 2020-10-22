@@ -17,8 +17,8 @@ class TrancheList {
     this.element = element;
   }
 
-  addTranche(name) {
-    this.tranches.push(name);
+  addTranche(tranche) {
+    this.tranches.push(tranche);
     const li = document.createElement("li");
     const a = document.createElement("a");
     a.innerText = "Supprimer";
