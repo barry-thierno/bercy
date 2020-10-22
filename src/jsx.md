@@ -111,7 +111,7 @@ const userName = "Yannick";
 function WelcomeMessage() {
   const title = (
     <h1>
-      Bienvenu sur le site de Bercy <span> {userName}</span>
+      <span>Bienvenu sur le site de Bercy {userName}</span>
     </h1>
   );
   return title;
@@ -140,7 +140,7 @@ function WelcomeMessage() {
   const className = "bercy-bienvenue-msg";
   const title = (
     <h1 id="unique-id" className={className}>
-      Bienvenu sur le site de Bercy <span> {userName}</span>
+       <span> Bienvenu sur le site de Bercy {userName}</span>
     </h1>
   );
   return title;
@@ -149,7 +149,7 @@ function WelcomeMessage() {
 ReactDOM.render(WelcomeMessage(), document.querySelector("#app"));
 ```
 
-[Jsfiddle](https://jsfiddle.net/thies05/9nkvzase/311/)
+[Jsfiddle](https://jsfiddle.net/thies05/9nkvzase/395/)
 
 ### 1.3.2 Les basiles auto fermentes
 
