@@ -195,7 +195,7 @@ const [childrenCount, setChildrenCount] = React.useState(0);
 - **A quoi correspond l'argument ?**
   Le seul argument à passer au Hook useState() est l’état initial. Contrairement à ce qui se passe dans les classes, l’état local n’est pas obligatoirement un objet. Il peut s’agir d’un nombre ou d’une chaîne de caractères si ça nous suffit.
 - **Que renvoie useState ?**
-  Elle renvoie une paire de valeurs : l’état actuel et une fonction pour le modifier. C’est pourquoi nous écrivons const [count, setCount] = useState(). C’est semblable à this.state.count et this.setState dans une classe, mais ici nous les récupérons en même temps.
+  Elle renvoie une paire de valeurs : l’état actuel et une fonction pour le modifier. C’est pourquoi nous écrivons const [childrenCount, setChildrenCount] = useState(). C’est semblable à this.state.childrenCount et this.setState dans une classe, mais ici nous les récupérons en même temps.
 
 Transformons notre composant ChildrenCounter en composant fonctionnel
 
