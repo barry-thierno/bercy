@@ -202,14 +202,14 @@ Ecrire une fonction **DisplayImpot** qui reçoit en paramètre le montant de vos
 
 ```jsx
 function DisplayTranchesImpot({ tranches }) {
-  const tauxInpositions = tranches.map(tranche => (
-    <div key={tranche.id}>{tranche.tauxImposition}</div>
-  ));
-  return tauxInpositions;
+	const tauxInpositions = tranches.map(tranche => (
+		<li key={tranche.id}>{tranche.tauxImposition}</li>
+	));
+	return <ul>{tauxInpositions}</ul>;
 }
 ```
 
-[Jsfiddle](https://jsfiddle.net/thies05/9nkvzase/385/)
+[Jsfiddle](https://jsfiddle.net/thies05/9nkvzase/402/)
 
 ## 1.3.4 React fragment
 
