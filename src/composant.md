@@ -4,6 +4,8 @@
 
 Les composants vous permettent de diviser l'interface utilisateur en éléments indépendants et réutilisables. L'idée est de séparer une page en plusieurs petits composants réutilisables (Atomic design).
 
+![Tranches impot](./images/instagram-atomic.png)
+
 
 > Nous pouvons définir techniquement la notion de composant de deux manières différentes.
 
