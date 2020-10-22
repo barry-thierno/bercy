@@ -100,8 +100,10 @@ Le state doit obeir à ces règles suivantes:
 React met à disposition une API qui permet de gérer le cycle de vie des composants. Cette API est notamment utile quand il faut allouer ou libérer les ressources utilisées par les composants quand ils sont détruits.
 
 - **Quand le composant est monté :** la méthode **componentDidMount()** permet d’exécuter du code quand le composant est monté _i.e quand le composant apparait dans l’arbre DOM_.
+- **Quand le composant est mis à jours :** la méthode **componentDidUpdate()** permet d’exécuter du code quand le composant est mis à jours _i.e quand vous modifez le state ou le props de votre composant_.
 - **Quand le composant est démonté :** la méthode **componentWillUnmount()** permet d’exécuter du code quand le composant est démonté _i.e quand le composant est supprimé dans l’arbre DOM._
 
+Vous pouvez voir le reste des methodes de gestions du cycle de vie de vos composants ReactJs sur [le site ReactJs](https://fr.reactjs.org/docs/react-component.html#mounting) 
 ```jsx
 class ChildrenCounter extends React.Component {
   constructor(props) {
