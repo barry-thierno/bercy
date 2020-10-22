@@ -140,7 +140,7 @@ function WelcomeMessage() {
   const className = "bercy-bienvenue-msg";
   const title = (
     <h1 id="unique-id" className={className}>
-       <span> Bienvenu sur le site de Bercy {userName}</span>
+      <span> Bienvenu sur le site de Bercy {userName}</span>
     </h1>
   );
   return title;
@@ -190,7 +190,6 @@ On peut aussi utiliser les condtions ternaires.
 **:weight_lifting_man: Exercice 1**
 **Afficher le montant d'imposition**
 
-
 Ecrire une fonction **DisplayImpot** qui reçoit en paramètre le montant de vos impôts et affiche les messages suivants.
 
 - Si le montant des impôts est supérieur à 0 : _« Le montant de vos impôts est :xxxxx »_
@@ -202,10 +201,10 @@ Ecrire une fonction **DisplayImpot** qui reçoit en paramètre le montant de vos
 
 ```jsx
 function DisplayTranchesImpot({ tranches }) {
-	const tauxInpositions = tranches.map(tranche => (
-		<li key={tranche.id}>{tranche.tauxImposition}</li>
-	));
-	return <ul>{tauxInpositions}</ul>;
+  const tauxInpositions = tranches.map((tranche) => (
+    <li key={tranche.id}>{tranche.tauxImposition}</li>
+  ));
+  return <ul>{tauxInpositions}</ul>;
 }
 ```
 
@@ -240,6 +239,7 @@ function RenderFragment() {
   );
 }
 ```
+
 **:weight_lifting_man: Exercice 2**
 **Afficher les tranches d'imposition avec leur details**
 
