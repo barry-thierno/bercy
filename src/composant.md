@@ -113,8 +113,10 @@ class ChildrenCounter extends React.Component {
     this.state = { childrenCount: 0 };
   }
 
-  componentWillMount() {
+  static getDerivedStateFromProps(props, state) {
     console.info("component will mount");
+    console.info("mon état local: ", state);
+    console.info("Les valeurs reçues", props);
   }
 
   componentDidMount() {
