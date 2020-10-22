@@ -162,7 +162,7 @@ Quand l'element jsx n'a pas de children, la balise peut être auto-fermante
 
 ## 1.3.3 Conditions
 
-> En Jsx, _false_, _null_, _undefined_, et _true_ sont des elements valides. Ils ne sont simplement pas exploités. Ces expressions JSX produiront toutes la même chose. Ça peut être utile pour afficher des éléments React de façon conditionnelle
+> En Jsx, _false_, _null_, _undefined_, sont des elements valides. Ils ne sont simplement pas exploités. Ces expressions JSX produiront toutes la même chose. Ça peut être utile pour afficher des éléments React de façon conditionnelle
 
 ```jsx
 function WelcomeMessage(userName) {
