@@ -203,12 +203,15 @@ Transformons notre composant ChildrenCounter en composant fonctionnel
 function ChildrenCounter() {
   // Déclare une nouvelle variable d'état, que l'on va appeler « count »
   const [childrenCount, setChildrenCount] = React.useState(0);
+  
+  const addChildren = () => {
+    setChildrenCount(childrenCount + 1);
+  }
+  
   return (
     <div>
       <p>Vous avez {childrenCount} enfant(s)</p>
-      <button onClick={() => setChildrenCount(childrenCount + 1)}>
-        Ajouter un enfant
-      </button>
+      <button onClick={() => addChildren()}>Ajouter un enfant</button>
     </div>
   );
 }
