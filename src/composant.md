@@ -4,7 +4,7 @@
 
 Les composants vous permettent de diviser l'interface utilisateur en éléments indépendants et réutilisables. L'idée est de séparer une page en plusieurs petits composants réutilisables (Atomic design).
 
-![Tranches impot](./images/instagram-atomic.png)
+![Atomic design](./images/instagram-atomic.png)
 
 
 > Nous pouvons définir techniquement la notion de composant de deux manières différentes.
@@ -102,6 +102,8 @@ React met à disposition une API qui permet de gérer le cycle de vie des compos
 - **Quand le composant est monté :** la méthode **componentDidMount()** permet d’exécuter du code quand le composant est monté _i.e quand le composant apparait dans l’arbre DOM_.
 - **Quand le composant est mis à jours :** la méthode **componentDidUpdate()** permet d’exécuter du code quand le composant est mis à jours _i.e quand vous modifez le state ou le props de votre composant_.
 - **Quand le composant est démonté :** la méthode **componentWillUnmount()** permet d’exécuter du code quand le composant est démonté _i.e quand le composant est supprimé dans l’arbre DOM._
+
+![Cycle de vie des composats ReactJs](./images/cycle-de-vie.png)
 
 Vous pouvez voir le reste des methodes de gestions du cycle de vie de vos composants ReactJs sur [le site ReactJs](https://fr.reactjs.org/docs/react-component.html#mounting) 
 ```jsx
