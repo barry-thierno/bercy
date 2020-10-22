@@ -165,6 +165,7 @@ Créer un composant **FamilyCounter**, qui permet :
 - D’ajouter et diminuer le nombre d’enfants
 - D’ajouter et diminuer le nombre d’adultes
 - Le nombre d'enfants et d'adultes ne doit pas être inferieur à 0
+- Le nombre d'adultes ne doit pas être superieur à 2
 
 ![Tranches impot](./images/family-counter.png)
 
