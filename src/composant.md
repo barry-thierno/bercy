@@ -2,7 +2,8 @@
 
 ## 2.1. Notion de composant
 
-Les composants vous permettent de diviser l'interface utilisateur en éléments indépendants et réutilisables . L'idée est de séparer une page en plusieurs petits composants réutilisables (Atomic desgin).
+Les composants vous permettent de diviser l'interface utilisateur en éléments indépendants et réutilisables. L'idée est de séparer une page en plusieurs petits composants réutilisables (Atomic design).
+
 
 > Nous pouvons définir techniquement la notion de composant de deux manières différentes.
 
@@ -233,6 +234,8 @@ Les styles en ligne(Inline Styles) ressemblent et fonctionnent un peu comme CSS,
 Il est toujours possible avec ReactJs de styliser vos élements via l'attribut style.
 
 ```jsx
+import React from "react";
+
 function ChildrenCounter() {
   // Déclare une nouvelle variable d'état, que l'on va appeler « count »
   const [childrenCount, setChildrenCount] = React.useState(0);
