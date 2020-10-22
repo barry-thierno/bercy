@@ -230,7 +230,27 @@ Les styles en ligne(Inline Styles) ressemblent et fonctionnent un peu comme CSS,
   </body>
 </html>
 ```
-Il est toujours possible avec ReactJs de styliser vos élements via l'attribut style
+Il est toujours possible avec ReactJs de styliser vos élements via l'attribut style.
+
+```jsx
+function ChildrenCounter() {
+  // Déclare une nouvelle variable d'état, que l'on va appeler « count »
+  const [childrenCount, setChildrenCount] = React.useState(0);
+  
+  const addChildren = () => {
+    setChildrenCount(childrenCount + 1);
+  }
+  
+  return (
+    <div>
+      <p style={{color: "red", backgroundColor: "yellow", fontSize: "20px"}}>
+        Vous avez {childrenCount} enfant(s)
+      </p>
+      <button onClick={() => addChildren()}>Ajouter un enfant</button>
+    </div>
+  );
+}
+```
 
 [jsFiddle](https://jsfiddle.net/thies05/9nkvzase/388/)
 
