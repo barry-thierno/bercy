@@ -120,7 +120,7 @@ function WelcomeMessage() {
 ReactDOM.render(WelcomeMessage(), document.querySelector("#app"));
 ```
 
-[Jsfiddle](https://jsfiddle.net/thies05/9nkvzase/305/)
+[Jsfiddle](https://jsfiddle.net/thies05/9nkvzase/391/)
 
 > Tous les elements HTML5 sont utilisables de manière equivalente dans la syntaxe JSX.
 
