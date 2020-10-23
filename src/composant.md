@@ -15,7 +15,7 @@ Les composants vous permettent de diviser l'interface utilisateur en éléments 
   function WelcomeMessage(props) {
     return (
       <h1>
-        Bienvenu <em>{props.userName}</em> sur le site de Bercy.
+        Bienvenue <em>{props.userName}</em> sur le site de Bercy.
       </h1>
     );
   }
@@ -32,7 +32,7 @@ Les composants vous permettent de diviser l'interface utilisateur en éléments 
     render() {
       return (
         <h1>
-          Bienvenu <span>{this.props.userName}</span> sur le site de Bercy
+          Bienvenue <span>{this.props.userName}</span> sur le site de Bercy
         </h1>
       );
     }

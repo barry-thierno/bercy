@@ -84,7 +84,7 @@ Modifier le fichier _index.html_ pour ajouter la dependance Babel
 function WelcomeMessage() {
   const title = (
     <h1>
-      Bienvenu sur le site de Bercy <span> Yannick</span>
+      Bienvenue sur le site de Bercy <span> Yannick</span>
     </h1>
   );
   return title;
@@ -111,7 +111,7 @@ const userName = "Yannick";
 function WelcomeMessage() {
   const title = (
     <h1>
-      <span>Bienvenu sur le site de Bercy {userName}</span>
+      <span>Bienvenue sur le site de Bercy {userName}</span>
     </h1>
   );
   return title;
@@ -140,7 +140,7 @@ function WelcomeMessage() {
   const className = "bercy-bienvenue-msg";
   const title = (
     <h1 id="unique-id" className={className}>
-      <span> Bienvenu sur le site de Bercy {userName}</span>
+      <span> Bienvenue sur le site de Bercy {userName}</span>
     </h1>
   );
   return title;
