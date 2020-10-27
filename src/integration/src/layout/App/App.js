@@ -1,35 +1,23 @@
 import React from 'react';
-import { BrowserRouter as Router } from 'react-router-dom';
-import {
-  AuthenticationProvider,
-  InMemoryWebStorage,
-  OidcSecure,
-} from '@axa-fr/react-oidc-context';
+import { Title } from '@axa-fr/react-toolkit-all';
+import Home from 'pages/Home/Home';
+import HeaderLayout from 'layout/Header/HeaderLayout';
+import FooterLayout from 'layout/Footer/FooterLayout';
+import './App.css';
 
-import Header from 'layout/Header';
-import Routes from 'layout/Routes';
-import Footer from 'layout/Footer';
-import oidcConfiguration from 'configuration';
-
-import './App.scss';
-
-const App = ({ oidcEnabled = false }) => {
-  return (
-    <AuthenticationProvider
-      configuration={oidcConfiguration.is4}
-      UserStore={InMemoryWebStorage}
-      isEnabled={oidcEnabled}>
-      <Router>
-        <OidcSecure>
-          <Header />
-          <div className="app">
-            <Routes />
-          </div>
-          <Footer />
-        </OidcSecure>
-      </Router>
-    </AuthenticationProvider>
-  );
-};
+const App = () => (
+  <>
+    <div className="app">
+      <HeaderLayout />
+      <Title title="Home Page" />
+      <div className="app-content">
+        <div className="container">
+          <Home />
+        </div>
+      </div>
+      <FooterLayout />
+    </div>
+  </>
+);
 
 export default App;
