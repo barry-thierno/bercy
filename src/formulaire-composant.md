@@ -11,6 +11,8 @@ Par exemple, dans le cas de notre projet Bercy, le composant qui permet de séle
 Pour faire communiquer des composants, React propose le pattern de _**"communication unidirectionnel"**_ ou _**"unidirectional data flow"**_ ou _**"One way Data flow"**_
 L'idée
 
+> La communication unidirectionnelle, les données circulent dans une direction, du parent à l'enfant.
+
 ![Flow React](./images/data-flow.jpg)
 
 Pour mettre en oeuvre ce pattern, il faudrait passer par ces étapes: da hiérarchisation des composants, le passage des props et des callbacks
