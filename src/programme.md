@@ -41,7 +41,7 @@
 ## 6. Faire communiquer des composants
 
     5.1 Flow descendant (props)
-    5.3 Flow ascendant (callback)
+    5.3 Flow ascendant (callback)1
 
 ## 7. Les effets de bord
 
