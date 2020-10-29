@@ -32,6 +32,7 @@ Vous trouverez ci-dessous l'intégration qui permet de construire le composant d
 - Appéller le composant **FilterableSliceTable** dans le composant **Home**
 - Copiez et collez ci-dessous et faites les imports necessaires
 - En se servant des commentaires laissés dans le code, sortez des composants fonctionnels conformement à la hierachie presentée plus haut (Dans le même fichier)
+> Pour le composant SliceTableRow pensez à passer la bornes inférieures(lowBorn), supérieure(highBorn) et le taux(rate) en Props
 
 ```jsx
 // FilterableSliceTable
