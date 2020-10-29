@@ -21,7 +21,7 @@ Pour mettre en oeuvre ce pattern, il faudrait passer par ces étapes: la hiérar
 
 L’idée est de décomposer l’interface utilisateur en une hiérarchie de composants tout en identifiant les composants père et fils. Dans notre nous allons décomposer le composant qui permet d’afficher les tranches d’imposition comme suit :
 
-![Tranches impot](./images/tranches-filter.jpg)
+![Tranches impot](./images/tranches-filter.JPG)
 
 **:weight_lifting_man: Exercice 6.1 : construire une version statique du composant qui permet d’afficher les tranches :**
 
