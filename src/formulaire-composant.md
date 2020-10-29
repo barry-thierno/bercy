@@ -172,14 +172,14 @@ const getAllTranches = () => [
 
 ## 6.3 Flow ascendant (callback)
 
-Nous avons vu comment les composants père peuvent impacter ses fils via les props. Les props étant immutables, le composant père peut passer à ses fils une callbacks qui permet de mettre à jour ces derniers ce qui à pour effet de propager ces modifications et de déclencher une réactualisation de toute l’arborescence des composants.
+Nous avons vu comment les composants père peuvent impacter ses fils via les props. Les props étant immutables, le composant père peut passer à ses fils une callback qui permet de mettre à jour ces derniers. Ce qui à pour effet de rétropropagager ces modifications et de déclencher une réactualisation de toute l’arborescence des composants.
 
 ![flow react complet](https://cdn-images-1.medium.com/max/1600/1*PBgAz9U9SrkINPo-n5glgw.gif)
 
 **:weight_lifting_man: Exercice 6.3 : Dynamiser le tableau qui permet d'afficher les tranches d'imposition**
 Le composant père (_FilterableSliceTable_) garde l'état qui contient l'année selectionnée, nous allons dans ce exercice passer cet état au composant **SliceYearSelect** ainsi que sa fonction de mise à jour.
 
-- Ajoutez au composant **SliceYearSelect** les props **selectedYear** et **setSelectedYear** qui correspondent respectivement à l'année selection et de sa fonction de mise à jour
+- Ajoutez au composant **SliceYearSelect** les props **selectedYear** et **setSelectedYear** qui correspondent respectivement à l'année selectionnée et de sa fonction de mise à jour
 - Interceptez les changements du composant **SelectBase** via l'évènement **onChange** declenché.
   > La fonction **onChange** déclenche un évènement qui contient les propriété suivantes:
   >
