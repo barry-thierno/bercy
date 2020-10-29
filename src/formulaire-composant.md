@@ -53,6 +53,20 @@ On appelle ces composants des composants contrôlés, car la "source unique de v
 
 **Exercice 5.2 : formulaire Bercy**
 
+Objectif: créer un formulaire permettant de calculer le montant de ces impôts. Pour cela on part de l'application obtenue lors de la dernière session, auquelle on a rajouté un formulaire. Attention, ici on utilise comme input des composants du [Toolkit](https://axaguildev.github.io/react-toolkit/latest/storybook/index.html?path=/story/form-input-text--text)!
+
+- Récuperer le code:
+
+```shell
+git checkout react-dojo__integration_partie3
+git pull
+cd src/integration
+npm install
+```
+
+- Permettre à l'utilisateur de modifier les champs.
+- Lorsque l'utilisateur clique sur "Calculer", calculer le taux d'imposition, le montant d'impôt et le nombre de parts grâce à la méthode calculImpot, et afficher les résultats dans la section "Résultat".
+
 # 6. Faire communiquer des composants
 
 Jusqu’à maintenant, nous avons appris à créer des composants à avec un état interne. Cependant les composants ont besoin d’échanger de l’informations entre eux.
