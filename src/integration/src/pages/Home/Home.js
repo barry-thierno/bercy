@@ -4,28 +4,25 @@ import {
   SelectBase,
   Button,
   Restitution,
-  Number,
 } from '@axa-fr/react-toolkit-all';
 import './Home.css';
+import { calculImpot } from '../../calculateur/bercy';
 
 const Home = () => {
-  const [nombreAdultes, setNombresAdultes] = useState('');
-
   return (
     <>
       <div className="tax-calculation">
         <div className="tax-calculation_content">
           <form className="af-form tax-form">
-            <h1 className="af-title--content">Formulaire</h1>
+            <h2 className="af-title--content">Formulaire</h2>
             <div className="af-form__group">
               <dl>
                 <dt>Nombre adulte(s) :</dt>
                 <dd>
-                  <Number
+                  <Text
                     id="adultnumber"
                     name="adultnumber"
-                    onChange={event => setNombresAdultes(event.value)}
-                    value={nombreAdultes}
+                    onChange={event => console.log(event)}
                   />
                 </dd>
               </dl>
@@ -35,7 +32,7 @@ const Home = () => {
                   <Text
                     id="salaryamount"
                     name="salaryamount"
-                    onChange={undefined}
+                    onChange={event => console.log(event)}
                   />
                 </dd>
               </dl>
@@ -45,7 +42,7 @@ const Home = () => {
                   <Text
                     id="numberofchildren"
                     name="numberofchildren"
-                    onChange={undefined}
+                    onChange={event => console.log(event)}
                   />
                 </dd>
               </dl>
@@ -60,7 +57,7 @@ const Home = () => {
                       { value: '2020', label: '2020' },
                     ]}
                     value="2020"
-                    onChange={undefined}
+                    onChange={event => console.log(event)}
                   />
                 </dd>
               </dl>
@@ -69,18 +66,18 @@ const Home = () => {
               <Button
                 classModifier="hasiconLeft"
                 id="validation-button"
-                onClick={undefined}>
+                onClick={event => console.log(event)}>
                 <span className="af-btn__text">Calculer</span>
                 <i className="glyphicon glyphicon-stats" />
               </Button>
             </div>
           </form>
 
-          <h1 className="af-title--content">Résultat</h1>
+          <h2 className="af-title--content">Résultat</h2>
           <div className="tax-result">
-            <Restitution label="Taux d'imposition" value="***" />
+            <Restitution label="Taux d'imposition" value="****" />
             <Restitution label="Montant impôt" value="****" />
-            <Restitution label="Nombre de part" value="****" />
+            <Restitution label="Nombre de parts" value="****" />
           </div>
         </div>
       </div>
