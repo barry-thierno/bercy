@@ -106,39 +106,38 @@ Selon pattern unidirectionnel, les composants parents peuvent passer de l'inform
 - Vous disposez ci-dessous d'une fonction qui retourne les tranches pour les années 2019 et 2020
 
 ```javascript
-const findTranchesByYear = (year) => tranches.find((t) => year === year);
 const getAllTranches = () => [
   {
     year: 2019,
     tranches: [
       {
         id: 1,
-        tauxImposition: 0.0,
-        limiteInf: 0,
-        limiteSup: 10064,
+        rate: 0.0,
+        lowBorn: 0,
+        highBorn: 10064,
       },
       {
         id: 2,
-        tauxImposition: 0.11,
-        limiteInf: 10064,
-        limiteSup: 25659,
+        rate: 0.11,
+        lowBorn: 10064,
+        highBorn: 25659,
       },
       {
         id: 3,
-        tauxImposition: 0.3,
-        limiteInf: 25659,
-        limiteSup: 73369,
+        rate: 0.3,
+        lowBorn: 25659,
+        highBorn: 73369,
       },
       {
         id: 4,
-        tauxImposition: 0.41,
-        limiteInf: 73369,
-        limiteSup: 157806,
+        rate: 0.41,
+        lowBorn: 73369,
+        highBorn: 157806,
       },
       {
         id: 5,
-        tauxImposition: 0.45,
-        limiteInf: 157806,
+        rate: 0.45,
+        lowBorn: 157806,
       },
     ],
   },
@@ -147,32 +146,32 @@ const getAllTranches = () => [
     tranches: [
       {
         id: 1,
-        tauxImposition: 0.0,
-        limiteInf: 0,
-        limiteSup: 10064,
+        rate: 0.0,
+        lowBorn: 0,
+        highBorn: 10064,
       },
       {
         id: 2,
-        tauxImposition: 0.11,
-        limiteInf: 10064,
-        limiteSup: 25659,
+        rate: 0.11,
+        lowBorn: 10064,
+        highBorn: 25659,
       },
       {
         id: 3,
-        tauxImposition: 0.3,
-        limiteInf: 25659,
-        limiteSup: 73369,
+        rate: 0.3,
+        lowBorn: 25659,
+        highBorn: 73369,
       },
       {
         id: 4,
-        tauxImposition: 0.41,
-        limiteInf: 73369,
-        limiteSup: 157806,
+        rate: 0.41,
+        lowBorn: 73369,
+        highBorn: 157806,
       },
       {
         id: 5,
-        tauxImposition: 0.45,
-        limiteInf: 157806,
+        rate: 0.45,
+        lowBorn: 157806,
       },
     ],
   },
