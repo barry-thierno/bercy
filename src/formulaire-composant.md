@@ -1,8 +1,57 @@
 # 5. Formulaires
 
-## 5.1 Events
+La gestion des formulaires est gérée de manière assez différente en React qu'avec d'autres frameworks. Il y a moins de "magie" qu'en AngularJS par exemple, ce qui signifie qu'il y a plus de code à écrire ou bien qu'on peut ajouter une librairie pour nous aider à gérer les formulaires.
 
-## 5.2 Validation de saisies
+## 5.1 Gestion des événements
+
+Connaitre le fonctionnement des événements est un prérequis à la gestion des formulaires en React.
+
+La gestion des événements pour les éléments React est très similaire à celle des éléments du DOM. Cf le même exemple en HTML et en React:
+
+```html
+<button onclick="hello()">Coucou</button>
+```
+
+```jsx
+<button onClick={hello}>Coucou</button>
+```
+
+Pouvez-vous voir les différences ?
+
+HTML: minuscules et string
+
+React: camelCase et fonction
+
+## 5.2 Gestion des inputs
+
+En HTML, les input utilisateurs maintiennent généralement leur propre état et se mettent à jour par rapport aux saisies de l’utilisateur. En React, l’état modifiable est généralement stocké dans le state des composants.
+
+Exemple en React:
+
+```jsx
+function Form() {
+  const [name, setName] = useState("");
+
+  const handleChange = (event) => {
+    const newValue = event.target.value;
+    setName(newValue);
+  };
+
+  return <input type="text" value={name} onChange={handleChange} />;
+}
+```
+
+L'event ici est un [événement synthétique](https://fr.reactjs.org/docs/events.html), un évènement avec la même interface que l'événement natif, mais compatible avec tous les navigateurs. Il nous sert ici à récupérer la nouvelle valeur du champ à chaque frappe de l'utilisateur.
+
+La gestion des balises [select](https://fr.reactjs.org/docs/forms.html#the-select-tag) et [textarea](https://fr.reactjs.org/docs/forms.html#the-textarea-tag) est très similaire.
+
+On appelle ces composants des composants contrôlés, car la "source unique de vérité" est l'état local React des composants, il n'y a plus d'état gérer par le DOM.
+
+**Exercice 5.1 : créer un composant contrôlé**
+
+[Lien vers l'exercice](https://codesandbox.io/s/wizardly-chatterjee-bukep?file=/src/DroitAuBut.js)
+
+**Exercice 5.2 : formulaire Bercy**
 
 # 6. Faire communiquer des composants
 
