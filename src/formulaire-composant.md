@@ -2,20 +2,17 @@
 
 ## 5.1 Events
 
-## 5.2 Validation de saisies
-
 # 6. Faire communiquer des composants
 
-Jusqu’à maintenant, nous avons appris à créer des composants à avec un état interne. Cependant les composants ont besoin d’échanger de l’informations entre eux.
+Nous avons appris à créer des composants avec un état interne. Cependant les composants ont besoin d’échanger de l’informations entre eux.
 Par exemple, dans le cas de notre projet Bercy, le composant qui permet de sélectionner l’année doit échanger de l’information avec le composant qui permet de lister les tranches d’imposition.
 Pour faire communiquer des composants, React propose le pattern de _**"communication unidirectionnel"**_ ou _**"unidirectional data flow"**_ ou _**"One way Data flow"**_
-L'idée
 
 > _La communication unidirectionnelle suggère que les données circulent dans une direction, du parent à l'enfant._
 
 ![Flow React](./images/data-flow.jpg)
 
-Pour mettre en oeuvre ce pattern, il faudrait passer par ces étapes: la hiérarchisation des composants, le passage des props et des callbacks
+Pour mettre en oeuvre ce pattern, il faudrait passer par ces étapes: la hiérarchisation des composants, le passage des props et la rétropropagation  via les callbacks
 
 ## 6.1 Hiérarchisation des composants
 
