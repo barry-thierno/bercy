@@ -35,59 +35,62 @@ Vous trouverez ci-dessous l'intégration qui permet de construire le composant d
 
 ```jsx
 // FilterableSliceTable
-<aside className="tax-calculation_maximum-ceiling">
-  <section className="af-panel">
-    <header className="af-panel__header">
-      // SliceYearSelect
-      <span className="af-panel__title">Taux d'imposition par année</span>
-      <SelectBase
-        key="key"
-        name="name"
-        options={[
-          { value: "2019", label: "2019" },
-          { value: "2020", label: "2020" },
-        ]}
-        value="2020"
-      />
-    </header>
-    <div className="af-panel__content">
-      // SliceTable
-      <Table className="af-table">
-        // SliceTableHeader
-        <Table.Header>
-          <Table.Tr>
-            <Table.Th>
-              <span className="af-table-th-content">Tranches</span>
-            </Table.Th>
-            <Table.Th>
-              <span className="af-table-th-content">Taux d'imposition</span>
-            </Table.Th>
-          </Table.Tr>
-        </Table.Header>
-        <Table.Body>
-          // SliceTableRow
-          <Table.Tr>
-            <Table.Td>
-              <span className="af-table-body-content">jusqu'à 9 964€</span>
-            </Table.Td>
-            <Table.Td>
-              <b>0%</b>
-            </Table.Td>
-          </Table.Tr>
-          // SliceTableRow
-          <Table.Tr>
-            <Table.Td>
-              <span className="af-table-body-content">de 9964 à 27519</span>
-            </Table.Td>
-            <Table.Td>
-              <b>14%</b>
-            </Table.Td>
-          </Table.Tr>
-        </Table.Body>
-      </Table>
-    </div>
-  </section>
-</aside>
+<section className="af-panel">
+        <header className="af-panel__header">
+         {/* SliceYearSelect */}
+          <span className="af-panel__title">Taux d'imposition par année</span>
+          <SelectBase
+            key="key"
+            name="name"
+            options={[
+              { value: '2019', label: '2019' },
+              { value: '2020', label: '2020' },
+            ]}
+            value="2020"
+          />
+        </header>
+        <div className="af-panel__content">
+          {/* SliceTable */}
+          <Table className="af-table">
+            <Table.Header>
+              <Table.Tr>
+                <Table.Th>
+                  <span className="af-table-th-content">Tranches</span>
+                </Table.Th>
+                <Table.Th>
+                  <span className="af-table-th-content">
+                    Taux d'imposition
+                  </span>
+                </Table.Th>
+              </Table.Tr>
+            </Table.Header>
+            <Table.Body>
+              {/* SliceTableRow */}
+              <Table.Tr>
+                <Table.Td>
+                  <span className="af-table-body-content">
+                    jusqu'à 9 964€
+                  </span>
+                </Table.Td>
+                <Table.Td>
+                  <b>0%</b>
+                </Table.Td>
+              </Table.Tr>
+              {/* SliceTableRow */}
+              <Table.Tr>
+                <Table.Td>
+                  <span className="af-table-body-content">
+                    de 9964 à 27519
+                  </span>
+                </Table.Td>
+                <Table.Td>
+                  <b>14%</b>
+                </Table.Td>
+              </Table.Tr>
+            </Table.Body>
+          </Table>
+        </div>
+      </section>
 ```
 
 ## 6.2 Flow descendant (props)
