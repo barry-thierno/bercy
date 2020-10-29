@@ -28,8 +28,8 @@ L’idée est de décomposer l’interface utilisateur en une hiérarchie de com
 Vous trouverez ci-dessous l'intégration qui permet de construire le composant d'affichage des tranches
 
 - Créez un fichier **FilterableSliceTable.jsx**
-- Créez un composant fonctionnel qui va s'appeller **FilterableSliceTable**
-- Appéller le composant **FilterableSliceTable** dans le ?????
+- Créez un composant fonctionnel qui va s'appeller **FilterableSliceTable** (Pensez aux imports necessaires et à l'export du composant)
+- Appéller le composant **FilterableSliceTable** dans le composant **Home**
 - Copiez et collez ci-dessous et faites les imports necessaires
 - En se servant des commentaires laissés dans le code, sortez des composants fonctionnels conformement à la hierachie presentée plus haut (Dans le même fichier)
 
