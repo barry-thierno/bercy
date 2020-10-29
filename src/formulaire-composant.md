@@ -49,6 +49,7 @@ Vous trouverez ci-dessous l'intégration qui permet de construire le composant d
   <div className="af-panel__content">
     {/* SliceTable */}
     <Table className="af-table">
+       {/* SliceTableHeader */}
       <Table.Header>
         <Table.Tr>
           <Table.Th>
