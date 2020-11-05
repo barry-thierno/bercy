@@ -145,7 +145,7 @@ const MyFooter = () => (
 import React from 'react';
 import Title from '@axa-fr/react-toolkit-all';
 
-const MyTitle => (
+const MyTitle = () => (
   <Title title="Toolkit Axa" subtitle="Info complémentaire" />
 );
 ```
