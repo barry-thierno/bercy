@@ -18,7 +18,7 @@ Pour plus de lisibilité, nous avons volontairement allégé ce starter.
 Dans la partie gauche on trouve l'explorateur de fichiers. Les deux fichiers essentiels sont :
 
 - Index.js -> Fichier qui sert à initialiser l’application React.
-- App.js -> le composant App qui affiche le message « Hello Wolrd ». C’est dans ce composant que nous ferons nos exercices. Mais tout d’abord une présentation « toolkit Axa » s’impose.
+- App.js -> le composant App qui affiche le message « Hello World ». C’est dans ce composant que nous ferons nos exercices. Mais tout d’abord une présentation « toolkit Axa » s’impose.
 
 ## 3.3 Le Toolkit AXA
 
@@ -111,7 +111,7 @@ Retrouvez ici, l'ensemble des composants à utiliser :
 import React from 'react';
 import { Header, Name } from '@axa-fr/react-toolkit-all';
 
-const MyHeader => (
+const MyHeader = () => (
   <Header>
     <Name
       title="Ma nouvelle application"
@@ -132,7 +132,7 @@ const MyHeader => (
 import React from 'react';
 import { Footer } from '@axa-fr/react-toolkit-all';
 
-const MyFooter => (
+const MyFooter = () => (
   <Footer icon="logo-axa.svg" copyright="© 2020 AXA" />
 );
 ```
