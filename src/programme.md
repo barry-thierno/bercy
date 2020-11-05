@@ -65,7 +65,7 @@
     8.1 Context API
     8.2 Redux -->
 
-## 9. Tests unitaire des hooks et context API
+## 9. Tests unitaires des hooks et context API
 
     9.1 Introduction
     9.2 Testing library
