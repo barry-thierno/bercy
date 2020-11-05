@@ -10,18 +10,12 @@ React mets à disposition un environnement qui permet de démarrer confortableme
 
 ## 3.2 Initialiser un projet AXA
 
-Avant de commencer, il faut avoir fait les prérequis partie 2.
-
 La Cop Frontend met à disposition un starter. C’est un projet basé sur le CRA et qui met à disposition les librairies de base qu’elle recommande. De plus, le starter intègre une architecture de projet préconisée par la COP et aussi par le toolkit Axa.
 
-Pour plus de lisibilité, nous avons volontairement allégé ce starter.
+Pour plus de lisibilité, nous avons volontairement allégé ce starter. 
+[Cliquer dès à présent sur ce lien](https://codesandbox.io/s/reactdojopartie2-nt6bg/), le navigateur va s’ouvrir sur une page avec l'editeur de code en ligne « CodeSandbox ».
 
-Ouvrir votre visual « Studio Code » sur le projet cloné, c’est-à-dire le dossier « dossierdudojo/bercy ». Dans la barre latérale, trouver dans le bloc extension « npm Script » la commande npm run start. Cliquer dessus, une console devrait s’ouvrir directement sur votre Visual Studio Code.
-Il est possible aussi de lancer la commande « npm run start » directement depuis votre console « Git » ou même depuis le fichier package.json avec un clic droit sur le commande « npm start ».
-
-Une fois lancé, le navigateur va s’ouvrir sur une page avec Hello World.
-
-Dans le dossier de bercy, les deux fichiers essentiels sont :
+Dans la partie gauche on trouve l'explorateur de fichiers. Les deux fichiers essentiels sont :
 
 - Index.js -> Fichier qui sert à initialiser l’application React.
 - App.js -> le composant App qui affiche le message « Hello Wolrd ». C’est dans ce composant que nous ferons nos exercices. Mais tout d’abord une présentation « toolkit Axa » s’impose.
@@ -199,13 +193,19 @@ Dans ce but, nous allons mettre en place cette archi :
   -- styles : l’ensemble des feuilles de style
 
 **:weight_lifting_man: Exercice 5 : En vous basant sur le code de App.js, définissez cette nouvelle architecture avec :**
+   
+**- un composant « HeaderLayout »** qui contiendra le composant header du toolkit
+
+**- un composant « FooterLayout »** qui contiendra le composant footer du toolkit
+
+**- un composant « Home »** qui contiendra le contenu de votre page
 
 **- un composant « App »** qui contiendra les composants qui forment votre page :
--- un composant title du toolkit
--- votre composant « HeaderLayout »
--- votre composant « FooterLayout »
--- votre composant « Home »
 
-**- un composant « HeaderLayout »** qui contiendra le composant header du toolkit
-**- un composant « FooterLayout »** qui contiendra le composant footer du toolkit
-**- un composant « Home »** qui contiendra le contenu de votre page
+  -- un composant title du toolkit
+  
+  -- votre composant « HeaderLayout »
+  
+  -- votre composant « FooterLayout »
+  
+  -- votre composant « Home »
