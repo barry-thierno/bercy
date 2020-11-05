@@ -16,7 +16,7 @@ La Cop Frontend met à disposition un starter. C’est un projet basé sur le CR
 
 Pour plus de lisibilité, nous avons volontairement allégé ce starter.
 
-Ouvrir votre visual « Studio Code » sur le projet cloné, c’est-à-dire le dossier « dossierdudojo/bercy ». Dans la barre latérale, trouver dans le bloc extension « npm Script » la commande npm run start. Cliquer dessus, une console devrait s’ouvrir directement sur votre Visual Studio Code. 
+Ouvrir votre visual « Studio Code » sur le projet cloné, c’est-à-dire le dossier « dossierdudojo/bercy ». Dans la barre latérale, trouver dans le bloc extension « npm Script » la commande npm run start. Cliquer dessus, une console devrait s’ouvrir directement sur votre Visual Studio Code.
 Il est possible aussi de lancer la commande « npm run start » directement depuis votre console « Git » ou même depuis le fichier package.json avec un clic droit sur le commande « npm start ».
 
 Une fois lancé, le navigateur va s’ouvrir sur une page avec Hello World.
@@ -35,6 +35,7 @@ Le toolkit est un design système c’est-à-dire un ensemble de composants web 
 - Un Design System est un outil développé pour des besoins internes sur l’homogénéisation des développements front-end des applications métiers. Il permet de définir les guidelines UX et les règles de parcours utilisateurs.
 
 Pour en savoir plus :
+
 - [Design System AXA](https://axaguildev.github.io/fr/react-toolkit)
 
 - [Storybook AXA](https://axaguildev.github.io/react-toolkit/latest/storybook/index.html?path=/story/get-started--introduction)
@@ -109,18 +110,18 @@ import { Header, Name, Footer } from '@axa-fr/react-toolkit-all';
 Retrouvez ici, l'ensemble des composants à utiliser :
 
 ### Composants header et Name
-####  Exemple :
+
+#### Exemple :
 
 ```javascript
 import React from 'react';
 import { Header, Name } from '@axa-fr/react-toolkit-all';
-import logo from '@axa-fr/react-toolkit-core/dist/assets/logo-axa.svg';
 
 const MyHeader => (
   <Header>
     <Name
       title="Ma nouvelle application"
-      img={logo}
+      img="logo-axa.svg"
       subtitle="subtitle"
       alt="Logo React"
       onClick={() => {}}
@@ -130,6 +131,7 @@ const MyHeader => (
 ```
 
 ### Composant Footer
+
 #### Exemple :
 
 ```javascript
@@ -137,7 +139,7 @@ import React from 'react';
 import { Footer } from '@axa-fr/react-toolkit-all';
 
 const MyFooter => (
-  <Footer icon={logo} copyright="© 2017-2018 AXA Webcenter" />
+  <Footer icon="logo-axa.svg" copyright="© 2020 AXA" />
 );
 ```
 
@@ -180,7 +182,8 @@ Dans ce but, nous allons mettre en place cette archi :
         helpers
         images
         styles
-        
+
+
 - Dossier layout : Il contient les composants généraux de l'application comme l'en-tête, le pied de page, le menu, etc.
 
 - Dossier pages : Il contient le contenu des pages.
@@ -188,16 +191,21 @@ Dans ce but, nous allons mettre en place cette archi :
 - Dossier shared :
 
   -- components : c’est l’ensemble des composants réutilisables
-  
+
   -- helpers : l’ensemble des classes ou outils qui contiennent du code susceptible d'être utilisable partout dans une application.
-  
+
   -- images : l’ensemble des images
-  
+
   -- styles : l’ensemble des feuilles de style
-  
 
 **:weight_lifting_man: Exercice 5 : En vous basant sur le code de App.js, définissez cette nouvelle architecture avec :**
 
-**- un composant « App » qui contiendra les composants qui forment votre page (header, title, footer)**
+**- un composant « App »** qui contiendra les composants qui forment votre page :
+-- un composant title du toolkit
+-- votre composant « HeaderLayout »
+-- votre composant « FooterLayout »
+-- votre composant « Home »
 
-**- un composant « Home » qui contiendra le contenu de votre page**
+**- un composant « HeaderLayout »** qui contiendra le composant header du toolkit
+**- un composant « FooterLayout »** qui contiendra le composant footer du toolkit
+**- un composant « Home »** qui contiendra le contenu de votre page
