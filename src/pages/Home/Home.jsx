@@ -1,12 +1,13 @@
 import React from 'react';
-import {FilterableSliceTable } from './FilterableSliceTable'
+import { TaxComputationForm } from './TaxComputationForm';
+import { FilterableSliceTable } from './FilterableSliceTable';
 import './Home.css';
 
 const Home = () => (
   <>
     <div className="tax-calculation">
       <div className="tax-calculation_content">
-      <div>Formulaire</div>
+        <TaxComputationForm />
       </div>
 
       <aside className="tax-calculation_maximum-ceiling">
