@@ -1,6 +1,7 @@
 # 5. Formulaires
 
 La gestion des formulaires est gérée de manière assez différente en React qu'avec d'autres frameworks. Il y a moins de "magie" qu'en AngularJS par exemple, ce qui signifie qu'il y a plus de code à écrire ou bien qu'on peut ajouter une librairie pour nous aider à gérer les formulaires.
+
 ## 5.1 Gestion des événements
 
 Connaitre le fonctionnement des événements est un prérequis à la gestion des formulaires en React.
@@ -40,6 +41,8 @@ function Form() {
 }
 ```
 
+[JsFiddle](https://jsfiddle.net/thies05/9nkvzase/431/)
+
 L'event ici est un [événement synthétique](https://fr.reactjs.org/docs/events.html), un évènement avec la même interface que l'événement natif, mais compatible avec tous les navigateurs. Il nous sert ici à récupérer la nouvelle valeur du champ à chaque frappe de l'utilisateur.
 
 La gestion des balises [select](https://fr.reactjs.org/docs/forms.html#the-select-tag) et [textarea](https://fr.reactjs.org/docs/forms.html#the-textarea-tag) est très similaire.
@@ -50,21 +53,86 @@ On appelle ces composants des composants contrôlés, car la "source unique de v
 
 [Lien vers l'exercice](https://codesandbox.io/s/wizardly-chatterjee-bukep?file=/src/DroitAuBut.js)
 
-**Exercice 5.2 : formulaire Bercy**
+**:weight_lifting_man: Exercice 5.1 : formulaire Bercy**
+Objectif: créer un formulaire permettant de calculer le montant de ces impôts.
 
-Objectif: créer un formulaire permettant de calculer le montant de ces impôts. Pour cela on part de l'application obtenue lors de la dernière session, auquelle on a rajouté un formulaire. Attention, ici on utilise comme input des composants du [Toolkit](https://axaguildev.github.io/react-toolkit/latest/storybook/index.html?path=/story/form-input-text--text)!
-
-- Récuperer le code:
-
-```shell
-git checkout react-dojo__integration_partie3
-git pull
-cd src/integration
-npm install
+```jsx
+    <div className="tax-calculation">
+      <div className="tax-calculation_content">
+       {/* TaxComputationForm */}
+        <form className="af-form tax-form">
+          <h1 className="af-title--content">Formulaire</h1>
+          <div className="af-form__group">
+            <dl>
+              <dt>Nombre adulte(s) :</dt>
+              <dd>
+                <Text
+                  id="adultnumber"
+                  name="adultnumber"
+                  onChange={() => console.log()}
+                />
+              </dd>
+            </dl>
+            <dl>
+              <dt>Montant salaire :</dt>
+              <dd>
+                <Text
+                  id="salaryamount"
+                  name="salaryamount"
+                  onChange={() => console.log()}
+                />
+              </dd>
+            </dl>
+            <dl>
+              <dt>Nombre enfant(s) :</dt>
+              <dd>
+                <Text
+                  id="numberofchildren"
+                  name="numberofchildren"
+                  onChange={() => console.log()}
+                />
+              </dd>
+            </dl>
+            <dl>
+              <dt>Année :</dt>
+              <dd>
+                <SelectBase
+                  key="key"
+                  name="year"
+                  options={[
+                    { value: '2019', label: '2019' },
+                    { value: '2020', label: '2020' },
+                  ]}
+                  value="2020"
+                  onChange={() => console.log()}
+                />
+              </dd>
+            </dl>
+          </div>
+          <div className="af-form__group af-form__btn">
+            <Button
+              classModifier="hasiconLeft"
+              id="validation-button"
+              onClick={() => console.log()}>
+              <span className="af-btn__text">Calculer</span>
+              <i className="glyphicon glyphicon-stats" />
+            </Button>
+          </div>
+        </form>
+        {/* TaxResult */}
+        <h1 className="af-title--content">Résultat</h1>
+        <div className="tax-result">
+          <Restitution label="Taux d'imposition" value="***" />
+          <Restitution label="Montant impôt" value="****" />
+          <Restitution label="Nombre de part" value="****" />
+        </div>
+      </div>
 ```
 
+- Créer les composants **TaxComputationForm** et **TaxResult**, utiliser l'intégration ci-dessous.
 - Permettre à l'utilisateur de modifier les champs.
 - Lorsque l'utilisateur clique sur "Calculer", calculer le taux d'imposition, le montant d'impôt et le nombre de parts grâce à la méthode calculImpot, et afficher les résultats dans la section "Résultat".
+
 # 6. Faire communiquer des composants
 
 Nous avons appris à créer des composants avec un état interne. Cependant les composants ont besoin d’échanger de l’informations entre eux.
@@ -75,7 +143,7 @@ Pour faire communiquer des composants, React propose le pattern de _**"communica
 
 ![Flow React](./images/data-flow.jpg)
 
-Pour mettre en oeuvre ce pattern, il faudrait passer par ces étapes: la hiérarchisation des composants, le passage des props et la rétropropagation  via les callbacks
+Pour mettre en oeuvre ce pattern, il faudrait passer par ces étapes: la hiérarchisation des composants, le passage des props et la rétropropagation via les callbacks
 
 ## 6.1 Hiérarchisation des composants
 
@@ -106,13 +174,14 @@ Vous trouverez ci-dessous l'intégration qui permet de construire le composant d
         { value: "2019", label: "2019" },
         { value: "2020", label: "2020" },
       ]}
+      onChange={() => console.log()}
       value="2020"
     />
   </header>
   <div className="af-panel__content">
     {/* SliceTable */}
     <Table className="af-table">
-       {/* SliceTableHeader */}
+      {/* SliceTableHeader */}
       <Table.Header>
         <Table.Tr>
           <Table.Th>
@@ -154,9 +223,9 @@ Selon le _pattern unidirectionnel_, les composants parents peuvent passer de l'i
 
 **:weight_lifting_man: Exercice 6.2 : Afficher les tranches d'imposition pour 2020**
 
-- Déclarez le state qui permet de selectionner l'année et nommé le **selectedYear**: _inspirez vous du pattern unidirectionnel et du decoupage fait precedement pour choisir le bon endroit_
+- Déclarez le state qui permet de selectionner l'année et nommé le **selectedYear**: _inspirez vous du pattern unidirectionnel et du decoupage fait precedement pour choisir le bon endroit_.
 - Votre état doit avoir comme valeur par defaut **"2020"**.
-- Afficher les tranches et le taux dans le composant **SliceTableRow** _(Rappel: boucle et passage de props)_
+- Afficher les tranches et le taux dans le composant **SliceTableRow** _(Rappel: boucle et gestion des indexes)_
 - Vous disposez ci-dessous d'une fonction qui retourne les tranches pour les années 2019 et 2020
 
 > Pour récupèrer les tranches d’une année, vous pouvez utiliser la fonction find donc voici la [doc find](https://developer.mozilla.org/fr/docs/Web/JavaScript/Reference/Objets_globaux/Array/find)
