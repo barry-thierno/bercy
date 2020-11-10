@@ -1,20 +1,37 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { TaxComputationForm } from './TaxComputationForm';
+import { TaxResult } from './TaxResult';
 import { FilterableSliceTable } from './FilterableSliceTable';
 import './Home.css';
 
-const Home = () => (
-  <>
-    <div className="tax-calculation">
-      <div className="tax-calculation_content">
-        <TaxComputationForm />
-      </div>
+const Home = () => {
+  const [taxRate, taxRateSetter] = useState('0');
+  const [taxAmount, taxAmountSetter] = useState('0');
+  const [numberOfShares, numberOfSharesSetter] = useState('0');
 
-      <aside className="tax-calculation_maximum-ceiling">
-        <FilterableSliceTable />
-      </aside>
-    </div>
-  </>
-);
+  return (
+    <>
+      <div className="tax-calculation">
+        <div className="tax-calculation_content">
+          <TaxComputationForm
+            taxRateSetter={taxRateSetter}
+            taxAmountSetter={taxAmountSetter}
+            numberOfSharesSetter={numberOfSharesSetter}
+          />
+
+          <TaxResult
+            taxRate={taxRate}
+            taxAmount={taxAmount}
+            numberOfShares={numberOfShares}
+          />
+        </div>
+
+        <aside className="tax-calculation_maximum-ceiling">
+          <FilterableSliceTable />
+        </aside>
+      </div>
+    </>
+  );
+};
 
 export default Home;
