@@ -1,6 +1,6 @@
 import React from 'react';
-import { TaxComputationForm } from './TaxComputationForm';
-import { FilterableSliceTable } from './FilterableSliceTable';
+import { TaxComputationForm } from './TaxComputationForm/TaxComputationForm';
+import { FilterableSliceTable } from './FilterableSliceTable/FilterableSliceTable';
 import './Home.css';
 
 const Home = () => (
