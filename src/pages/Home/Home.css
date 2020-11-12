@@ -24,7 +24,7 @@
 .tax-calculation_content .af-form dl dd .af-form__input-text {
   width: 100%;
 }
-.tax-calculation_content .af-form dl dd .af-form__select-container {
+.af-form__select-container {
   height: 40px;
 }
 .tax-calculation_content
