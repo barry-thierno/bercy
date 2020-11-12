@@ -7,10 +7,10 @@ export const TaxComputationForm = ({
   taxAmountSetter,
   numberOfSharesSetter,
 }) => {
-  const [adultNumber, adultNumberSetter] = useState(1);
-  const [salaryAmount, salaryAmountSetter] = useState(0);
-  const [numberOfChildren, numberOfChildrenSetter] = useState(0);
-  const [year, yearSetter] = useState(2020);
+  const [adultNumber, setAdultNumber] = useState('1');
+  const [salaryAmount, setSalaryAmount] = useState('0');
+  const [numberOfChildren, setNumberOfChildren] = useState('0');
+  const [year, yearSetter] = useState('2020');
 
   const computeTaxeHandler = () => {
     const { taxAmount, taxRate, numberOfShares } = computeTaxeService(
@@ -35,7 +35,7 @@ export const TaxComputationForm = ({
               id="adultnumber"
               name="adultnumber"
               value={adultNumber}
-              onChange={({ value }) => adultNumberSetter(value)}
+              onChange={({ value }) => setAdultNumber(value)}
             />
           </dd>
         </dl>
@@ -46,7 +46,7 @@ export const TaxComputationForm = ({
               id="salaryamount"
               name="salaryamount"
               value={salaryAmount}
-              onChange={({ value }) => salaryAmountSetter(value)}
+              onChange={({ value }) => setSalaryAmount(value)}
             />
           </dd>
         </dl>
@@ -57,7 +57,7 @@ export const TaxComputationForm = ({
               id="numberofchildren"
               name="numberofchildren"
               value={numberOfChildren}
-              onChange={({ value }) => numberOfChildrenSetter(value)}
+              onChange={({ value }) => setNumberOfChildren(value)}
             />
           </dd>
         </dl>

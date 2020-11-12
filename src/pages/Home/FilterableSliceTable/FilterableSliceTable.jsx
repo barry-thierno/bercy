@@ -2,32 +2,40 @@ import React, { useState } from 'react';
 import { Table, SelectBase } from '@axa-fr/react-toolkit-all';
 
 export const FilterableSliceTable = () => {
-    const [selectedYear, setSelectedYear] = useState("2020");
-    const tranches2020 = getAllTranches().find(t => t.year === selectedYear).tranches;
-    return(
-      <section className="af-panel">
-        <header className="af-panel__header">
-         {/* SliceYearSelect */}
-        <SliceYearSelect selectedYear ={selectedYear} setSelectedYear = {setSelectedYear}/>
-        </header>
-        <div className="af-panel__content">
-          {/* SliceTable */}
-          <Table className="af-table">
-            {/* SliceTableHeader */}
-            <SliceTableHeader />
-            <Table.Body>
-              {
-                tranches2020.map(({id,lowBorn,highBorn, rate })=> 
-                (<SliceTableRow key={id} lowBorn={lowBorn} highBorn={highBorn} rate= {rate}/>))
-              }
-            </Table.Body>
-          </Table>
-        </div>
-      </section>
-    );
-}
+  const [selectedYear, setSelectedYear] = useState('2020');
+  const selectedTranches = getAllTranches().find(t => t.year === selectedYear)
+    .tranches;
+  return (
+    <section className="af-panel">
+      <header className="af-panel__header">
+        {/* SliceYearSelect */}
+        <SliceYearSelect
+          selectedYear={selectedYear}
+          setSelectedYear={setSelectedYear}
+        />
+      </header>
+      <div className="af-panel__content">
+        {/* SliceTable */}
+        <Table className="af-table">
+          {/* SliceTableHeader */}
+          <SliceTableHeader />
+          <Table.Body>
+            {selectedTranches.map(({ id, lowBorn, highBorn, rate }) => (
+              <SliceTableRow
+                key={id}
+                lowBorn={lowBorn}
+                highBorn={highBorn}
+                rate={rate}
+              />
+            ))}
+          </Table.Body>
+        </Table>
+      </div>
+    </section>
+  );
+};
 
-const SliceYearSelect =({selectedYear, setSelectedYear})=> {
+const SliceYearSelect = ({ selectedYear, setSelectedYear }) => {
   return (
     <>
       <span className="af-panel__title">Taux d'imposition par année</span>
@@ -39,12 +47,12 @@ const SliceYearSelect =({selectedYear, setSelectedYear})=> {
           { value: '2020', label: '2020' },
         ]}
         value={selectedYear}
-        onChange = {({value})=>setSelectedYear(value)}
+        onChange={({ value }) => setSelectedYear(value)}
       />
     </>
-  )
-}
-const SliceTableHeader =() => {
+  );
+};
+const SliceTableHeader = () => {
   return (
     <Table.Header>
       <Table.Tr>
@@ -52,33 +60,31 @@ const SliceTableHeader =() => {
           <span className="af-table-th-content">Tranches</span>
         </Table.Th>
         <Table.Th>
-          <span className="af-table-th-content">
-            Taux d'imposition
-          </span>
+          <span className="af-table-th-content">Taux d'imposition</span>
         </Table.Th>
       </Table.Tr>
     </Table.Header>
   );
-}
+};
 
-const SliceTableRow = ({lowBorn, highBorn, rate}) => {
+const SliceTableRow = ({ lowBorn, highBorn, rate }) => {
   return (
-  <Table.Tr>
-    <Table.Td>
-      <span className="af-table-body-content">
-        de {lowBorn} à {highBorn}
-      </span>
-    </Table.Td>
-    <Table.Td>
-      <b>{rate}%</b>
-    </Table.Td>
-  </Table.Tr>
-  )
-}
+    <Table.Tr>
+      <Table.Td>
+        <span className="af-table-body-content">
+          de {lowBorn} à {highBorn}
+        </span>
+      </Table.Td>
+      <Table.Td>
+        <b>{rate}%</b>
+      </Table.Td>
+    </Table.Tr>
+  );
+};
 
 const getAllTranches = () => [
   {
-    year: "2019",
+    year: '2019',
     tranches: [
       {
         id: 1,
@@ -112,7 +118,7 @@ const getAllTranches = () => [
     ],
   },
   {
-    year: "2020",
+    year: '2020',
     tranches: [
       {
         id: 1,
