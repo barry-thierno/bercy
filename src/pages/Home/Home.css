@@ -1,84 +1,98 @@
 .tax-calculation {
-    display: flex;
-    flex-flow: row;
-    margin: 0 0 30px 0;
-  }
-  .tax-calculation_content {
-    flex: 2 1;
-    padding: 15px;
-    background: #f5f5f5;
-  }
-  .tax-calculation_content .af-form {
-    padding: 0;
-  }
+  display: flex;
+  flex-flow: row;
+  margin: 0 0 30px 0;
+}
+.tax-calculation_content {
+  flex: 2 1;
+  padding: 15px;
+  background: #f5f5f5;
+}
+.tax-calculation_content .af-form {
+  padding: 0;
+}
+.tax-calculation_content .af-form dl {
+  flex-basis: 25%;
+}
+.tax-calculation_content .af-form dl dt {
+  width: 100%;
+  line-height: 29px;
+}
+.tax-calculation_content .af-form dl dd {
+  width: 61%;
+}
+.tax-calculation_content .af-form dl dd .af-form__input-text {
+  width: 100%;
+}
+.af-form__select-container {
+  height: 40px;
+}
+.tax-calculation_content
+  .af-form
+  dl
+  dd
+  .af-form__select-container
+  .af-form__input-select {
+  height: 40px;
+  width: 120px;
+  padding: 9px 45px 9px 20px;
+}
+.tax-calculation_content .af-form dl dd .af-form__select-container .glyphicon {
+  position: absolute;
+  right: 19px;
+  line-height: 40px;
+  padding: 0;
+}
+@media screen and (max-width: 991px) {
   .tax-calculation_content .af-form dl {
-    flex-basis: 25%;
+    flex-basis: 47%;
   }
-  .tax-calculation_content .af-form dl dt {
-    width: 100%;
-    line-height: 29px;
-  }
-  .tax-calculation_content .af-form dl dd {
-    width: 61%;
-  }
-  .tax-calculation_content .af-form dl dd .af-form__input-text {
-    width: 100%;
-  }
-  .tax-calculation_content .af-form dl dd .af-form__select-container .af-form__input-select {
-    height: 40px;
-    width: 120px;
-    padding: 9px 45px 9px 20px;
-  }
-  .tax-calculation_content .af-form dl dd .af-form__select-container .glyphicon {
-    position: absolute;
-    right: 19px;
-    line-height: 40px;
-    padding: 0;
-  }
-  @media screen and (max-width: 991px) {
-    .tax-calculation_content .af-form dl {
-      flex-basis: 47%;
-    }
-  }
-  .tax-calculation_content .af-form .af-form__btn {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin: 15px 0 0 0;
-  }
-  .tax-calculation_content .tax-result {
-    display: flex;
-    flex-flow: row;
-    margin: 50px 0;
-  }
-  .tax-calculation_content .tax-result .af-restitution__listdef {
-    display: flex;
-    flex-wrap: wrap;
-    flex-basis: 100%;
-    font-size: 1rem;
-    margin: 0;
-  }
-  .tax-calculation_maximum-ceiling {
-    flex: 1 1;
-    padding: 0 15px;
-  }
-  .tax-calculation_maximum-ceiling .af-panel .af-panel__header {
-    display: flex;
-    flex-flow: row;
-  }
-  .tax-calculation_maximum-ceiling .af-panel .af-panel__title {
-    line-height: 40px;
-    flex: 2 1;
-  }
-  .tax-calculation_maximum-ceiling .af-panel .af-form__select-container .af-form__input-select {
-    height: 40px;
-    width: 100px;
-    padding: 9px 45px 9px 20px;
-  }
-  .tax-calculation_maximum-ceiling .af-panel .af-form__select-container .glyphicon {
-    position: absolute;
-    right: 19px;
-    line-height: 40px;
-    padding: 0;
-    color: #212529;
-  }
+}
+.tax-calculation_content .af-form .af-form__btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 15px 0 0 0;
+}
+.tax-calculation_content .tax-result {
+  display: flex;
+  flex-flow: row;
+  margin: 50px 0;
+}
+.tax-calculation_content .tax-result .af-restitution__listdef {
+  display: flex;
+  flex-wrap: wrap;
+  flex-basis: 100%;
+  font-size: 1rem;
+  margin: 0;
+}
+.tax-calculation_maximum-ceiling {
+  flex: 1 1;
+  padding: 0 15px;
+}
+.tax-calculation_maximum-ceiling .af-panel .af-panel__header {
+  display: flex;
+  flex-flow: row;
+}
+.tax-calculation_maximum-ceiling .af-panel .af-panel__title {
+  line-height: 40px;
+  flex: 2 1;
+}
+.tax-calculation_maximum-ceiling
+  .af-panel
+  .af-form__select-container
+  .af-form__input-select {
+  height: 40px;
+  width: 100px;
+  padding: 9px 45px 9px 20px;
+}
+.tax-calculation_maximum-ceiling
+  .af-panel
+  .af-form__select-container
+  .glyphicon {
+  position: absolute;
+  right: 19px;
+  line-height: 40px;
+  padding: 0;
+  color: #212529;
+}
