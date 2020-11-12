@@ -144,7 +144,9 @@ Nous avons vu comment les composants père peuvent impacter ses fils via les pro
 ![flow react complet](https://cdn-images-1.medium.com/max/1600/1*PBgAz9U9SrkINPo-n5glgw.gif)
 
 **:weight_lifting_man: Exercice 6:**
+
 ![Tranches impot](./images/flow-selected-year.jpg)
+
 **_Partie 1: Afficher les tranches d'imposition pour 2020_**
 
 - Déclarez le state qui permet de selectionner l'année et nommé le **selectedYear**
