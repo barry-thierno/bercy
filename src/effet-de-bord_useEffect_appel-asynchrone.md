@@ -101,10 +101,11 @@ class Component extends React.Component {
 
 <blockquote>A partir des examples au dessus nous déduisons que nous pouvons gérer les effets de bords avec les 3 methodes du cycles de vie suivants:  <i><b>componentDidMount, componentDidUpdate et componentWillUnmount</b></i>,</blockquote>
 
-### Pouvons-nous faire la même chose avec un composant fonctionnel
+#### Pouvons-nous faire la même chose avec un composant fonctionnel?
+#### Le répense est OUI :D
 
 <p align="center">
-<img src=./images/but-how.gif alt="functional component">
+  <img src=./images/but-how.gif alt="functional component">
 </p>
 
 ## 7.3 Le hook useEffect
