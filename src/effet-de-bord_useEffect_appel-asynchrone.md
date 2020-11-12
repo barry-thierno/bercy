@@ -101,11 +101,11 @@ class Component extends React.Component {
 
 <blockquote>A partir des examples au dessus nous déduisons que nous pouvons gérer les effets de bords avec les 3 methodes du cycles de vie suivants:  <i><b>componentDidMount, componentDidUpdate et componentWillUnmount</b></i>,</blockquote>
 
-<div style="text-align:center"><figure>
-    <img src=./images/but-how.gif
-         alt="functional component">
-    <figcaption text-aligh="center" >Pouvons-nous faire la même chose avec un composant fonctionnel</figcaption>
-</figure></div>
+### Pouvons-nous faire la même chose avec un composant fonctionnel
+
+<p align="center">
+<img src=./images/but-how.gif alt="functional component">
+</p>
 
 ## 7.3 Le hook useEffect
 
@@ -115,8 +115,8 @@ Le hook useEffect est un hook qui va permettre de déclencher une fonction(effet
 
 <table>
   <tr>
-    <td><img src="./images/useEffectHook.png" width=400 height=400></td>
-    <td><img src="./images/I-smell-bacon.jpg" width=400 height=400></td>
+    <td><img src="./images/useEffectHook.png" width=400 height=350></td>
+    <td><img src="./images/I-smell-bacon.jpg" width=400 height=350></td>
   </tr>
  </table>
 
