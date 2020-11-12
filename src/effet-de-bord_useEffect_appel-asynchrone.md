@@ -15,7 +15,7 @@ Celles-ci peuvent être, par exemple :
 
 ## 7.1 Cycle de vie + Schema du workflow
 
-<div style="text-align:center"><img src="./ReacJs-tlife-cycle.jpg" /></div>
+<div style="text-align:center"><img src="./images/ReacJs-tlife-cycle.jpg" /></div>
 
 Nous avons dèja vue en détail les methode du cycle de vie d'un composant React basé sur une classe dans le [deuxième Dojo](https://github.com/barry-thierno/bercy/blob/react_dojo_instructions/src/composant.md).
 
@@ -102,7 +102,7 @@ class Component extends React.Component {
 <blockquote>A partir des examples au dessus nous déduisons que nous pouvons gérer les effets de bords avec les 3 methodes du cycles de vie suivants:  <i><b>componentDidMount, componentDidUpdate et componentWillUnmount</b></i>,</blockquote>
 
 <div style="text-align:center"><figure>
-    <img src=https://media1.tenor.com/images/6349a31163d97b657cb9dfe11d81279d/tenor.gif
+    <img src=./images/but-how.gif
          alt="functional component">
     <figcaption text-aligh="center" >Pouvons-nous faire la même chose avec un composant fonctionnel</figcaption>
 </figure></div>
@@ -115,8 +115,8 @@ Le hook useEffect est un hook qui va permettre de déclencher une fonction(effet
 
 <table>
   <tr>
-    <td><img src="./useEffectHook.png" width=400 height=400></td>
-    <td><img src="https://overreacted.io/static/6203a1f1f2c771816a5ba0969baccd12/edecb/yoda.jpg" width=400 height=400></td>
+    <td><img src="./images/useEffectHook.png" width=400 height=400></td>
+    <td><img src="./images/I-smell-bacon.jpg" width=400 height=400></td>
   </tr>
  </table>
 
@@ -290,7 +290,7 @@ function Component() {
 ```
 
 <div style="text-align:center"><figure>
-    <img src=./request.png
+    <img src=./images/request.png
          alt="functional component">
     <figcaption text-aligh="center" >Pouvons-nous faire la même chose avec un composant fonctionnel</figcaption>
 </figure></div>
