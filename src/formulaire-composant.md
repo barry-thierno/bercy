@@ -49,89 +49,246 @@ La gestion des balises [select](https://fr.reactjs.org/docs/forms.html#the-selec
 
 On appelle ces composants des composants contrôlés, car la "source unique de vérité" est l'état local React des composants, il n'y a plus d'état gérer par le DOM.
 
-**Exercice 5.1 : créer un composant contrôlé**
+**:weight_lifting_man: Exercice 5.1 : Formulaire Bercy**
+**Objectif**: Créer un formulaire permettant de saisir les informations d’un ménage.
 
-[Lien vers l'exercice](https://codesandbox.io/s/wizardly-chatterjee-bukep?file=/src/DroitAuBut.js)
-
-**:weight_lifting_man: Exercice 5.1 : formulaire Bercy**
-Objectif: créer un formulaire permettant de calculer le montant de ces impôts.
+- Créez les composants **TaxComputationForm** _(utiliser l’intégration html ci-dessous)_
+- Faites fonctionner les champs de saisie afin de pouvoir saisir des valeurs _Nombre adulte(s)_, _Montant salaire, Nombre enfant(s), Année_. Les valeurs par default seront respectivement **1, 0, 0, 2020**.
 
 ```jsx
-    <div className="tax-calculation">
-      <div className="tax-calculation_content">
-       {/* TaxComputationForm */}
-        <form className="af-form tax-form">
-          <h1 className="af-title--content">Formulaire</h1>
-          <div className="af-form__group">
-            <dl>
-              <dt>Nombre adulte(s) :</dt>
-              <dd>
-                <Text
-                  id="adultnumber"
-                  name="adultnumber"
-                  onChange={() => console.log()}
-                />
-              </dd>
-            </dl>
-            <dl>
-              <dt>Montant salaire :</dt>
-              <dd>
-                <Text
-                  id="salaryamount"
-                  name="salaryamount"
-                  onChange={() => console.log()}
-                />
-              </dd>
-            </dl>
-            <dl>
-              <dt>Nombre enfant(s) :</dt>
-              <dd>
-                <Text
-                  id="numberofchildren"
-                  name="numberofchildren"
-                  onChange={() => console.log()}
-                />
-              </dd>
-            </dl>
-            <dl>
-              <dt>Année :</dt>
-              <dd>
-                <SelectBase
-                  key="key"
-                  name="year"
-                  options={[
-                    { value: '2019', label: '2019' },
-                    { value: '2020', label: '2020' },
-                  ]}
-                  value="2020"
-                  onChange={() => console.log()}
-                />
-              </dd>
-            </dl>
-          </div>
-          <div className="af-form__group af-form__btn">
-            <Button
-              classModifier="hasiconLeft"
-              id="validation-button"
-              onClick={() => console.log()}>
-              <span className="af-btn__text">Calculer</span>
-              <i className="glyphicon glyphicon-stats" />
-            </Button>
-          </div>
-        </form>
-        {/* TaxResult */}
-        <h1 className="af-title--content">Résultat</h1>
-        <div className="tax-result">
-          <Restitution label="Taux d'imposition" value="***" />
-          <Restitution label="Montant impôt" value="****" />
-          <Restitution label="Nombre de part" value="****" />
-        </div>
-      </div>
+<form className="af-form tax-form">
+  <h1 className="af-title--content">Formulaire</h1>
+  <div className="af-form__group">
+    <dl>
+      <dt>Nombre adulte(s) :</dt>
+      <dd>
+        <Text
+          id="adultnumber"
+          name="adultnumber"
+          value={adultNumber}
+          onChange={(event) => ""}
+        />
+      </dd>
+    </dl>
+    <dl>
+      <dt>Montant salaire :</dt>
+      <dd>
+        <Text
+          id="salaryamount"
+          name="salaryamount"
+          value={salaryAmount}
+          onChange={(event) => ""}
+        />
+      </dd>
+    </dl>
+    <dl>
+      <dt>Nombre enfant(s) :</dt>
+      <dd>
+        <Text
+          id="numberofchildren"
+          name="numberofchildren"
+          value={numberOfChildren}
+          onChange={(event) => ""}
+        />
+      </dd>
+    </dl>
+    <dl>
+      <dt>Année :</dt>
+      <dd>
+        <SelectBase
+          key="key"
+          name="year"
+          options={[
+            { value: "2019", label: "2019" },
+            { value: "2020", label: "2020" },
+          ]}
+          value={year}
+          onChange={(event) => ""}
+        />
+      </dd>
+    </dl>
+  </div>
+  <div className="af-form__group af-form__btn">
+    <Button
+      classModifier="hasiconLeft"
+      id="validation-button"
+      onClick={(event) => ""}
+    >
+      <span className="af-btn__text">Calculer</span>
+      <i className="glyphicon glyphicon-stats" />
+    </Button>
+  </div>
+</form>
 ```
 
-- Créer les composants **TaxComputationForm** et **TaxResult**, utiliser l'intégration ci-dessous.
-- Permettre à l'utilisateur de modifier les champs.
-- Lorsque l'utilisateur clique sur "Calculer", calculer le taux d'imposition, le montant d'impôt et le nombre de parts grâce à la méthode calculImpot, et afficher les résultats dans la section "Résultat".
+**:weight_lifting_man: Exercice 5.2 : Calculer et afficher le résultat des impôts**
+
+- Créer le composant **TaxResult** _(utiliser l’intégration html ci-dessous)_, le composant prend en props : **taxRate** (Taux d'imposition), **taxAmount** (Montant impôt), **numberOfShares**(Nombre de part) à fin de les afficher.
+
+  > :warning: Attention le composant Restitution ne sait pas afficher des nombres, il ne gère que des chaines de caractère.
+
+- **Appel du composant TaxResult** : Appelez le composant dans la page Home en lui passant les props _(pensez à les déclarer comme des variables d’état avant)_
+- **Faire fonctionner le bouton de calcul des impôts**
+
+  - Le code qui permet le calcul des impôts a été fourni ci-dessous.
+  - Créez un dossier **shared** dans le dossier src. Créez à l’intérieure de ce dossier le fichier **taxcomputer.helper.js** et collez-y le code de calcul des impôts fournit ci-dessous.
+  - Créez dans le composant **TaxComputationForm** la fonction _(handler)_ **computeTaxeHandler**, cette fonction doit faire appel à la fonction **computeTaxeService** en lui passant les bons paramètres
+
+    > :warning: Attention tous les paramètres sont des entiers, pensez à les convertir.
+
+  - Interceptez le click sur le bouton _"Calculer"_ en interceptant l’évènement **onClick**
+  - Mettez à jour le composant **TaxComputationForm** pour lui passer en props les callbacks qui permettent de mettre à jours les résultats du calcul du montant des impôts.
+  - Appelez les callbacks dans le handler **computeTaxeHandler** afin de notifier le composant **TaxResult** du résultat du calcul.
+
+  ```jsx
+  <>
+    <h1 className="af-title--content">Résultat</h1>
+    <div className="tax-result">
+      <Restitution label="Taux d'imposition" value="taxRate" />
+      <Restitution label="Montant impôt" value="taxAmount" />
+      <Restitution label="Nombre de part" value="numberOfShares" />
+    </div>
+  </>
+  ```
+
+  ```javascript
+  //Code qui permet de calculer les impôts à coller dans taxcomputer.helper.js
+  const PLAFOND_DEMI_PART = 1567;
+
+  const toPercent = (n) => Math.trunc(n * 10000) / 100;
+
+  const calculerNbParts = (nbAdults, nbEnfant) => {
+    let nbPartEnfants = 0;
+    if (nbEnfant === 1) {
+      nbPartEnfants = 0.5;
+    } else if (nbEnfant > 1) {
+      nbPartEnfants = nbEnfant - 1;
+    }
+    return nbAdults + nbPartEnfants;
+  };
+
+  const CreerTanchesParAnnee = () => {
+    const tranche2019 = [
+      {
+        tauxImposition: 0.0,
+        limiteInf: 0,
+        limiteSup: 10064,
+      },
+      {
+        tauxImposition: 0.14,
+        limiteInf: 10064,
+        limiteSup: 27794,
+      },
+      {
+        tauxImposition: 0.3,
+        limiteInf: 27794,
+        limiteSup: 74517,
+      },
+      {
+        tauxImposition: 0.41,
+        limiteInf: 74517,
+        limiteSup: 157806,
+      },
+      {
+        tauxImposition: 0.45,
+        limiteInf: 157806,
+      },
+    ];
+    const tranche2020 = [
+      {
+        tauxImposition: 0.0,
+        limiteInf: 0,
+        limiteSup: 10064,
+      },
+      {
+        tauxImposition: 0.11,
+        limiteInf: 10064,
+        limiteSup: 25659,
+      },
+      {
+        tauxImposition: 0.3,
+        limiteInf: 25659,
+        limiteSup: 73369,
+      },
+      {
+        tauxImposition: 0.41,
+        limiteInf: 73369,
+        limiteSup: 157806,
+      },
+      {
+        tauxImposition: 0.45,
+        limiteInf: 157806,
+      },
+    ];
+
+    return {
+      [2019]: tranche2019,
+      [2020]: tranche2020,
+    };
+  };
+
+  const getTranchesParAnnee = (annee) => {
+    const tranchesParAnnee = CreerTanchesParAnnee();
+
+    return tranchesParAnnee[annee];
+  };
+
+  const calculImpotParTranche = (salaireBrut, nbParts, annee) => {
+    const salaireImposableParPart = (salaireBrut - salaireBrut * 0.1) / nbParts;
+    const tranches = getTranchesParAnnee(annee);
+    const impotBrute =
+      tranches.reduce((prev, curr) => {
+        if (salaireImposableParPart >= curr.limiteSup) {
+          // on paye plein impôt par rapport à la tranche
+          return prev + (curr.limiteSup - curr.limiteInf) * curr.tauxImposition;
+        } else if (salaireImposableParPart >= curr.limiteInf) {
+          // on paye un impôt à la marge
+          return (
+            prev +
+            (salaireImposableParPart - curr.limiteInf) * curr.tauxImposition
+          );
+        } else {
+          // On ne paye pas d'impôt pour cette tranche
+          return prev;
+        }
+      }, 0) * nbParts;
+    return impotBrute;
+  };
+
+  const calculMajorationQuotienFamilial = (nbPart) => 2 * (nbPart - 2);
+
+  /**
+   *
+   * @param {numer} salaryAmount
+   * @param {number} adultNumber
+   * @param {number} numberOfChildren
+   * @param {number} year
+   */
+  export const computeTaxeService = (
+    salaryAmount,
+    adultNumber,
+    numberOfChildren,
+    year
+  ) => {
+    const numberOfShares = calculerNbParts(adultNumber, numberOfChildren);
+    const calcul1 = calculImpotParTranche(salaryAmount, numberOfShares, year);
+    let taxAmount = calcul1;
+    if (adultNumber > 1 && numberOfChildren !== 0) {
+      const impotAdultes = calculImpotParTranche(salaryAmount, 2, year);
+      const calcul2 =
+        impotAdultes -
+        PLAFOND_DEMI_PART * calculMajorationQuotienFamilial(numberOfShares);
+      if (calcul1 < calcul2) {
+        taxAmount = calcul2;
+      }
+    }
+    return {
+      taxAmount: Math.trunc(taxAmount),
+      taxRate: toPercent(taxAmount / salaryAmount),
+      numberOfShares,
+    };
+  };
+  ```
 
 # 6. Faire communiquer des composants
 
