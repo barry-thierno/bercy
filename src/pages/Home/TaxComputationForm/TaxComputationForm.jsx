@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { Text, SelectBase, Button } from '@axa-fr/react-toolkit-all';
-import { computeTaxeService } from '../../shared/taxComputer.helper';
+import { computeTaxeService } from '../../../shared/taxComputer.helper';
 
 export const TaxComputationForm = ({
   taxRateSetter,

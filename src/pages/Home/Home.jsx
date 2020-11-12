@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
-import { TaxComputationForm } from './TaxComputationForm';
-import { TaxResult } from './TaxResult';
-import { FilterableSliceTable } from './FilterableSliceTable';
+import { TaxComputationForm } from './TaxComputationForm/TaxComputationForm';
+import { TaxResult } from './TaxResult/TaxResult';
+import { FilterableSliceTable } from './FilterableSliceTable/FilterableSliceTable';
 import './Home.css';
 
 const Home = () => {
