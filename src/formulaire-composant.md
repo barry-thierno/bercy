@@ -9,18 +9,18 @@ Connaitre le fonctionnement des événements est un prérequis à la gestion des
 La gestion des événements pour les éléments React est très similaire à celle des éléments du DOM. Cf le même exemple en HTML et en React:
 
 ```html
-<button onclick="hello()">Coucou</button>
+<button onclick="sayHello()">Coucou</button>
 ```
 
 ```jsx
-<button onClick={hello}>Coucou</button>
+<button onClick={sayHello}>Coucou</button>
 ```
 
 Pouvez-vous voir les différences ?
 
-HTML: minuscules et string
+**HTML**: minuscules et string
 
-React: camelCase et fonction
+**React**: camelCase et fonction
 
 ## 5.2 Gestion des inputs
 
@@ -43,11 +43,11 @@ function Form() {
 
 [JsFiddle](https://jsfiddle.net/thies05/9nkvzase/431/)
 
-L'event ici est un [événement synthétique](https://fr.reactjs.org/docs/events.html), un évènement avec la même interface que l'événement natif, mais compatible avec tous les navigateurs. Il nous sert ici à récupérer la nouvelle valeur du champ à chaque frappe de l'utilisateur.
+L'event ici est un [événement synthétique](https://fr.reactjs.org/docs/events.html), un évènement avec la même interface que l'événement natif, mais compatible avec tous les navigateurs. Il nous sert ici à récupérer la nouvelle valeur du champ à chaque saisie de l'utilisateur.
 
 La gestion des balises [select](https://fr.reactjs.org/docs/forms.html#the-select-tag) et [textarea](https://fr.reactjs.org/docs/forms.html#the-textarea-tag) est très similaire.
 
-On appelle ces composants des composants contrôlés, car la "source unique de vérité" est l'état local React des composants, il n'y a plus d'état gérer par le DOM.
+**On appelle ces composants des composants contrôlés**, car la _"source unique de vérité"_ est l'état local React des composants, il n'y a plus d'état gérer par le DOM.
 
 # 6. Faire communiquer des composants
 
@@ -71,10 +71,16 @@ L’idée est de décomposer l’interface utilisateur en une hiérarchie de com
 
 Vous trouverez ci-dessous l'intégration qui permet de construire le composant d'affichage des tranches
 
-- Créez un fichier **FilterableSliceTable.jsx**
-- Créez un composant fonctionnel qui va s'appeller **FilterableSliceTable** (Pensez aux imports necessaires et à l'export du composant)
+- Créez le Dossier **FilterableSliceTable** dans lequel vous allez ajouter le fichier **FilterableSliceTable.jsx**
+- En utilisant l'intégration fournie ci-dessous, créez un composant fonctionnel qui va s'appeller **FilterableSliceTable** (Pensez aux imports necessaires et à l'export du composant)
+  ```jsx
+  //Rappel des import React et toolkit
+  import React from "react";
+  import { Table, SelectBase } from "@axa-fr/react-toolkit-all";
+  ```
 - Appéllez le composant **FilterableSliceTable** dans le composant **Home**
-- En se servant des commentaires laissés dans le code, sortez des composants fonctionnels conformement à la hierachie presentée plus haut (Dans le même fichier)
+- En se servant des commentaires laissés dans le code, sorcréez des composants fonctionnels conformement à la hierachie presentée plus haut **(Vous pouvez garder les composants dans le même fichier)**
+
   > Pour le composant SliceTableRow pensez à passer la bornes inférieures(lowBorn), supérieure(highBorn) et le taux(rate) en Props
 
 ```jsx
@@ -149,14 +155,19 @@ Nous avons vu comment les composants père peuvent impacter ses fils via les pro
 
 **_Partie 1: Afficher les tranches d'imposition pour 2020_**
 
-- Déclarez le state qui permet de selectionner l'année et nommé le **selectedYear**
+- Déclarez le state qui permet de selectionner l'année et nommé le **selectedYear** dans le composant **FilterableSliceTable**
+  ```jsx
+  //rappel pour la syntaxe de déclaration d'un state
+  const [stateName, setStateName] = useState("default value");
+  ```
 - Votre état doit avoir comme valeur par defaut **"2020"**.
 - Afficher les tranches et le taux dans le composant **SliceTableRow** _(Rappel: boucle et gestion des indexes)_
-- Vous disposez ci-dessous d'une fonction qui retourne les tranches pour les années 2019 et 2020
-
-> Pour récupèrer les tranches d’une année, vous pouvez utiliser la fonction find donc voici la [doc find](https://developer.mozilla.org/fr/docs/Web/JavaScript/Reference/Objets_globaux/Array/find)
+- Vous disposez ci-dessous d'une fonction qui retourne les tranches pour les années 2019 et 2020 et d'une fonction qui permet de rechercher les tranches d'une année.
 
 ```javascript
+// Pour récupèrer les tranches d’une année, vous pouvez utiliser la fonction find comme suit:
+const selectedTranches = getAllTranches().find((t) => t.year === selectedYear);
+
 const getAllTranches = () => [
   {
     year: "2019",
@@ -229,7 +240,7 @@ const getAllTranches = () => [
 ];
 ```
 
-**_Partie 2: Dynamiser le tableau qui permet d'afficher les tranches d'imposition_**
+**_Partie 2: Gestion du filtre_**
 
 Le composant père (_FilterableSliceTable_) garde l'état qui contient l'année selectionnée, nous allons dans ce exercice passer cet état au composant **SliceYearSelect** ainsi que sa fonction de mise à jour.
 
@@ -248,7 +259,14 @@ Le composant père (_FilterableSliceTable_) garde l'état qui contient l'année 
 **_Partie 1: Créer un formulaire permettant de saisir les informations d’un ménage._**
 
 - Créez les composants **TaxComputationForm** _(utiliser l’intégration html ci-dessous)_
-- Faites fonctionner les champs de saisie afin de pouvoir saisir des valeurs _Nombre adulte(s)_, _Montant salaire, Nombre enfant(s), Année_. Les valeurs par default seront respectivement **1, 0, 0, 2020**.
+- Faites fonctionner les champs de saisie afin de pouvoir saisir des valeurs _Nombre adulte(s)_, _Montant salaire, Nombre enfant(s), Année_. Les valeurs par default seront respectivement **1, 0, 0, 2020 (elles sont toutes des entiers)**.
+
+  ```javascript
+  /* Les valeurs des champs de saisie sont de type chaine de caractère. 
+    pour les convertir en entier vous utiliser cette syntaxe.
+  */
+  setterName(parseInt(value) || 0);
+  ```
 
 ```jsx
 <form className="af-form tax-form">
@@ -328,8 +346,6 @@ Le composant père (_FilterableSliceTable_) garde l'état qui contient l'année 
   - Le code qui permet le calcul des impôts a été fourni ci-dessous.
   - Créez à l’intérieure du dossier **shared** le fichier **taxcomputer.helper.js** et collez-y le code de calcul des impôts fournit ci-dessous.
   - Créez dans le composant **TaxComputationForm** la fonction _(handler)_ **computeTaxeHandler**, cette fonction doit faire appel à la fonction **computeTaxeService** en lui passant les bons paramètres
-
-    > :warning: Attention tous les paramètres sont des entiers, pensez à les convertir.
 
   - Interceptez le click sur le bouton _"Calculer"_ en interceptant l’évènement **onClick**
   - Mettez à jour le composant **TaxComputationForm** pour lui passer en props les callbacks qui permettent de mettre à jours les résultats du calcul du montant des impôts.
