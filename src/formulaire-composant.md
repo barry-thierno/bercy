@@ -79,7 +79,7 @@ Vous trouverez ci-dessous l'intégration qui permet de construire le composant d
   import { Table, SelectBase } from "@axa-fr/react-toolkit-all";
   ```
 - Appéllez le composant **FilterableSliceTable** dans le composant **Home**
-- En se servant des commentaires laissés dans le code, sorcréez des composants fonctionnels conformement à la hierachie presentée plus haut **(Vous pouvez garder les composants dans le même fichier)**
+- En se servant des commentaires laissés dans le code, créez des composants fonctionnels conformement à la hierachie presentée plus haut **(Vous pouvez garder les composants dans le même fichier)**
 
   > Pour le composant SliceTableRow pensez à passer la bornes inférieures(lowBorn), supérieure(highBorn) et le taux(rate) en Props
 
