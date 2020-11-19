@@ -7,17 +7,17 @@ export const TaxComputationForm = ({
   taxAmountSetter,
   numberOfSharesSetter,
 }) => {
-  const [adultNumber, setAdultNumber] = useState('1');
-  const [salaryAmount, setSalaryAmount] = useState('0');
-  const [numberOfChildren, setNumberOfChildren] = useState('0');
-  const [year, yearSetter] = useState('2020');
+  const [adultNumber, setAdultNumber] = useState(1);
+  const [salaryAmount, setSalaryAmount] = useState(0);
+  const [numberOfChildren, setNumberOfChildren] = useState(0);
+  const [year, yearSetter] = useState(2020);
 
   const computeTaxeHandler = () => {
     const { taxAmount, taxRate, numberOfShares } = computeTaxeService(
-      parseInt(salaryAmount),
-      parseInt(adultNumber),
-      parseInt(numberOfChildren),
-      parseInt(year)
+      salaryAmount,
+      adultNumber,
+      numberOfChildren,
+      year
     );
     taxRateSetter(taxRate.toString());
     taxAmountSetter(taxAmount.toString());
@@ -35,7 +35,7 @@ export const TaxComputationForm = ({
               id="adultnumber"
               name="adultnumber"
               value={adultNumber}
-              onChange={({ value }) => setAdultNumber(value)}
+              onChange={({ value }) => setAdultNumber(parseInt(value) || 0)}
             />
           </dd>
         </dl>
@@ -46,7 +46,7 @@ export const TaxComputationForm = ({
               id="salaryamount"
               name="salaryamount"
               value={salaryAmount}
-              onChange={({ value }) => setSalaryAmount(value)}
+              onChange={({ value }) => setSalaryAmount(parseInt(value) || 0)}
             />
           </dd>
         </dl>
@@ -57,7 +57,9 @@ export const TaxComputationForm = ({
               id="numberofchildren"
               name="numberofchildren"
               value={numberOfChildren}
-              onChange={({ value }) => setNumberOfChildren(value)}
+              onChange={({ value }) =>
+                setNumberOfChildren(parseInt(value) || 0)
+              }
             />
           </dd>
         </dl>
@@ -72,7 +74,7 @@ export const TaxComputationForm = ({
                 { value: '2020', label: '2020' },
               ]}
               value={year}
-              onChange={({ value }) => yearSetter(parseInt(value))}
+              onChange={({ value }) => yearSetter(parseInt(value) || 0)}
             />
           </dd>
         </dl>
