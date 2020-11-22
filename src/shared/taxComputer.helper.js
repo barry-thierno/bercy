@@ -1,3 +1,4 @@
+/* eslint-disable */
 const PLAFOND_DEMI_PART = 1567;
 
 /**
