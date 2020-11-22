@@ -12,7 +12,7 @@ const toPercent = n => Math.trunc(n * 10000) / 100;
  * @param nbAdulte
  * @param nbEnfant
  */
-const calculerNbParts = (nbAdults, nbEnfant) => {
+export const calculerNbParts = (nbAdults, nbEnfant) => {
   let nbPartEnfants = 0;
   if (nbEnfant === 1) {
     nbPartEnfants = 0.5;

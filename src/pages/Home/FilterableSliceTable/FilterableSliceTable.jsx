@@ -8,16 +8,13 @@ export const FilterableSliceTable = () => {
   return (
     <section className="af-panel">
       <header className="af-panel__header">
-        {/* SliceYearSelect */}
         <SliceYearSelect
           selectedYear={selectedYear}
           setSelectedYear={setSelectedYear}
         />
       </header>
       <div className="af-panel__content">
-        {/* SliceTable */}
         <Table className="af-table">
-          {/* SliceTableHeader */}
           <SliceTableHeader />
           <Table.Body>
             {selectedTranches.map(({ id, lowBorn, highBorn, rate }) => (
