@@ -40,30 +40,20 @@
 
 ## 6. Faire communiquer des composants
 
-    5.1 Flow descendant (props)
-    5.3 Flow ascendant (callback)1
+    6.1 Flow descendant (props)
+    6.2 Flow ascendant (callback)1
 
 ## 7. Les effets de bord
 
-    6.1 into : cycle de vie + Schema du workflow
-    6.2 useEffect
-    6.3 Appels asynchrones
+    7.1 into : cycle de vie + Schema du workflow
+    7.2 useEffect
+    7.3 Appels asynchrones
 
 ## 8. Les Hooks
 
-    7.1 Introduction
-    7.2 Quelques Hooks de base: useHistory, useReducer, useSelector, useMemo
-    7.3 Custom hooks
-
-<!-- ## 4. Routing
-
-    4.1 Introduire le fonctionnement de Routing
-    4.2 Application: Routes, Route -->
-
-<!-- ## 8. Global state Management
-
-    8.1 Context API
-    8.2 Redux -->
+    8.1 Introduction
+    8.2 Quelques Hooks de base: useHistory, useReducer, useSelector, useMemo
+    8.3 Custom hooks
 
 ## 9. Tests unitaires des hooks et context API
 
@@ -71,5 +61,15 @@
     9.2 Testing library
     9.3 Jest
     9.4 Enzyme
+    
+<!-- ## 10. Routing
 
+    10.1 Introduire le fonctionnement de Routing
+    10.2 Application: Routes, Route -->
+
+<!-- ## 10. Global state Management
+
+    11.1 Context API
+    11.2 Redux -->
+    
 ## 10. Introduction à Typescript
