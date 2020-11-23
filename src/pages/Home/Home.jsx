@@ -6,9 +6,9 @@ import './Home.css';
 import { TaxResultHistory } from 'pages/Home/TaxResultHistory/TaxResultHistory';
 
 const Home = () => {
-  const [taxRate, taxRateSetter] = useState('0');
-  const [taxAmount, taxAmountSetter] = useState('0');
-  const [numberOfShares, numberOfSharesSetter] = useState('0');
+  const [taxRate, taxRateSetter] = useState(0);
+  const [taxAmount, taxAmountSetter] = useState(0);
+  const [numberOfShares, numberOfSharesSetter] = useState(0);
 
   return (
     <>

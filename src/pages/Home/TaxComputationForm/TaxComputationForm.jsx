@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import { Text, SelectBase, Button, Alert } from '@axa-fr/react-toolkit-all';
 import { calculerNbParts } from '../../../shared/taxComputer.helper';
 import { OverlaySpinner } from 'shared/OverlaySpinner/OverlaySpinner';
@@ -14,8 +14,6 @@ export const TaxComputationForm = ({
   const [year, yearSetter] = useState(2020);
   const [modeSpinner, setModeSpinner] = useState('none');
   const [isErrorRequest, setIsErrorRequest] = useState(false);
-
-  useEffect(() => {});
 
   const computeTaxeHandler = () => {
     const input = {

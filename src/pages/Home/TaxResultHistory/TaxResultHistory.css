@@ -1,4 +1,8 @@
-.tax-result.tax-result__column {
+.tax-calculation_content .tax-result.tax-result__column {
   flex-flow: column;
   margin: 0;
+}
+
+.af-form__select-container {
+  height: 40px;
 }
