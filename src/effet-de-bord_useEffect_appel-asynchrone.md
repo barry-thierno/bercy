@@ -156,7 +156,9 @@ Le hook <code>useEffect</code> est une  méthode qui prend deux paramètres <cod
 - <code>dependencies</code> : est un tableau qui permet de définir les dépendances de ce hook dans un but d’optimisation (La fonction(callbackFn) sera exécutée uniquement si une des valeurs du tableau a été modifiée depuis l’appel précédent).
 </blockquote>
 
-Nous allons essayer de convertir le dérnier exemple où nous manipulons le <code>document</code> en un composant fonctionnel
+Nous allons essayer de convertir quelques exemples vus précédemment.
+
+Commençons par la manipulation du dom(<code>document</code>) dans un composant fonctionnel
 
 ```jsx
 import { useState, useEffect } from "react";
