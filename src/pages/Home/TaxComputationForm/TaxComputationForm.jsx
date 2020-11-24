@@ -35,13 +35,11 @@ export const TaxComputationForm = ({
     })
       .then(response => response.json())
       .then(json => {
-        console.log(json);
         taxRateSetter(json.marginalTaxRate);
         taxAmountSetter(json.amount);
         setIsErrorRequest(false);
       })
-      .catch(error => {
-        console.log(error);
+      .catch(() => {
         setIsErrorRequest(true);
       })
       .finally(() => setModeSpinner('none'));

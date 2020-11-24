@@ -1,7 +1,9 @@
 import React from 'react';
 import { Table } from '@axa-fr/react-toolkit-all';
 
-export const TableLine = () => {
+export const TableLine = ({ taxCalculationResult }) => {
+  const { input, result } = taxCalculationResult;
+
   return (
     <>
       <Table.Tr>
@@ -11,25 +13,31 @@ export const TableLine = () => {
               <dt className="af-restitution__listdef-item">
                 <span className="af-restitution__text">Nombre adulte(s) :</span>
               </dt>
-              <dd className="af-restitution__listdef-value">2</dd>
+              <dd className="af-restitution__listdef-value">
+                {input.adultNumber}
+              </dd>
             </dl>
             <dl className="af-restitution__listdef">
               <dt className="af-restitution__listdef-item">
                 <span className="af-restitution__text">Nombre enfant(s) :</span>
               </dt>
-              <dd className="af-restitution__listdef-value">3</dd>
+              <dd className="af-restitution__listdef-value">
+                {input.numberOfChildren}
+              </dd>
             </dl>
             <dl className="af-restitution__listdef">
               <dt className="af-restitution__listdef-item">
                 <span className="af-restitution__text">Montant salaire :</span>
               </dt>
-              <dd className="af-restitution__listdef-value">52000</dd>
+              <dd className="af-restitution__listdef-value">
+                {input.salaryAmount}
+              </dd>
             </dl>
             <dl className="af-restitution__listdef">
               <dt className="af-restitution__listdef-item">
                 <span className="af-restitution__text">Année :</span>
               </dt>
-              <dd className="af-restitution__listdef-value">2020</dd>
+              <dd className="af-restitution__listdef-value">{input.year}</dd>
             </dl>
           </div>
         </Table.Td>
@@ -39,19 +47,25 @@ export const TableLine = () => {
               <dt className="af-restitution__listdef-item">
                 <span className="af-restitution__text">Taux d'imposition</span>
               </dt>
-              <dd className="af-restitution__listdef-value">0</dd>
+              <dd className="af-restitution__listdef-value">
+                {result.taxRate}
+              </dd>
             </dl>
             <dl className="af-restitution__listdef">
               <dt className="af-restitution__listdef-item">
                 <span className="af-restitution__text">Montant impôt</span>
               </dt>
-              <dd className="af-restitution__listdef-value">0</dd>
+              <dd className="af-restitution__listdef-value">
+                {result.taxAmount}
+              </dd>
             </dl>
             <dl className="af-restitution__listdef">
               <dt className="af-restitution__listdef-item">
                 <span className="af-restitution__text">Nombre de part</span>
               </dt>
-              <dd className="af-restitution__listdef-value">0</dd>
+              <dd className="af-restitution__listdef-value">
+                {result.numberOfShares}
+              </dd>
             </dl>
           </div>
         </Table.Td>
