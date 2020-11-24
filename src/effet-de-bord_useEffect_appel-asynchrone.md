@@ -64,6 +64,49 @@ class Component extends React.Component {
 }
 ```
 
+
+```jsx
+class Component extends React.Component {
+  constructor(props) {
+    super(props);
+    state = {width: 0}
+  }
+  function handleResize() {
+    this.setState({width: window.innerWidth});
+  }
+  componentDidMount() {
+    // dans cette méthode de cycle de vie nous faisons l'inscription à l'événement du resize
+    window.addEventListener("resize", handleResize);
+  }
+  componentWillUnmount() {
+    // dans cette méthode de cycle de vie nous faisons la désinscription de l'événement du resize.
+    window.removeEventListener("resize", handleResize);
+  }
+
+  render() {
+    return  return <p>{this.state.width}</p>;
+  }
+}
+```
+
+import React, { useState, useEffect } from "react";
+
+function Component() {
+  // Gestion de la taille de l'écran
+  const [width, setWidth] = useState(window.innerWidth);
+  useEffect(() => {
+    const handleResize = () => setWidth(window.innerWidth);
+
+    window.addEventListener("resize", handleResize);
+
+    return function cleanup() {
+      window.removeEventListener("resize", handleResize);
+    };
+  }, [width]);
+
+  return <p>{width}</p>;
+}
+
 - <blockquote>Manipuler directement le Dom</blockquote>
 
 ```jsx
