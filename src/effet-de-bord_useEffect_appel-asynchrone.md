@@ -13,15 +13,15 @@ Celles-ci peuvent être, par exemple :
 
 <blockquote>Nous Allons voir comment Reactjs nous facilite la gestion des effets de bord.</blockquote>
 
-## 7.1 Cycle de vie + Schema du workflow
+## 7.2 Cycle de vie + Schéma du workflow
 
 <div style="text-align:center"><img src="./images/ReacJs-tlife-cycle.jpg" /></div>
 
-Nous avons dèja vue en détail les methode du cycle de vie d'un composant React basé sur une classe dans le [deuxième Dojo](https://github.com/barry-thierno/bercy/blob/react_dojo_instructions/src/composant.md).
+Nous avons déjà vue en détail les méthodes du cycle de vie d'un composant React basé sur une classe dans le [deuxième Dojo](https://github.com/barry-thierno/bercy/blob/react_dojo_instructions/src/composant.md).
 
-Prenons les exemples suivants où nous faisons des effets de bord
+Prenons les exemples suivants
 
-- <blockquote>Faire un appelle réseau</blockquote>
+- <blockquote>Faire un appel réseau</blockquote>
 
 ```jsx
 class Component extends React.Component {
@@ -31,8 +31,8 @@ class Component extends React.Component {
   }
 
   componentDidMount() {
-    // Manipuler directement le Dom
-    fetchData().then((data) => this.setState({ data }));
+    // Appel vers une API qui nous renvoie les tranches d'impôts au chargement du composant.
+    fetchData("/getTranches").then((data) => this.setState({ data }));
   }
 
   render() {
