@@ -123,7 +123,7 @@ class Component extends React.Component {
 }
 ```
 
-<blockquote>A partir des examples au dessus nous déduisons que nous pouvons gérer les effets de bords avec les 3 methodes du cycles de vie suivants:  <i><b>componentDidMount, componentDidUpdate et componentWillUnmount</b></i>,</blockquote>
+<blockquote>A partir des exemples au-dessus nous déduisons que nous pouvons gérer les effets de bords avec les 3 méthodes du cycles de vie suivants:  <i><b>componentDidMount, componentDidUpdate et componentWillUnmount</b></i>,</blockquote>
 
 #### Pouvons-nous faire la même chose avec un composant fonctionnel?
 #### Le répense est OUI :D
