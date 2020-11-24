@@ -1,6 +1,6 @@
 # 7 La gestion des effets de bord en ReactJs
 
-## 7.1 intoduction des effects de bors
+## 7.1 introduction des effets de bord
 
 Un effet de bord «side effect» est tout ce qui affecte quelque chose en dehors de la portée(scope) de la fonction en cours d'exécution.
 Celles-ci peuvent être, par exemple :
