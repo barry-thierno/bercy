@@ -181,7 +181,7 @@ function Component() {
 }
 ```
 
-Nous allons prendre un exemple qui nous permet de faire un appel réseau pour ulistrer l'importance du deuxième parametre<<code>dependencies</code>> du hook <code>useEffect</code>.
+Nous allons prendre un exemple qui nous permet de faire un appel réseau pour illustrer l'importance du deuxième paramètre<code><dependencies></code> du hook <code>useEffect</code>.
 
 ```jsx
 import { useState, useEffect } from "react";
