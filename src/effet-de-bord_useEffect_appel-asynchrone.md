@@ -226,9 +226,10 @@ function Component() {
 
 Alors pour remédier à ce problème il faut utiliser le deuxième paramètre <code>tableau de dépendances</code> qui nous permet d'exécuter la fonction uniquement si une des valeurs du tableau a été modifiée depuis l’appel précédent </blockquote>
 
-### 7.3.1 Les type du hook useEffect
+### 7.3.1 Les types du hook useEffect
 
-Il existe deux grands types d’effets de bord dans les composants React : ceux qui ne nécessitent pas de nettoyage, et ceux qui en ont besoin. Examinons cette distinction en détail.
+Il existe deux grands types d’effets de bord dans les composants React : ceux qui ne nécessitent pas de nettoyage, et ceux qui en ont besoin. 
+Examinons cette distinction en détail.
 
 ## Effets sans nettoyage
 
@@ -293,7 +294,9 @@ function Component() {
 }
 ```
 
-## 7.4 Appels asynchrones
+## 7.4 Appels asynchrones Yannick
+
+Nous allons voir ici comment faire un appel asynchrone et utiliser le résultat
 
 ```jsx
 import { useState, useEffect } from "react";
