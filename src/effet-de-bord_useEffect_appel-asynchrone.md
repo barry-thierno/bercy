@@ -136,7 +136,11 @@ class Component extends React.Component {
 
 ### 7.3.1 introduction du hook useEffect
 
-Le hook useEffect est un hook qui va permettre de déclencher une fonction(effet debord) de manière asynchrone lorsque l'état du composant change. Nous pouvons dire que useEffect est une alternative aux méthodes du cycle de vie : <code>componentDidMount, componentDidUpdate et componentWillUnmount</code>.
+```jsx 
+useEffect(callbackFn, dependencies[optionl])
+```
+Le hook <code>useEffect</code> est un hook qui va nous permettre de déclencher une fonction(effet de bord) de manière asynchrone lors du changement de l'état d'un composant.
+Nous pouvons dire que le hook <code>useEffect</code> est un alternatif aux méthodes du cycle de vie : <code>componentDidMount, componentDidUpdate et componentWillUnmount</code>.
 
 <table>
   <tr>
