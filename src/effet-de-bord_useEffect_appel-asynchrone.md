@@ -150,10 +150,10 @@ Nous pouvons dire que le hook <code>useEffect</code> est un alternatif aux méth
  </table>
 
 <blockquote>
-La méthode <code>useEffecte</code> prend deux parametres <code>useEffect(callbackFn, dependencies[optionl])</code>;
+Le hook <code>useEffect</code> est une  méthode qui prend deux paramètres <code>useEffect(callbackFn, dependencies[optionl])</code>;
 
-- <code>callbackFn</code> : est la fonction qui sera exécutée lorsqu'une de ses dépendance change (cette fonction est exécutée de manière asynchrone et ne bloquera pas le rendu du composant).
-- <code>dependencies</code> : est un tableau qui permet de définir les dépendances de ce hook dans un but d’optimisation (La fonction effet sera exécutée uniquement si une des valeurs du tableau a été modifiée depuis l’appel précédent).
+- <code>callbackFn</code> : est la fonction qui sera exécutée lorsqu'une des dépendances change (cette fonction est exécutée de manière asynchrone et ne bloquera pas le rendu du composant).
+- <code>dependencies</code> : est un tableau qui permet de définir les dépendances de ce hook dans un but d’optimisation (La fonction(callbackFn) sera exécutée uniquement si une des valeurs du tableau a été modifiée depuis l’appel précédent).
 </blockquote>
 
 Nous allons essayer de convertir le dérnier exemple où nous manipulons le <code>document</code> en un composant fonctionnel
