@@ -181,7 +181,7 @@ function Component() {
 }
 ```
 
-Nous allons prendre un exemple qui nous permet de faire un appel réseau pour illustrer l'importance du deuxième paramètre<<code>dependencies</code>> du hook <code>useEffect</code>.
+Nous allons prendre un exemple qui nous permet d'illustrer l'importance du deuxième paramètre<<code>dependencies</code>> du hook <code>useEffect</code>.
 
 ```jsx
 import { useState, useEffect } from "react";
@@ -218,14 +218,13 @@ function Component() {
 }
 ```
 
-<blockquote> Problème constaté: Chaque modification de la valeur du champ text :
+<blockquote> Problème constaté: Chaque modification de la valeur du champ text:
 
-- Met à jour le state du composant
-- provoque re-render du composant
-- Force l'exécution de fonction passée en parametre à useEffect
-- Alors modifier le Dom et afficher la pop-in avec la même valeur n fois,
+- Met à jour le state text du composant.
+- provoque re-render du composant.
+- Force l'exécution de fonction passée en paramètre à useEffect ce que nous ne souhatons pas lors du chargement du text.
 
-Alors pour Remédier à ce problème il faut utiliser le deuxieme parametre <code>tableu de dépendences</code> qui nous permet d'exécuter la fonction uniquement si une des valeurs du tableau a été modifiée depuis l’appel précédent </blockquote>
+Alors pour remédier à ce problème il faut utiliser le deuxième paramètre <code>tableau de dépendances</code> qui nous permet d'exécuter la fonction uniquement si une des valeurs du tableau a été modifiée depuis l’appel précédent </blockquote>
 
 ### 7.3.1 Les type du hook useEffect
 
@@ -329,7 +328,7 @@ function Component() {
 
 - Met à jour le state du composant
 - provoque re-render du composant
-- force l'exécution de fonction passée en parametre à useEffect
+- force l'exécution de fonction passée en paramètre à useEffect
 - alors ça fait le même appel réseau n fois,
 
 Alors pour Remédier à ce problème il faut utiliser le deuxieme parametre <code>tableu de dépendences</code> qui nous permet d'exécuter la fonction uniquement si une des valeurs du tableau a été modifiée depuis l’appel précédent </blockquote>
