@@ -1,3 +1,6 @@
+.af-form__select-container {
+  height: 40px;
+}
 .af-loader.af-loader--spinner.af-loader-on {
   position: fixed !important;
   z-index: 100;

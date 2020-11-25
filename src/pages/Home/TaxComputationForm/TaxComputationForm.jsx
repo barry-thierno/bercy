@@ -1,7 +1,13 @@
 import React, { useState } from 'react';
-import { Text, SelectBase, Button, Alert } from '@axa-fr/react-toolkit-all';
+import {
+  Text,
+  SelectBase,
+  Button,
+  Alert,
+  Loader,
+} from '@axa-fr/react-toolkit-all';
 import { calculerNbParts } from '../../../shared/taxComputer.helper';
-import { OverlaySpinner } from 'shared/OverlaySpinner/OverlaySpinner';
+import './TaxComputationForm.css';
 
 export const TaxComputationForm = ({
   taxRateSetter,
@@ -56,7 +62,12 @@ export const TaxComputationForm = ({
         />
       )}
 
-      <OverlaySpinner mode={modeSpinner} text="Calcul en cours" />
+      <Loader
+        mode={modeSpinner}
+        text="Calcul en cours"
+        className="af-loader"
+        classModifier="spinner"
+      />
 
       <form className="af-form tax-form">
         <h1 className="af-title--content">Formulaire</h1>
