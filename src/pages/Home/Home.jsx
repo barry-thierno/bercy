@@ -2,8 +2,8 @@ import React, { useState } from 'react';
 import { TaxComputationForm } from './TaxComputationForm/TaxComputationForm';
 import { TaxResult } from './TaxResult/TaxResult';
 import { FilterableSliceTable } from './FilterableSliceTable/FilterableSliceTable';
-import './Home.css';
 import { TaxResultHistory } from 'pages/Home/TaxResultHistory/TaxResultHistory';
+import './Home.css';
 
 const Home = () => {
   const [taxRate, taxRateSetter] = useState(0);
