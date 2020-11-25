@@ -368,11 +368,7 @@ function Component() {
 L’arrivé des hooks renverse ce qu'on a vu précédemment avec les classes et apporte une vision nouvelle à React.
 Les Hooks sont arrivés avec React **16.8** avec la transition d'une classe en functional components, Ils vous permettent de bénéficier d’un état local et d’autres fonctionnalités de React sans avoir à écrire une classe.
 
-<div align="center">
-    <img align="center" src=./images/strong-baby.jpg
-         alt="strong ">
-    <figcaption align="center">Pas besoin des classes ;)</figcaption>
-</figure></div>
+<div align="center"><img align="center" src=./images/strong-baby.jpg alt="strong "></div>
 
 ## 8.2 Quelques Hooks de base: useRef, useCallback, useMemo, useReducer
 
