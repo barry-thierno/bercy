@@ -118,7 +118,6 @@ const UPDATE_NUMBER_OF_ADULT = 'UPDATE_NUMBER_OF_ADULT';
 const UPDATE_NUMBER_OF_CHILDREN = 'UPDATE_NUMBER_OF_CHILDREN';
 const UPDATE_SALARY_AMOUNT = 'UPDATE_SALARY_AMOUNT';
 const UPDATE_YEAR = 'UPDATE_YEAR';
-const CALCULATE_TAXES = 'CALCULATE_TAXES';
 
 // Nous pouvons mettre cette fonction dans un fichier qu'on peut ruétiliser par exemple.
 const reducer = (state, action) => {
@@ -131,8 +130,6 @@ const reducer = (state, action) => {
       return { ...state, salaryAmount: action.value };
     case UPDATE_YEAR:
       return { ...state, year: action.value };
-    case CALCULATE_TAXES:
-      return { ...state, historiques: [...state.historiques, action.value] };
     default:
       return state;
   }
