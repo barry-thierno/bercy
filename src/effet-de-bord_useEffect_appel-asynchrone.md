@@ -369,7 +369,7 @@ L’arrivé des hooks renverse ce qu'on a vu précédemment avec les classes et 
 Les Hooks sont arrivés avec React **16.8** avec la transition d'une classe en functional components, Ils vous permettent de bénéficier d’un état local et d’autres fonctionnalités de React sans avoir à écrire une classe.
 
 <div style="text-align:center"><figure>
-    <img src=./strong-baby.jpg
+    <img src=./images/strong-baby.jpg
          alt="strong ">
     <figcaption text-aligh="center" >Pas besoin des classes ;)</figcaption>
 </figure></div>
