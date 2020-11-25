@@ -377,11 +377,16 @@ Les Hooks sont arrivés avec React **16.8** avec la transition d'une classe en f
 ```jsx
 const [state, dispatch] = useReducer(reducer, initialArg, init);
 ```
+<code>useReducer</code> renvoie un pair <code>state</code> l’état local actuel accompagné d’une méthode <code>dispatch</code>. (Si vous avez l’habitude de Redux, vous savez déjà comment ça fonctionne.)
 
-c'est un Alternative à <code>useState</code>. Accepte un une fonction nommée **_reducer_** de type <code>(state, action) => newState</code>, et renvoie l’état local actuel accompagné d’une méthode dispatch. (Si vous avez l’habitude de Redux, vous savez déjà comment ça fonctionne.)
+c'est un Alternative à <code>useState</code>. Elle accepte 3 paramètres:
+- reducer: une fonction de type <code>(actualState, action) => newState</code>. 
+- initialArg: représente l'état initial du state.
+
+- lazyInitializerFn: une fonction qu'on utilise pour faire du Lazy initialization de ***la valeur initiale du state***, si vous voulez initier votre state par le résultat d'une méthode qui fait un calcul coûteux.
+ 
 
 <blockquote>cas d'usage de <code>useReducer</code>?</blockquote>
-
 
 <code>useReducer</code> est souvent préférable à useState quand vous avez une logique d’état local complexe qui comprend plusieurs sous-valeurs, ou quand l’état suivant dépend de l’état précédent.
 <code>useReducer</code> vous permet aussi d’optimiser les performances pour des composants qui déclenchent des mises à jours profondes puisque vous pouvez fournir <code>dispatch</code> à la place de fonctions callback.
