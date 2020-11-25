@@ -438,13 +438,16 @@ Nous allons utiliser <code>useReducer(reducer, initialArg, lazyInitializerFn);</
 ```jsx
 import React, { useReducer } from "react";
 
+// la valeur initil de notre state
 const initialValue = {firstName: "", lastName: "", age: 0, address: "", isMajor: false};
 
+// Actions
 const UPDATE_FIRSTNAME = "UPDATE_FIRSTNAME";
 const UPDATE_LASTNAME = "UPDATE_LASTNAME";
 const UPDATE_AGE = "UPDATE_AGE";
 const UPDATE_ADRESS = "UPDATE_ADRESS";
 
+// Nous pouvons mettre cette fonction dans un fichier qu'on peut ruétiliser par exemple.
 const reducer = (state, action) => {
   switch (action.type) {
     case UPDATE_FIRSTNAME:
@@ -460,15 +463,17 @@ const reducer = (state, action) => {
   }
 };
 
+// Un composant plus leger. 
 export default function Form() {
   
+  // pas de complexité, un seul Hook pour tous les champs
   const [{ firstName, lastName, age, address, isMajor }, dispatch] = useReducer(reducer, initialValue);
 
   const updateFieldValue = (type, value) => dispatch({ type, value });
 
   return (
     <>
-      <p>Bonour {firstName} {lastName}, vous étes {isMajor ? "majeur" : "mineur"}</p>
+      <p>Bonour {firstName} {lastName}, vous étes {isMajor ? "majeur(e)" : "mineur(e)"}</p>
       <label>Nom: </label>
       <input type="text" value={firstName} onChange={({ target }) => updateFieldValue(UPDATE_FIRSTNAME, target.value)}/>
       <label> Prénom: </label>
@@ -482,7 +487,11 @@ export default function Form() {
 }
 
  ```
+<blockquote>
+  Grâce au hook <code>useReducer</code>, nous avons rendu le composant Form leger et compacte, parce que nous avons extrait la logic et sa complexité dans une fonction externe <code>reducer</code>
 
+  Nous pouvons aussi déplacer la fonction <code>useReducer</code> dans un fichier si nous voulons réutiliser la même logique dans d'autre composants
+</blockquote>
 ### 8.2.2 useRef
 
 ```jsx
