@@ -38,92 +38,170 @@ PS: Nous pouvons utiliser qu'un seul hook <code>useState</code> pour gérer ce f
 </blockquote>
 
 ```jsx
-import React, { useState } from "react";
-
-export default function Form() {
-  const [firstName, setFirstName] = useState("");
-  const [lastName, setLastName] = useState("");
-  const [age, setAge] = useState(0);
-  const [adress, setAdress] = useState("");
-  const [isMajor, setIsMajor] = useState(false);
-
-  const addAge = ({ target }) => {
-    const newAge = target.value;
-    setAge(newAge >= 0 ? newAge : age);
-    setIsMajor(newAge >= 18);
-  }
+import React, { useState } from 'react';
+import { Text, SelectBase, Button } from '@axa-fr/react-toolkit-all';
+import { computeTaxeService } from '../../../shared/taxComputer.helper';
   
+const options = [
+  { value: '2019', label: '2019' },
+  { value: '2020', label: '2020' },
+ ];
+export const TaxComputationForm = ({taxRateSetter, taxAmountSetter, numberOfSharesSetter}) => {
+  const [numberOfAdult, setNumberOfAdult] = useState(1);
+  const [salaryAmount, setSalaryAmount] = useState(0);
+  const [numberOfChildren, setNumberOfChildren] = useState(0);
+  const [year, setYear] = useState(2020);
+
+  const updateNumberOfAdult = ({ value }) => setNumberOfAdult(parseInt(value, 10) || 0);
+  const updateSalaryAmount = ({ value }) => setSalaryAmount(parseInt(value, 10) || 0);
+  const updateNumberOfChildren = ({ value }) => setNumberOfChildren(parseInt(value, 10) || 0);
+  const updateYear = ({ value }) => setYear(parseInt(value, 10) || 0);
+
+  const computeTaxeHandler = () => {
+   .........
+   .........
+  };
+
+
   return (
     <>
-      <p>
-        Bonour {firstName} {lastName}, vous étes {isMajor ? "majeur" : "mineur"}
-      </p>
-      <label>Nom: </label>
-      <input type="text" value={firstName} onChange={({ target }) => setFirstName(target.value)}/>
-      <label> Prénom: </label>
-      <input type="text" value={lastName} onChange={({ target }) => setLastName(target.value)}/>
-      <label> age: </label>
-      <input type="number" value={age} onChange={addAge}/>
-      <label> Adresse: </label>
-      <input type="text" value={adress} onChange={({ target }) => setAdress(target.value)}/>
+      <form className="af-form tax-form">
+        <h1 className="af-title--content">Formulaire</h1>
+        <div className="af-form__group">
+          <dl>
+            <dt>Nombre adulte(s) :</dt>
+            <dd>
+              <Text value={numberOfAdult} onChange={updateNumberOfAdult}/>
+            </dd>
+          </dl>
+          <dl>
+            <dt>Montant salaire :</dt>
+            <dd>
+              <Text value={salaryAmount} onChange={updateSalaryAmount}/>
+            </dd>
+          </dl>
+          <dl>
+            <dt>Nombre enfant(s) :</dt>
+            <dd>
+              <Text value={numberOfChildren} onChange={updateNumberOfChildren}/>
+            </dd>
+          </dl>
+          <dl>
+            <dt>Année :</dt>
+            <dd>
+              <SelectBase key="key" options={options} value={year} onChange={updateYear}/>
+            </dd>
+          </dl>
+        </div>
+        <div className="af-form__group af-form__btn">
+          <Button classModifier="hasiconLeft" id="validation-button" onClick={computeTaxeHandler}>
+            <span className="af-btn__text">Calculer</span><i className="glyphicon glyphicon-stats" />
+          </Button>
+        </div>
+      </form>
     </>
   );
-}
+};
 
 ```
 
 Nous allons utiliser <code>useReducer(reducer, initialArg, lazyInitializerFn);</code> pour extraite la logique et la complexité dans une fonction nommée par convention <code>reducer</code>.
 
-```jsx
-import React, { useReducer } from "react";
+```js
+TaxComputationForm.reducer.js
 
 // la valeur initil de notre state
-const initialValue = {firstName: "", lastName: "", age: 0, address: "", isMajor: false};
+const initialValues = {numberOfAdult: 1, numberOfChildren: 0, salaryAmount: 0, year: 2020};
 
-// Actions
-const UPDATE_FIRSTNAME = "UPDATE_FIRSTNAME";
-const UPDATE_LASTNAME = "UPDATE_LASTNAME";
-const UPDATE_AGE = "UPDATE_AGE";
-const UPDATE_ADRESS = "UPDATE_ADRESS";
+// Actions qui déclenchent la mise à jour des valeurs
+const UPDATE_NUMBER_OF_ADULT = 'UPDATE_NUMBER_OF_ADULT';
+const UPDATE_NUMBER_OF_CHILDREN = 'UPDATE_NUMBER_OF_CHILDREN';
+const UPDATE_SALARY_AMOUNT = 'UPDATE_SALARY_AMOUNT';
+const UPDATE_YEAR = 'UPDATE_YEAR';
+const CALCULATE_TAXES = 'CALCULATE_TAXES';
 
 // Nous pouvons mettre cette fonction dans un fichier qu'on peut ruétiliser par exemple.
 const reducer = (state, action) => {
   switch (action.type) {
-    case UPDATE_FIRSTNAME:
-      return { ...state, firstName: action.value };
-    case UPDATE_LASTNAME:
-      return { ...state, lastName: action.value };
-    case UPDATE_AGE:
-      return { ...state, age: action.value >= 0 ? action.value : 0, isMajor: action.value >= 18 };
-    case UPDATE_ADRESS:
-      return { ...state, address: action.value };
+    case UPDATE_NUMBER_OF_ADULT:
+      return { ...state, numberOfAdult: action.value };
+    case UPDATE_NUMBER_OF_CHILDREN:
+      return { ...state, numberOfChildren: action.value };
+    case UPDATE_SALARY_AMOUNT:
+      return { ...state, salaryAmount: action.value };
+    case UPDATE_YEAR:
+      return { ...state, year: action.value };
+    case CALCULATE_TAXES:
+      return { ...state, historiques: [...state.historiques, action.value] };
     default:
       return state;
   }
 };
+```
 
-// Un composant plus leger. 
-export default function Form() {
-  
+```jsx
+import React, { useReducer } from 'react';
+import { Text, SelectBase, Button } from '@axa-fr/react-toolkit-all';
+import { computeTaxeService } from '../../../shared/taxComputer.helper';
+
+import { initialValues, reducer, UPDATE_NUMBER_OF_ADULT, UPDATE_NUMBER_OF_CHILDREN, UPDATE_SALARY_AMOUNT, UPDATE_YEAR} from './TaxComputationForm.reducer';
+
+const options = [
+  { value: '2019', label: '2019' },
+  { value: '2020', label: '2020' },
+ ];
+ 
+ // Un composant plus leger. 
+export const TaxComputationForm = ({taxRateSetter, taxAmountSetter, numberOfSharesSetter}) => {
   // pas de complexité, un seul Hook pour tous les champs
-  const [{ firstName, lastName, age, address, isMajor }, dispatch] = useReducer(reducer, initialValue);
+  const [{ numberOfAdult, numberOfChildren, salaryAmount, year }, dispatch] = useReducer(reducer, initialValues);
 
   const updateFieldValue = (type, value) => dispatch({ type, value });
 
+  const computeTaxeHandler = () => {
+   .........
+   .........
+  };
+
   return (
     <>
-      <p>Bonour {firstName} {lastName}, vous étes {isMajor ? "majeur(e)" : "mineur(e)"}</p>
-      <label>Nom: </label>
-      <input type="text" value={firstName} onChange={({ target }) => updateFieldValue(UPDATE_FIRSTNAME, target.value)}/>
-      <label> Prénom: </label>
-      <input type="text" value={lastName} onChange={({ target }) => updateFieldValue(UPDATE_LASTNAME, target.value)}/>
-      <label> age: </label>
-      <input type="number" value={age} onChange={({ target }) => updateFieldValue(UPDATE_AGE, target.value) } />
-      <label> Adresse: </label>
-      <input type="text" value={address} onChange={({ target }) => updateFieldValue(UPDATE_ADRESS, target.value)}/>
+      <form className="af-form tax-form">
+        <h1 className="af-title--content">Formulaire</h1>
+        <div className="af-form__group">
+          <dl>
+            <dt>Nombre adulte(s) :</dt>
+            <dd>
+              <Text value={numberOfAdult} onChange={({ value }) => updateFieldValue(UPDATE_NUMBER_OF_ADULT, parseInt(value) || 0)}/>
+            </dd>
+          </dl>
+          <dl>
+            <dt>Montant salaire :</dt>
+            <dd>
+              <Text value={salaryAmount} onChange={({ value }) => updateFieldValue(UPDATE_SALARY_AMOUNT, parseInt(value) || 0)}/>
+            </dd>
+          </dl>
+          <dl>
+            <dt>Nombre enfant(s) :</dt>
+            <dd>
+              <Text value={numberOfChildren} onChange={({ value }) => updateFieldValue(UPDATE_NUMBER_OF_CHILDREN, parseInt(value) || 0)}/>
+            </dd>
+          </dl>
+          <dl>
+            <dt>Année :</dt>
+            <dd>
+              <SelectBase key="key" options={options} value={year} onChange={({ value }) => updateFieldValue(UPDATE_YEAR, parseInt(value) || 0)}/>
+            </dd>
+          </dl>
+        </div>
+        <div className="af-form__group af-form__btn">
+          <Button classModifier="hasiconLeft" id="validation-button" onClick={computeTaxeHandler}>
+            <span className="af-btn__text">Calculer</span><i className="glyphicon glyphicon-stats" />
+          </Button>
+        </div>
+      </form>
     </>
   );
-}
+};
 
  ```
 <blockquote>
