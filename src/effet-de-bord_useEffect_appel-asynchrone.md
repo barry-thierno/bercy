@@ -375,7 +375,7 @@ Les Hooks sont arrivés avec React **16.8** avec la transition d'une classe en f
 ### 8.2.1 useReducer
 
 ```jsx
-const [state, dispatch] = useReducer(reducer, initialArg, init);
+const [state, dispatch] = useReducer(reducer, initialArg, lazyInitializerFn);
 ```
 <code>useReducer</code> renvoie un pair <code>state</code> l’état local actuel accompagné d’une méthode <code>dispatch</code>. (Si vous avez l’habitude de Redux, vous savez déjà comment ça fonctionne.)
 
@@ -433,7 +433,7 @@ export default function Form() {
 
 ```
 
-Nous allons utiliser <code>useReducer(reducer, initialArg, initFn);</code> pour extraite la logique et la complexité dans une fonction nommée par convention <code>reducer</code>.
+Nous allons utiliser <code>useReducer(reducer, initialArg, lazyInitializerFn);</code> pour extraite la logique et la complexité dans une fonction nommée par convention <code>reducer</code>.
 
 ```jsx
 import React, { useReducer } from "react";
