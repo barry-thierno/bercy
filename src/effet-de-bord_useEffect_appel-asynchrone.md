@@ -359,3 +359,119 @@ function Component() {
   );
 }
 ```
+
+
+# 8 Les Hooks
+
+## 8.1 Introduction
+
+L’arrivé des hooks renverse ce qu'on a vu précédemment avec les classes et apporte une vision nouvelle à React.
+Les Hooks sont arrivés avec React **16.8** avec la transition d'une classe en functional components, Ils vous permettent de bénéficier d’un état local et d’autres fonctionnalités de React sans avoir à écrire une classe.
+
+<div style="text-align:center"><figure>
+    <img src=./strong-baby.jpg
+         alt="strong ">
+    <figcaption text-aligh="center" >Pas besoin des classes ;)</figcaption>
+</figure></div>
+
+## 8.2 Quelques Hooks de base: useRef, useCallback, useMemo, useReducer
+
+### 8.2.1 useReducer
+
+```jsx
+const [state, dispatch] = useReducer(reducer, initialArg, init);
+```
+
+c'est un Alternative à <code>useState</code>. Accepte un une fonction nommée **_reducer_** de type <code>(state, action) => newState</code>, et renvoie l’état local actuel accompagné d’une méthode dispatch. (Si vous avez l’habitude de Redux, vous savez déjà comment ça fonctionne.)
+
+<blockquote>cas d'usage de <code>useReducer</code>?</blockquote>
+
+
+<code>useReducer</code> est souvent préférable à useState quand vous avez une logique d’état local complexe qui comprend plusieurs sous-valeurs, ou quand l’état suivant dépend de l’état précédent.
+<code>useReducer</code> vous permet aussi d’optimiser les performances pour des composants qui déclenchent des mises à jours profondes puisque vous pouvez fournir <code>dispatch</code> à la place de fonctions callback.
+
+<blockquote>Exemple</blockquote>
+Prenons par exemple ce composant qui représente une un formulaire avec 5 champs qui appartient à la même entité fonctionnelle(personne). Nous remarquons que nous utilisons <code>useState</code> pour intercepter la valeur de chaque champs. le faite d'utiliser beaucoup de useState rend le composant verbeux, complexe.
+
+<blockquote>
+PS: Nous pouvons utiliser qu'un seul hook <code>useState</code> pour gérer ce formulaire mais pour des raisons pédagogiques nous utilisons un hook useState pour chaque champ.
+</blockquote>
+
+```jsx
+import React, { useState } from "react";
+
+export default function Form() {
+  const [firstName, setFirstName] = useState("");
+  const [lastName, setLastName] = useState("");
+  const [age, setAge] = useState(0);
+  const [adress, setAdress] = useState("");
+  const [isMajor, setIsMajor] = useState(false);
+
+  const addAge = ({ target }) => {
+    const newAge = target.value;
+    setAge(newAge >= 0 ? newAge : age);
+    setIsMajor(newAge >= 18);
+  }
+  
+  return (
+    <>
+      <p>
+        Bonour {firstName} {lastName}, vous étes {isMajor ? "majeur" : "mineur"}
+      </p>
+      <label>Nom: </label>
+      <input type="text" value={firstName} onChange={({ target }) => setFirstName(target.value)}/>
+      <label> Prénom: </label>
+      <input type="text" value={lastName} onChange={({ target }) => setLastName(target.value)}/>
+      <label> age: </label>
+      <input type="number" value={age} onChange={addAge}/>
+      <label> Adresse: </label>
+      <input type="text" value={adress} onChange={({ target }) => setAdress(target.value)}/>
+    </>
+  );
+}
+
+```
+
+### 8.2.2 useRef
+
+```jsx
+const refContainer = useRef(initialValue);
+```
+
+<code>useRef</code> renvoie un objet ref modifiable dont la propriété current est initialisée avec l’argument fourni (initialValue). L’objet renvoyé persistera pendant toute la durée de vie composant.
+
+Un cas d’usage courant consiste à accéder à un enfant de manière impérative :
+
+```jsx
+function TextInputWithFocusButton() {
+  const inputEl = useRef(null);
+  const [text, setText] = useState(false);
+
+  const onButtonClick = () => {
+    // `current` fait référence au champ textuel monté dans le DOM
+    inputEl.current.focus();
+  };
+  useEffect(() => {
+    console.log(text);
+  }, [text]);
+  return (
+    <>
+      <input ref={inputEl} type="text" />
+      <button onClick={onButtonClick}>Donner le focus au champ</button>
+    </>
+  );
+}
+```
+
+<blockquote>Gardez à l’esprit:
+
+- que useRef ne vous notifie pas quand le contenu change. Modifier la propriété
+- .current n’entraîne pas un rafraîchissement. Si vous voulez exécuter du code quand React attache ou détache une ref sur un nœud DOM, vous voudrez sans doute utiliser plutôt
+</blockquote>
+
+### 8.2.3 useCallback
+
+### 8.2.4 useMemo
+
+## 8.3 Custom hooks
+
