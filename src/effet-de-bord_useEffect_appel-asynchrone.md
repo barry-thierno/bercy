@@ -428,6 +428,56 @@ export default function Form() {
 
 ```
 
+Nous allons utiliser <code>useReducer(reducer, initialArg, initFn);</code> pour extraite la logique et la complexité dans une fonction nommée par convention <code>reducer</code>.
+
+```jsx
+import React, { useReducer } from "react";
+
+const initialValue = {firstName: "", lastName: "", age: 0, address: "", isMajor: false};
+
+const UPDATE_FIRSTNAME = "UPDATE_FIRSTNAME";
+const UPDATE_LASTNAME = "UPDATE_LASTNAME";
+const UPDATE_AGE = "UPDATE_AGE";
+const UPDATE_ADRESS = "UPDATE_ADRESS";
+
+const reducer = (state, action) => {
+  switch (action.type) {
+    case UPDATE_FIRSTNAME:
+      return { ...state, firstName: action.value };
+    case UPDATE_LASTNAME:
+      return { ...state, lastName: action.value };
+    case UPDATE_AGE:
+      return { ...state, age: action.value >= 0 ? action.value : 0, isMajor: action.value >= 18 };
+    case UPDATE_ADRESS:
+      return { ...state, address: action.value };
+    default:
+      return state;
+  }
+};
+
+export default function Form() {
+  
+  const [{ firstName, lastName, age, address, isMajor }, dispatch] = useReducer(reducer, initialValue);
+
+  const updateFieldValue = (type, value) => dispatch({ type, value });
+
+  return (
+    <>
+      <p>Bonour {firstName} {lastName}, vous étes {isMajor ? "majeur" : "mineur"}</p>
+      <label>Nom: </label>
+      <input type="text" value={firstName} onChange={({ target }) => updateFieldValue(UPDATE_FIRSTNAME, target.value)}/>
+      <label> Prénom: </label>
+      <input type="text" value={lastName} onChange={({ target }) => updateFieldValue(UPDATE_LASTNAME, target.value)}/>
+      <label> age: </label>
+      <input type="number" value={age} onChange={({ target }) => updateFieldValue(UPDATE_AGE, target.value) } />
+      <label> Adresse: </label>
+      <input type="text" value={address} onChange={({ target }) => updateFieldValue(UPDATE_ADRESS, target.value)}/>
+    </>
+  );
+}
+
+ ```
+
 ### 8.2.2 useRef
 
 ```jsx
