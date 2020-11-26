@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { Text, SelectBase, Button } from '@axa-fr/react-toolkit-all';
 import { computeTaxeService } from '../../../shared/taxComputer.helper';
+import './TaxComputationForm.css';
 
 export const TaxComputationForm = ({
   taxRateSetter,
@@ -23,7 +24,6 @@ export const TaxComputationForm = ({
     taxAmountSetter(taxAmount.toString());
     numberOfSharesSetter(numberOfShares.toString());
   };
-
   return (
     <>
       <form className="af-form tax-form">
