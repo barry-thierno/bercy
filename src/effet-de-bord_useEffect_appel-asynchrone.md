@@ -44,11 +44,6 @@ class Component extends React.Component {
 - <blockquote>Inscriptions/désinscription à des événements</blockquote>
 
 ```jsx
-class Component extends React.Component {
-  constructor(props) {
-    super(props);
-  }
-
   componentDidMount() {
     // dans cette méthode de cycle de vie nous faisons l'inscription
     ChatAPI.subscribeToFriendStatus(this.props.friend.id);
@@ -58,35 +53,19 @@ class Component extends React.Component {
     ChatAPI.unsubscribeFromFriendStatus(this.props.friend.id);
   }
 
-  render() {
-    return this.friend.isOnline ? "Online" : "Offline";
-  }
-}
 ```
 
 ```jsx
-class Component extends React.Component {
-  constructor(props) {
-    super(props);
-    state = {width: 0}
-    this.handleResize =  this.handleResize.bind(this)
-  }
-  function handleResize() {
-    this.setState({width: window.innerWidth});
-  }
+
   componentDidMount() {
     // dans cette méthode de cycle de vie nous faisons l'inscription à l'événement du resize
-    window.addEventListener("resize", handleResize);
+    window.addEventListener("resize", () => this.setState({width: window.innerWidth}));
   }
   componentWillUnmount() {
     // dans cette méthode de cycle de vie nous faisons la désinscription de l'événement du resize.
-    window.removeEventListener("resize", handleResize);
+    window.removeEventListener("resize", () => this.setState({width: window.innerWidth}));
   }
 
-  render() {
-    return  return <p>{this.state.width}</p>;
-  }
-}
 ```
 - <blockquote>Manipuler directement le Dom</blockquote>
 
