@@ -17,19 +17,25 @@ Les Hooks sont arrivés avec React **16.8** avec la transition d'une classe en f
 const refContainer = useRef(initialValue);
 ```
 
-<code>useRef</code> renvoie un objet ref modifiable dont la propriété current est initialisée avec l’argument fourni (initialValue). L’objet renvoyé persistera pendant toute la durée de vie composant.
+<code>useRef</code> renvoie un objet ref <code>{current: initialValue}</code> modifiable dont la propriété current est initialisée avec l’argument fourni (initialValue). L’objet renvoyé persistera pendant toute la durée de vie composant.
+La déffirence entre <code>useRef</code> et un objet <code>const myObject = {current: initialValue}</code> déclaré manuellement dans le composant, est que l'object <code>refContainer</code> retourné par le hook<code>useRef</code> garde la même valeur pendant toute la durée de vie du composant après des re-render. Par contre les objects déclarés manuellement dans le composant reviennt à leur état initial après chaque re-render . 
 
-Un cas d’usage courant consiste à accéder à un enfant de manière impérative :
+To update the value stored in the ref object, you go ahead and mutate the current property as follows:
+Pour mettre à jour le valeur stocké dans la <code>refContainer</code>, modifiez la valeur de la propriété <code>refContainer.curent</code>. 
+
+Un cas d’usage courant consiste à accéder aau DOM  d'un enfant de manière impérative :
 
 ```jsx
 function TextInputWithFocusButton() {
   const inputRef = useRef(null);
-  const [text, setText] = useState(false);
+  //inputRef sera toujours {current: value} aprés tous les re-renders. 
 
   const onButtonClick = () => {
     // `current` fait référence au champ textuel monté dans le DOM
     inputEl.current.focus();
+    inputEl.current.value = "le champs de text est valorisé";
   };
+  
   console.log('inputRef', inputRef);
   return (
     <>
@@ -39,11 +45,13 @@ function TextInputWithFocusButton() {
   );
 }
 ```
+Dans cette exemple React alimente la propriété .curent de notre inptRef avec le nœud(DOM) du champ de text, qui nous permet d'accéder à toutes les propriétés de l'input et les manipuler ou cas besoin.
 
 <blockquote>Gardez à l’esprit:
 
-- que useRef ne vous notifie pas quand le contenu change. Modifier la propriété
-- .current n’entraîne pas un rafraîchissement. Si vous voulez exécuter du code quand React attache ou détache une ref sur un nœud DOM, vous voudrez sans doute utiliser plutôt
+- que useRef ne vous notifie pas quand le contenu change. 
+- Modifier la propriété .current n’entraîne pas un rafraîchissement. 
+- Si vous voulez exécuter du code quand React attache ou détache une ref sur un nœud DOM, vous voudrez sans doute utiliser plutôt une [ref à base de fonction de rappel](https://fr.reactjs.org/docs/hooks-faq.html#how-can-i-measure-a-dom-node).
 </blockquote>
 
 ### 8.2.2 useCallback
