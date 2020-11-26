@@ -140,26 +140,28 @@ Nous allons essayer de convertir quelques exemples vus précédemment.
 Commençons par la manipulation du dom(<code>document</code>) dans un composant fonctionnel
 
 ```jsx
-import { useState, useEffect } from "react";
+import React, { useState, useEffect } from "react";
 
-function Component() {
-  const [count, setCount] = useState(0);
+export default function Component() {
+  const [id, setId] = useState(0);
+  const [name, setName] = useState("Yannick");
 
   // Similaire à componentDidMount et componentDidUpdate :
   useEffect(() => {
-    // Met à jour le titre du document via l’API du navigateur
-    document.title = `Vous avez cliqué ${count} fois`;
+    document.title = `Hello ${name}`;
   });
 
   return (
     <div>
-      <p>Vous avez cliqué {count} fois</p>
-      <button onClick={() => setCount(count + 1)}>Cliquez ici</button>
+      <p>Hello {name}</p>
+      <input type="text" onChange={({ target }) => setName(target.value)} />
+      <button onClick={() => setId(id + 1)}>Cliquez ici</button>
     </div>
   );
 }
-```
 
+```
+[code source](https://codesandbox.io/s/useeffect-qz0n8?file=/src/App.js:0-505)
 Nous allons prendre un exemple qui nous permet d'illustrer l'importance du deuxième paramètre<<code>dependencies</code>> du hook <code>useEffect</code>.
 
 ```jsx
