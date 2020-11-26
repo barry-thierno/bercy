@@ -382,7 +382,7 @@ export const FilterableSliceTable = () => {
         <Table className="af-table">
           <SliceTableHeader />
           <Table.Body>
-            {selectedTranches.map(({ id, lowBorn, highBorn, rate }) => (
+            {selectedTranches.map(({ low, high, rate }, index) => (
               <SliceTableRow
                 key={id}
                 lowBorn={lowBorn}
