@@ -1,17 +1,16 @@
 import React from 'react';
-import { Header, Name} from '@axa-fr/react-toolkit-all';
-import logo from '@axa-fr/react-toolkit-core/dist/assets/logo-axa.svg';
+import { Header, Name } from '@axa-fr/react-toolkit-all';
 
 const HeaderLayout = () => (
-      <Header>
-        <Name
-          title="AXA"
-          subtitle="Dojo Bercy"
-          img={logo}
-          alt="Logo"
-          onClick={() => {}}
-        />
-      </Header>
+  <Header>
+    <Name
+      title="AXA"
+      subtitle="Dojo Bercy"
+      img="logo-axa.svg"
+      alt="Logo"
+      onClick={() => {}}
+    />
+  </Header>
 );
 
 export default HeaderLayout;
