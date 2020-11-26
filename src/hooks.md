@@ -60,6 +60,80 @@ useRef renvoie un objet JavaScript simple, il peut donc être utilisé pour cont
 
 ### 8.2.2 useCallback
 
+```jsx
+const memoizedCallback = useCallback(callbackFn, arrayDependency)
+```
+<blockquote>
+  useCallback Returns a memoized callback.
+</blockquote>
+
+Avant de plonger dans l'utilisation de useCallback(), distinguons le problème résolu par l'arrivé du hook <code>useCallback()</code> 
+
+ReactJs nous fourni le hook <code>useCallback</code> pour le contrôle d'égalité des fonctions.
+
+prenons cet exemple
+
+```js
+function factory() {
+  return (a, b) => a + b;
+}
+
+const sum1 = factory();
+const sum2 = factory();
+
+sum1(1, 2); // => 3
+sum2(1, 2); // => 3
+
+sum1 === sum2; // => false
+sum1 === sum1; // => true
+
+```
+Il faut savoir que les fonctions sont des objets réguliers.
+alors la comparaison des deux methodes donne **false** car les deux fonctions ont deux références différentes sachant qu'elles retourne la même chose.
+
+```jsx
+import React from 'react';
+
+function ParentComponent() {
+  // handleClick is re-created on each render
+  const handleClick = () => {
+    console.log('Clicked!');
+  };
+
+  return (
+    ......
+    ......
+    <ChildComponent handleClick={handleClick} />
+  )
+}
+
+```
+Il faut noté que à chaque re-render Reactjs réécrit la fonction handleClick après chaque render.
+
+Alors l'interêt du hook <code>useCallback</code> est d'empécher de réecrire une méthode si elle fait la même traitement.
+
+<code>useCallback</code> prend deux paramètres:
+
+- callbackFn: est la fonction qui concernée, cette méthode se réécrit lorsqu'une des dépendances change (cette fonction est exécutée de manière asynchrone et ne bloquera pas le rendu du composant).
+
+- arrayDependency: est un tableau qui permet de définir les dépendances de ce hook dans un but d’optimisation (La fonction(callbackFn) sera exécutée uniquement si une des valeurs du tableau a été modifiée depuis l’appel précédent).
+
+```jsx
+function ParentComponent() {
+  // handleClick is re-created on each render
+  const handleClick = useCallback(() => {
+    console.log('Clicked!');
+  }, []);
+
+  return (
+    ......
+    ......
+    <ChildComponent handleClick={handleClick} />
+  )
+}
+
+```
+
 ### 8.2.3 useMemo
 
 ### 8.2.4 useReducer
