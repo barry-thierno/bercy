@@ -11,7 +11,46 @@ Les Hooks sont arrivés avec React **16.8** avec la transition d'une classe en f
 
 ## 8.2 Quelques Hooks de base: useRef, useCallback, useMemo, useReducer
 
-### 8.2.1 useReducer
+### 8.2.1 useRef
+
+```jsx
+const refContainer = useRef(initialValue);
+```
+
+<code>useRef</code> renvoie un objet ref modifiable dont la propriété current est initialisée avec l’argument fourni (initialValue). L’objet renvoyé persistera pendant toute la durée de vie composant.
+
+Un cas d’usage courant consiste à accéder à un enfant de manière impérative :
+
+```jsx
+function TextInputWithFocusButton() {
+  const inputRef = useRef(null);
+  const [text, setText] = useState(false);
+
+  const onButtonClick = () => {
+    // `current` fait référence au champ textuel monté dans le DOM
+    inputEl.current.focus();
+  };
+  console.log('inputRef', inputRef);
+  return (
+    <>
+      <input ref={inputRef} type="text" />
+      <button onClick={onButtonClick}>Donner le focus au champ</button>
+    </>
+  );
+}
+```
+
+<blockquote>Gardez à l’esprit:
+
+- que useRef ne vous notifie pas quand le contenu change. Modifier la propriété
+- .current n’entraîne pas un rafraîchissement. Si vous voulez exécuter du code quand React attache ou détache une ref sur un nœud DOM, vous voudrez sans doute utiliser plutôt
+</blockquote>
+
+### 8.2.2 useCallback
+
+### 8.2.3 useMemo
+
+### 8.2.4 useReducer
 
 ```jsx
 const [state, dispatch] = useReducer(reducer, initialArg, lazyInitializerFn);
@@ -46,6 +85,7 @@ const options = [
   { value: '2019', label: '2019' },
   { value: '2020', label: '2020' },
  ];
+ 
 export const TaxComputationForm = ({taxRateSetter, taxAmountSetter, numberOfSharesSetter}) => {
   const [numberOfAdult, setNumberOfAdult] = useState(1);
   const [salaryAmount, setSalaryAmount] = useState(0);
@@ -61,7 +101,6 @@ export const TaxComputationForm = ({taxRateSetter, taxAmountSetter, numberOfShar
    .........
    .........
   };
-
 
   return (
     <>
@@ -105,36 +144,7 @@ export const TaxComputationForm = ({taxRateSetter, taxAmountSetter, numberOfShar
 
 ```
 
-Nous allons utiliser <code>useReducer(reducer, initialArg, lazyInitializerFn);</code> pour extraite la logique et la complexité dans une fonction nommée par convention <code>reducer</code>.
-
-```js
-TaxComputationForm.reducer.js
-
-// la valeur initil de notre state
-const initialValues = {numberOfAdult: 1, numberOfChildren: 0, salaryAmount: 0, year: 2020};
-
-// Actions qui déclenchent la mise à jour des valeurs
-const UPDATE_NUMBER_OF_ADULT = 'UPDATE_NUMBER_OF_ADULT';
-const UPDATE_NUMBER_OF_CHILDREN = 'UPDATE_NUMBER_OF_CHILDREN';
-const UPDATE_SALARY_AMOUNT = 'UPDATE_SALARY_AMOUNT';
-const UPDATE_YEAR = 'UPDATE_YEAR';
-
-// Nous pouvons mettre cette fonction dans un fichier qu'on peut ruétiliser par exemple.
-const reducer = (state, action) => {
-  switch (action.type) {
-    case UPDATE_NUMBER_OF_ADULT:
-      return { ...state, numberOfAdult: action.value };
-    case UPDATE_NUMBER_OF_CHILDREN:
-      return { ...state, numberOfChildren: action.value };
-    case UPDATE_SALARY_AMOUNT:
-      return { ...state, salaryAmount: action.value };
-    case UPDATE_YEAR:
-      return { ...state, year: action.value };
-    default:
-      return state;
-  }
-};
-```
+Nous allons utiliser <code>useReducer(reducer, initialArg, lazyInitializerFn)</code> pour extraite la logique et la complexité dans une fonction nommée par convention <code>reducer</code>.
 
 ```jsx
 import React, { useReducer } from 'react';
@@ -201,51 +211,41 @@ export const TaxComputationForm = ({taxRateSetter, taxAmountSetter, numberOfShar
 };
 
  ```
+ 
+```js
+TaxComputationForm.reducer.js
+
+// la valeur initil de notre state
+const initialValues = {numberOfAdult: 1, numberOfChildren: 0, salaryAmount: 0, year: 2020};
+
+// Actions qui déclenchent la mise à jour des valeurs
+const UPDATE_NUMBER_OF_ADULT = 'UPDATE_NUMBER_OF_ADULT';
+const UPDATE_NUMBER_OF_CHILDREN = 'UPDATE_NUMBER_OF_CHILDREN';
+const UPDATE_SALARY_AMOUNT = 'UPDATE_SALARY_AMOUNT';
+const UPDATE_YEAR = 'UPDATE_YEAR';
+
+// Nous pouvons mettre cette fonction dans un fichier qu'on peut ruétiliser par exemple.
+const reducer = (state, action) => {
+  switch (action.type) {
+    case UPDATE_NUMBER_OF_ADULT:
+      return { ...state, numberOfAdult: action.value };
+    case UPDATE_NUMBER_OF_CHILDREN:
+      return { ...state, numberOfChildren: action.value };
+    case UPDATE_SALARY_AMOUNT:
+      return { ...state, salaryAmount: action.value };
+    case UPDATE_YEAR:
+      return { ...state, year: action.value };
+    default:
+      return state;
+  }
+};
+```
+
 <blockquote>
   Grâce au hook <code>useReducer</code>, nous avons rendu le composant Form leger et compacte, parce que nous avons extrait la logic et sa complexité dans une fonction externe <code>reducer</code>
 
   Nous pouvons aussi déplacer la fonction <code>useReducer</code> dans un fichier si nous voulons réutiliser la même logique dans d'autre composants
 </blockquote>
-### 8.2.2 useRef
-
-```jsx
-const refContainer = useRef(initialValue);
-```
-
-<code>useRef</code> renvoie un objet ref modifiable dont la propriété current est initialisée avec l’argument fourni (initialValue). L’objet renvoyé persistera pendant toute la durée de vie composant.
-
-Un cas d’usage courant consiste à accéder à un enfant de manière impérative :
-
-```jsx
-function TextInputWithFocusButton() {
-  const inputEl = useRef(null);
-  const [text, setText] = useState(false);
-
-  const onButtonClick = () => {
-    // `current` fait référence au champ textuel monté dans le DOM
-    inputEl.current.focus();
-  };
-  useEffect(() => {
-    console.log(text);
-  }, [text]);
-  return (
-    <>
-      <input ref={inputEl} type="text" />
-      <button onClick={onButtonClick}>Donner le focus au champ</button>
-    </>
-  );
-}
-```
-
-<blockquote>Gardez à l’esprit:
-
-- que useRef ne vous notifie pas quand le contenu change. Modifier la propriété
-- .current n’entraîne pas un rafraîchissement. Si vous voulez exécuter du code quand React attache ou détache une ref sur un nœud DOM, vous voudrez sans doute utiliser plutôt
-</blockquote>
-
-### 8.2.3 useCallback
-
-### 8.2.4 useMemo
 
 ## 8.3 Custom hooks
 
