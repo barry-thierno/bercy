@@ -43,7 +43,7 @@ function TextInputWithFocusButton() {
   );
 }
 ```
-
+[Code sourse](https://codesandbox.io/s/useref-dom-node-9iksy).
 Dans cette exemple React alimente la propriété .curent de notre inptRef avec le nœud(DOM) du champ de text, qui nous permet d'accéder à toutes les propriétés de l'input et les manipuler ou cas besoin.
 
 useRef returns a plain JavaScript object, so it can be used for holding more than just DOM nodes — it can hold whatever value you want. This makes it the perfect choice for simulating instance-like variables in functional components:
