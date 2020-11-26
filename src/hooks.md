@@ -18,10 +18,8 @@ const refContainer = useRef(initialValue);
 ```
 
 <code>useRef</code> renvoie un objet ref <code>{current: initialValue}</code> modifiable dont la propriété current est initialisée avec l’argument fourni (initialValue). L’objet renvoyé persistera pendant toute la durée de vie composant.
-La déffirence entre <code>useRef</code> et un objet <code>const myObject = {current: initialValue}</code> déclaré manuellement dans le composant, est que l'object <code>refContainer</code> retourné par le hook<code>useRef</code> garde la même valeur pendant toute la durée de vie du composant après des re-render. Par contre les objects déclarés manuellement dans le composant reviennt à leur état initial après chaque re-render . 
 
-To update the value stored in the ref object, you go ahead and mutate the current property as follows:
-Pour mettre à jour le valeur stocké dans la <code>refContainer</code>, modifiez la valeur de la propriété <code>refContainer.curent</code>. 
+La déffirence entre <code>useRef</code> et un objet <code>const myObject = {current: initialValue}</code> déclaré manuellement dans le composant, est que l'object <code>refContainer</code> retourné par le hook<code>useRef</code> garde la même valeur pendant toute la durée de vie du composant après des re-render. Par contre les objects déclarés manuellement dans le composant reviennt à leur état initial après chaque re-render.
 
 Un cas d’usage courant consiste à accéder aau DOM  d'un enfant de manière impérative :
 
@@ -36,16 +34,22 @@ function TextInputWithFocusButton() {
     inputEl.current.value = "le champs de text est valorisé";
   };
   
-  console.log('inputRef', inputRef);
   return (
     <>
-      <input ref={inputRef} type="text" />
+      // ça ressemble à const myInputTextNode = document.querySelector("#myInputText")
+      <input id="myInputText" ref={inputRef} type="text" />
       <button onClick={onButtonClick}>Donner le focus au champ</button>
     </>
   );
 }
 ```
+
 Dans cette exemple React alimente la propriété .curent de notre inptRef avec le nœud(DOM) du champ de text, qui nous permet d'accéder à toutes les propriétés de l'input et les manipuler ou cas besoin.
+
+useRef returns a plain JavaScript object, so it can be used for holding more than just DOM nodes — it can hold whatever value you want. This makes it the perfect choice for simulating instance-like variables in functional components:
+
+useRef renvoie un objet JavaScript simple, il peut donc être utilisé pour contenir autres valeurs qu'un simple nœuds DOM, il peut contenir la valeur de votre choix.
+
 
 <blockquote>Gardez à l’esprit:
 
