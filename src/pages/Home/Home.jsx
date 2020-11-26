@@ -25,8 +25,6 @@ const Home = () => {
             taxAmount={taxAmount}
             numberOfShares={numberOfShares}
           />
-
-          <TaxResultHistory />
         </div>
 
         <aside className="tax-calculation_maximum-ceiling">
