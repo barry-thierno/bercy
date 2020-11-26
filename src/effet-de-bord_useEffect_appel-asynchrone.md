@@ -162,6 +162,7 @@ export default function Component() {
 
 ```
 [code source](https://codesandbox.io/s/useeffect-qz0n8?file=/src/App.js:0-505)
+
 Nous allons prendre un exemple qui nous permet d'illustrer l'importance du deuxième paramètre<<code>dependencies</code>> du hook <code>useEffect</code>.
 
 ```jsx
