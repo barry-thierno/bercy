@@ -27,12 +27,12 @@ Prenons les exemples suivants
 class Component extends React.Component {
   constructor(props) {
     super(props);
-    this.state = { data: "" };
+    this.state = { data: '' };
   }
 
   componentDidMount() {
     // Appel vers une API qui nous renvoie les tranches d'impôts au chargement du composant.
-    fetchData("/getTranches").then((data) => this.setState({ data }));
+    fetchData('/getTranches').then((data) => this.setState({ data }));
   }
 
   render() {
@@ -67,6 +67,7 @@ class Component extends React.Component {
   }
 
 ```
+
 - <blockquote>Manipuler directement le Dom</blockquote>
 
 ```jsx
@@ -105,6 +106,7 @@ class Component extends React.Component {
 <blockquote>A partir des exemples au-dessus nous déduisons que nous pouvons gérer les effets de bords avec les 3 méthodes du cycles de vie suivants:  <i><b>componentDidMount, componentDidUpdate et componentWillUnmount</b></i>,</blockquote>
 
 #### Pouvons-nous faire la même chose avec un composant fonctionnel?
+
 #### Le réponse est **OUI** :D
 
 <p align="center">
@@ -115,9 +117,10 @@ class Component extends React.Component {
 
 ### 7.3.1 introduction du hook useEffect
 
-```jsx 
-useEffect(callbackFn, dependencies[optionl])
+```jsx
+useEffect(callbackFn, dependencies[optionl]);
 ```
+
 Le hook <code>useEffect</code> est un hook qui va nous permettre de déclencher une fonction(effet de bord) de manière asynchrone lors du changement de l'état d'un composant.
 Nous pouvons dire que le hook <code>useEffect</code> est un alternatif aux méthodes du cycle de vie : <code>componentDidMount, componentDidUpdate et componentWillUnmount</code>.
 
@@ -140,11 +143,11 @@ Nous allons essayer de convertir quelques exemples vus précédemment.
 Commençons par la manipulation du dom(<code>document</code>) dans un composant fonctionnel
 
 ```jsx
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect } from 'react';
 
 export default function Component() {
   const [id, setId] = useState(0);
-  const [name, setName] = useState("Yannick");
+  const [name, setName] = useState('Yannick');
 
   // Similaire à componentDidMount et componentDidUpdate :
   useEffect(() => {
@@ -159,18 +162,18 @@ export default function Component() {
     </div>
   );
 }
-
 ```
+
 [code source](https://codesandbox.io/s/useeffect-qz0n8?file=/src/App.js:0-505)
 
 Nous allons prendre un exemple qui nous permet d'illustrer l'importance du deuxième paramètre<<code>dependencies</code>> du hook <code>useEffect</code>.
 
 ```jsx
-import { useState, useEffect } from "react";
+import { useState, useEffect } from 'react';
 
 function Component() {
   const [count, setCount] = useState(0);
-  const [name, setName] = useState("John");
+  const [name, setName] = useState('John');
 
   // Similaire à componentDidMount et componentDidUpdate :
   useEffect(() => {
@@ -185,11 +188,7 @@ function Component() {
     <div>
       <div>
         <p>Bonjour {name}</p>
-        <input
-          type="text"
-          value={name}
-          onChange={(ev) => setName(ev.target.value)}
-        />
+        <input type="text" value={name} onChange={(ev) => setName(ev.target.value)} />
       </div>
       <div>
         <p>Vous avez cliqué {count} fois</p>
@@ -210,7 +209,7 @@ Alors pour remédier à ce problème il faut utiliser le deuxième paramètre <c
 
 ### 7.3.1 Les types du hook useEffect
 
-Il existe deux grands types d’effets de bord dans les composants React : ceux qui ne nécessitent pas de nettoyage, et ceux qui en ont besoin. 
+Il existe deux grands types d’effets de bord dans les composants React : ceux qui ne nécessitent pas de nettoyage, et ceux qui en ont besoin.
 Examinons cette distinction en détail.
 
 ## Effets sans nettoyage
@@ -219,7 +218,7 @@ Parfois, nous souhaitons exécuter du code supplémentaire après que React a mi
 
 ```jsx
 function Component() {
-  const [name, setName] = useState("John");
+  const [name, setName] = useState('John');
 
   function handleChangeName(e) {
     setName(e.target.value);
@@ -239,7 +238,7 @@ function Component() {
 Nous avons vu précédemment comment écrire des effets de bord ne nécessitant aucun nettoyage. Toutefois, quelques effets peuvent en avoir besoin. Par exemple, nous pourrions souhaiter nous abonner à une source de données externe. Dans ce cas-là, il est impératif de nettoyer par la suite pour éviter les fuites de mémoire ! Comparons les approches à base de classe et de Hooks pour y arriver.
 
 ```jsx
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect } from 'react';
 
 function Component({ friend }) {
   useEffect(() => {
@@ -252,12 +251,12 @@ function Component({ friend }) {
     };
   });
 
-  return friend.isOnline ? "Online" : "Offline";
+  return friend.isOnline ? 'Online' : 'Offline';
 }
 ```
 
 ```jsx
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect } from 'react';
 
 function Component() {
   // Gestion de la taille de l'écran
@@ -265,10 +264,10 @@ function Component() {
   useEffect(() => {
     const handleResize = () => setWidth(window.innerWidth);
 
-    window.addEventListener("resize", handleResize);
+    window.addEventListener('resize', handleResize);
 
     return function cleanup() {
-      window.removeEventListener("resize", handleResize);
+      window.removeEventListener('resize', handleResize);
     };
   }, [width]);
 
@@ -298,28 +297,19 @@ import { SliceTableRow } from 'pages/Home/FilterableSliceTable/SliceTableRow/Sli
 
 export const FilterableSliceTable = () => {
   const [selectedYear, setSelectedYear] = useState('2020');
-  const selectedTranches = getAllTranches().find(t => t.year === selectedYear)
-    .tranches;
+  const selectedTranches = getAllTranches().find((t) => t.year === selectedYear).tranches;
 
   return (
     <section className="af-panel">
       <header className="af-panel__header">
-        <SliceYearSelect
-          selectedYear={selectedYear}
-          setSelectedYear={setSelectedYear}
-        />
+        <SliceYearSelect selectedYear={selectedYear} setSelectedYear={setSelectedYear} />
       </header>
       <div className="af-panel__content">
         <Table className="af-table">
           <SliceTableHeader />
           <Table.Body>
             {selectedTranches.map(({ id, lowBorn, highBorn, rate }) => (
-              <SliceTableRow
-                key={id}
-                lowBorn={lowBorn}
-                highBorn={highBorn}
-                rate={rate}
-              />
+              <SliceTableRow key={id} lowBorn={lowBorn} highBorn={highBorn} rate={rate} />
             ))}
           </Table.Body>
         </Table>
@@ -346,8 +336,8 @@ export const FilterableSliceTable = () => {
 
   useEffect(() => {
     fetch(`/Slices?year=${selectedYear}`)
-      .then(response => response.json())
-      .then(json => {
+      .then((response) => response.json())
+      .then((json) => {
         setSelectedTranches(json);
       });
   });
@@ -355,22 +345,14 @@ export const FilterableSliceTable = () => {
   return (
     <section className="af-panel">
       <header className="af-panel__header">
-        <SliceYearSelect
-          selectedYear={selectedYear}
-          setSelectedYear={setSelectedYear}
-        />
+        <SliceYearSelect selectedYear={selectedYear} setSelectedYear={setSelectedYear} />
       </header>
       <div className="af-panel__content">
         <Table className="af-table">
           <SliceTableHeader />
           <Table.Body>
             {selectedTranches.map(({ low, high, rate }, index) => (
-              <SliceTableRow
-                key={id}
-                lowBorn={lowBorn}
-                highBorn={highBorn}
-                rate={rate}
-              />
+              <SliceTableRow key={id} lowBorn={lowBorn} highBorn={highBorn} rate={rate} />
             ))}
           </Table.Body>
         </Table>
@@ -386,8 +368,7 @@ Mais avec cette méthode il y aura deux problèmes :
   Votre application chargée, le <code> useEffect </code> exécutera la fonction et appellera le web service. Dès la fonction exécutée, vous continuerez à utiliser votre application. Quand par exemple vous allez cliquer sur le bouton <code> calculer </code>, vous allez mettre à jour votre <code> state </code>, cela va provoquer un re-render de l’application et ainsi appeler à nouveau le service.
 
 - Cas de l’appel infini si on utilise un setter dans useEffect :
-  Une fois votre application chargée, le <code> useEffect </code> va exécuter la fonction qui appellera le web service. S’il répond positivement, vous pouvez appeler votre setter pour mettre à jour les données, dans notre cas, les tranches et leur taux d’imposition. Mais en exécutant le setter, il va re-render votre composant qui réexécutera la même fonction dans le UseEffect … vous l’aurez compris cela va faire une boucle infinie.
-  
+Une fois votre application chargée, le <code> useEffect </code> va exécuter la fonction qui appellera le web service. S’il répond positivement, vous pouvez appeler votre setter pour mettre à jour les données, dans notre cas, les tranches et leur taux d’imposition. Mais en exécutant le setter, il va re-render votre composant qui réexécutera la même fonction dans le UseEffect … vous l’aurez compris cela va faire une boucle infinie.
   <div style="text-align:center"><figure>
     <img src=./images/request.png
          alt="functional component">
@@ -399,8 +380,8 @@ Pour remédier à ce problème, dans les deux cas, il faut utiliser le deuxième
 ```jsx
 useEffect(() => {
   fetch(`/Slices?year=${selectedYear}`)
-    .then(response => response.json())
-    .then(json => {
+    .then((response) => response.json())
+    .then((json) => {
       setSelectedTranches(json);
     });
 }, [selectedYear]);
@@ -423,8 +404,8 @@ fetch('/NomDuService', {
   },
   body: JSON.stringify(/* votre input ici */),
 })
-  .then(response => response.json())
-  .then(json => {
+  .then((response) => response.json())
+  .then((json) => {
     /* votre code */
   });
 ```
@@ -470,7 +451,7 @@ L’exercice est simple, vous allez mettre en place un message d’information q
 />
 ```
 
-Attention à ne pas oublier l’import dans l’entête du composant. Pour afficher ou non le message d’erreur, il faudra créer une variable de type booleen ainsi que son setter.
+Attention à ne pas oublier l’import dans l’entête du composant. Pour afficher ou non le message d’erreur, il faudra créer une variable de type booleen ainsi que son setter. Pour conditionner l'affichage je vous renvoie aux chapitres précédents, [ici](https://github.com/barry-thierno/bercy/blob/react_dojo_instructions/src/jsx.md#134-conditions).
 
 Mais comment récupérer une erreur ? Si pour une raison X la fonction fetch retourne une erreur, on peut la récupérer avec le bloc catch(). Dans cette fonction on obtient une variable, par exemple <code> error </code> qui permet d’obtenir des informations.
 
@@ -491,7 +472,18 @@ Mais visuellement pour qu’il comprenne bien que le calcul est en cours, on aff
 Dans le toolkit Axa, il existe un loader, voici son code :
 
 ```jsx
-      .catch(() => {
+<Loader
+    mode='none'
+    text='votre texte'
+    className='af-loader'
+    classModifier='spinner'
+>
+```
+
+Le code du bloc <code>finally</code>
+
+```jsx
+      .finally(() => {
         /* votre code */
       })
 ```
