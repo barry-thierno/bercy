@@ -92,19 +92,21 @@ Il faut savoir que les fonctions sont des objets réguliers.
 alors la comparaison des deux methodes donne **false** car les deux fonctions ont deux références différentes sachant qu'elles retourne la même chose.
 
 ```jsx
-import React from 'react';
+export default function ParentComponent() {
+  const [company, setCompany] = useState("");
+  const [count, setCount] = useState(0);
 
-function ParentComponent() {
-  // handleClick is re-created on each render
-  const handleClick = () => {
-    console.log('Clicked!');
-  };
-
+  // à chaque re-render la fonction onItemClick sera réécrite à nouveau avec une nouvelle reference.
+  const onItemClick = (event) => console.log("You clicked ", event.target.innerHTML);
+  
+  console.log("App counter", count);
   return (
-    ......
-    ......
-    <ChildComponent handleClick={handleClick} />
-  )
+    <>
+      <input type="text" onChange={({ target }) => setCompany(target.value)} />
+      <button onClick={() => setCount(count + 1)}> Incrémenter </button>
+      <MyBigList company={company} onItemClick={onItemClick} />
+    </>
+  );
 }
 
 ```
@@ -122,7 +124,7 @@ Utiliser React.memo pour dire à React de ne pas faire le re-rendering non néce
 
 ```jsx
 
-port default function ParentComponent() {
+export default function ParentComponent() {
   const [company, setCompany] = useState("");
   const [count, setCount] = useState(0);
 
