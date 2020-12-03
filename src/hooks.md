@@ -169,9 +169,9 @@ function ListItem({ name, onItemClick }) {
 
 export default ListItem;
 
-````
-
+```
 [Code source](https://codesandbox.io/s/usecallback-bix7q)
+
 ### 8.2.3 useMemo
 
 Le hook <code>useMemo</code> vous permet de mémoriser e résultat des fonctions coûteuses afin d'éviter de les appeler à chaque rendu.
