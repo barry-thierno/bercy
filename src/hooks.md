@@ -121,6 +121,7 @@ Alors l'interêt du hook <code>useCallback</code> est d'empécher de réecrire u
 Utiliser React.memo pour dire à React de ne pas faire le re-rendering non nécessaires lorsque les props ne changent pas leur valeurs.
 
 ```jsx
+
 port default function ParentComponent() {
   const [company, setCompany] = useState("");
   const [count, setCount] = useState(0);
@@ -139,6 +140,7 @@ port default function ParentComponent() {
 ```
 
 ```jsx
+
 // Grace à useCallback ce composant ne fait pas le re-render si les props name et onItemClick ne changent pas de valeur.
 function MyBigList({ company, onItemClick }) {
   const names = getItems(company);
@@ -156,7 +158,8 @@ function MyBigList({ company, onItemClick }) {
 export default React.memo(MyBigList);
 ```
 
-``jsx
+```jsx
+
 // Ce composant ne fait pas le re-render avec les même valeures name et onItemClick
 function ListItem({ name, onItemClick }) {
   console.log("ListItem", name);
