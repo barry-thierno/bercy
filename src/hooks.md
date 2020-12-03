@@ -118,23 +118,86 @@ Alors l'interêt du hook <code>useCallback</code> est d'empécher de réecrire u
 
 - arrayDependency: est un tableau qui permet de définir les dépendances de ce hook dans un but d’optimisation (La fonction(callbackFn) sera exécutée uniquement si une des valeurs du tableau a été modifiée depuis l’appel précédent).
 
-```jsx
-function ParentComponent() {
-  // handleClick is re-created on each render
-  const handleClick = useCallback(() => {
-    console.log('Clicked!');
-  }, []);
+Utiliser React.memo pour dire à React de ne pas faire le re-rendering non nécessaires lorsque les props ne changent pas leur valeurs.
 
+```jsx
+port default function ParentComponent() {
+  const [company, setCompany] = useState("");
+  const [count, setCount] = useState(0);
+
+  const onItemClick = useCallback((event) => console.log("You clicked ", event.target.innerHTML), [company]);
+  console.log("App counter", count);
   return (
-    ......
-    ......
-    <ChildComponent handleClick={handleClick} />
-  )
+    <>
+      <input type="text" onChange={({ target }) => setCompany(target.value)} />
+      <button onClick={() => setCount(count + 1)}> Incrémenter </button>
+      <MyBigList company={company} onItemClick={onItemClick} />
+    </>
+  );
 }
 
 ```
 
+```jsx
+// Grace à useCallback ce composant ne fait pas le re-render si les props name et onItemClick ne changent pas de valeur.
+function MyBigList({ company, onItemClick }) {
+  const names = getItems(company);
+  console.log("MyBigList");
+  
+  return (
+    <>
+      {
+        names.map((name, index) => (<ListItem key={index} onItemClick={onItemClick} name={name} />))
+      }
+    </>
+  );
+}
+
+export default React.memo(MyBigList);
+```
+
+``jsx
+// Ce composant ne fait pas le re-render avec les même valeures name et onItemClick
+function ListItem({ name, onItemClick }) {
+  console.log("ListItem", name);
+  return (
+    <div onClick={onItemClick}>
+      {name.first} {name.last}
+    </div>
+  );
+}
+
+export default ListItem;
+
+````
+
+[Code source](https://codesandbox.io/s/usecallback-bix7q)
 ### 8.2.3 useMemo
+
+Le hook <code>useMemo</code> vous permet de mémoriser e résultat des fonctions coûteuses afin d'éviter de les appeler à chaque rendu.
+Vous passez simplement une fonction et un tableau d'entrées et useMemo ne recalculera la valeur mémorisée que lorsque l'une des entrées a changé.
+Dans notre exemple ci-dessous, nous avons une fonction coûteuse appelée getItems. Nous avons également un compteur séparé qui est incrémenté chaque fois que vous cliquez sur le bouton d'incrémentation. Lorsque ce compteur est incrémenté, vous remarquerez qu'il n'y a aucun appel à la méthode getItems. La dépendance d'entrée <code>[company]</code> n'a pas changé et donc la valeur mise en cache est renvoyée.
+```jsx
+export default function ParentComponent() {
+  const [company, setCompany] = useState("");
+  const [count, setCount] = useState(0);
+  // Une liste pré-calculée et couteuse
+  // la méthode getItems est appelée seulement si company change sa valeur.
+  const names = useMemo(() => getItems(company), [company]);
+
+..............
+ 
+  return (
+    <>
+      <input type="text" onChange={({ target }) => setCompany(target.value)} />
+      <button onClick={() => setCount(count + 1)}> + </button>
+      <MyBigList names={names} onItemClick={onItemClick} />
+    </>
+  );
+}
+
+```
+[Code source](https://codesandbox.io/s/usecallback-bix7q)
 
 ### 8.2.4 useReducer
 
