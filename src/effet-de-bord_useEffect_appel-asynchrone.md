@@ -420,11 +420,11 @@ Dans notre exercice, le service se nomme <code> TaxComputer </code>, le header r
 
 ```jsx
     const input = {
-        wage: <code> le salaire </code>,
-        year: <code> année </code>,
-        taxHouseholdComposition: {
-        nbAdults: “nombre adulte”,
-        nbChildren: “nombre enfant”,
+        wage: le salaire,
+        year: année,
+          taxHouseholdComposition: {
+          nbAdults: “nombre adulte”,
+          nbChildren: “nombre enfant”,
         },
     };
 ```
