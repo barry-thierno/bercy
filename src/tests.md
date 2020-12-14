@@ -9,6 +9,7 @@ _Par Olivier YOUF_ Texte original sur [Component Testings](https://github.com/yo
   - [Typescript](#typescript)
 - [Tests unitaires](#tests-unitaires)
   - [Jest](#jest)
+    - [Mocker les fonctions avec Jest](#mocker-les-fonctions-avec-jest)
 - [Tests d'intégration](#tests-dintégration)
   - [Le test d'intégration](#le-test-dintégration)
   - [Installation](#installation)
@@ -144,11 +145,78 @@ Les deux fonctions les plus communes a connaitre sont :
 - Lancer la fonction : ACT
 - **expect() :** qui servira à la vérification (ASSERT)
 
-🏋️‍♀️ Ecrire un test avec Jest : Mock/Expect
+En chainant le expect avec le not nous pouvons indiquer que nous voulons vérifier le résultat inverse. Par exemple :
+
+```javascript
+// true 
+expect(1+2).toEqual(3);
+// true
+expect(2+2).not.toEqual(3);
+```
+
+> **🏋️‍♀️ Ouvrez la solution et écrivez les tests du [premier exercice Jest](https://codesandbox.io/s/bercy-tests-2gy1w?file=/src/shared/taxComputer.helper.spec.js)**
+
+### Mocker les fonctions avec Jest
+
+Il arrive que nous ayons a tester des fonctions faisant appel à d'autre fonctions. Ces fonctions, injectées ou importées directement vont poser une problématique : 
+
+- Elles rendent la fonctions impure et peuvent rendre le test instable dans la durée (ajouter un math.Random et le test ne marche plus tout le temps)
+- On veut pouvoir vérifier que l'appel a été fait, ou non, dans de bonnes conditions.
+
+Si la fonction est interne et qu'elle est pure, il n'est pas nécessaire de la tester à part ou de la mocker. Sauf si sa complexité et des tests séparés permettent une meilleure lisibilité, ce genre de fonctions est testé au sein même de la fonction principale.
+
+Regardons cet exemple.
+
+```javascript
+const calcul = (a, b, fn) => {
+  const c = 10*a;
+  const d = 10*b;
+  return fn(c, d);
+}
+```
+
+Ici nous allons vérifier que la fonction fn est appelée avec les bon paramètre et qu'elle nous retourne le bon résultat.
+
+Pour cela nous allons remplacer la fonction existante cracher à :
+
+```javascript
+const fn = jest.fn((a, b)=>a + b);
+```
+
+Ici nous avons remplacé une fonction simple par une fonction mockée renvoyant une simple addition. 
+
+Une fois la fonction principale appelée, nous allons pouvoir faire nos vérifications. Pour cela nous allons pouvoir utiliser des matchers spécifiques. Voici les principaux.
+
+```javascript
+it("effectue un appel vers fn", () => {
+  // Arrange
+  const fn = jest.fn((a, b)=>a + b);
+  
+  // Act
+  const result = calcul(3, 5, fn);
+  
+  //Assert 
+  expect(result).toEqual(70);
+  
+  expect(fn).toHaveBeenCalled();
+  expect(fn).toHaveBeenCalledTimes(1);
+  expect(fn).toHaveBeenCalledWith(30, 50);
+  expect(fn).toHaveBeenNthCalledWith(1, 30, 50);
+})
+```
+
+Attention, des fonction asynchrone ne renvoient pas de résultat, mais des promesses de résultats :
+```javascript
+const asyncFnMock = jest.fn(()=> Promise.resolve("result"));
+```
+
+> 🏋️‍♀️ **Ouvrez la solution et écrivez les tests du [deuxième exercice Jest](https://codesandbox.io/s/bercy-tests-2gy1w?file=/src/pages/Home/FilterableSliceTable/FilterableSliceTable.s.spec.js) du chapitre Jest**
+
+<img src="./images/jalon.jpg" style="zoom:33%;" />
 
 # Tests d'intégration
 
-Une fois les tests unitaires écris, nous allons pouvoir nous concentrer sur le test de nos composants. Pour cela nous allons utiliser [React Testing Library](https://testing-library.com/docs/react-testing-library/intro/). Pour un soucis de temps, nous allons ici voir dans un premiers temps uniquement les bases.
+Tester une fonction pure qui retourne un résultat simple est facile à appréhender et maitriser. Cependant en React nous allons devoir aller un peu plus loin. En tant qu'interface utilisateur, pour tester le composant, nous allons tester son comportement. Pour cela nous allons utiliser [React Testing Library](https://testing-library.com/docs/react-testing-library/intro/). 
 
 ## Le test d'intégration
 
@@ -339,7 +407,9 @@ Avec Jest Dom nous allons pouvoir faire des assertions explicites
 - toBePartiallyChecked
 - toHaveDescription
 
-🏋️‍♀️ Nous avons la materiel pour tester la vue, allons y
+> **🏋️‍♀️ Servez vous de ces nouveaux outils afin de passer sur l'exercice suivant ([RTL exercice 2](https://codesandbox.io/s/bercy-tests-2gy1w?file=/src/pages/Home/TaxResult/TaxResult.spec.js))**
+
+<img src="./images/jalon.jpg" style="zoom:33%;" />
 
 ## Tester les interactions : User Event
 
@@ -356,6 +426,10 @@ const button = screen.getByRole('button', { name: /Rechercher/ });
 await userEvent.type(input, 'gaearon');
 await userEvent.click(button);
 ```
+
+Il en existe d'autre moins courantes : https://github.com/testing-library/user-event#api
+
+> **🏋️‍♀️ Simulez la manipulation d'un champs avec cette nouvelle librairie ([RTL exercice 3](https://codesandbox.io/s/bercy-tests-2gy1w?file=/src/pages/Home/FilterableSliceTable/SliceYearSelect/SliceYearSelect.spec.js))**
 
 ## Tester les rendus asynchrones : waitFor
 
@@ -377,7 +451,13 @@ Les plus malins auront remarqué que les deux fonctions font la même chose. Mai
 
 > **The more your tests resemble the way your software is used, the more confidence they can give you.**
 
-🏋️‍♀️ Tester la récupération d'une requête avec UserEvent et le waitFor
+> **🏋️‍♀️ Tester la récupération d'une requête avec UserEvent et le waitFor ([RTL Exercice 4](https://codesandbox.io/s/bercy-tests-2gy1w?file=/src/pages/Home/FilterableSliceTable/FilterableSliceTable.spec.js))**
+
+<img src="./images/jalon.jpg" style="zoom:33%;" />
+
+> **🏋️‍♀️ vous etes autonome pour un composant complet ([RTL Exercice 5](https://codesandbox.io/s/bercy-tests-2gy1w?file=/src/pages/Home/TaxComputationForm/TaxComputationForm.spec.js))**
+
+<img src="./images/jalon.jpg" style="zoom:33%;" />
 
 # Pour aller plus loin : Partie 2
 
