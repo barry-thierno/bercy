@@ -113,8 +113,6 @@ Puis ensuite configurer la tache
 
 De la même manière nous ignorons les fichiers du gitignore pour ne se concentrer que sur les fichiers à pousser.
 
-🏋️‍♀️ Ajouter/Configurer/Lancer le linter
-
 ## Plugins
 
 Afin de fluidifier leur utilisation, il existe des extensions sur la plupart des éditeurs de code, qui permettra de voir les erreurs esLint et de formater les fichiers à la sauvegarde.
